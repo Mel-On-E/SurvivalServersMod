@@ -1,18 +1,16 @@
 dofile("$SURVIVAL_DATA/Scripts/game/survival_constants.lua")
 dofile("$SURVIVAL_DATA/Scripts/game/survival_shapes.lua")
-dofile("$SURVIVAL_DATA/Scripts/game/interactables/Seat.lua")
-dofile("$SURVIVAL_DATA/Scripts/util.lua")
+dofile("$SURVIVAL_DATA/Scripts/game/survival_units.lua")
 
-FirstClassSeat = class( Seat )
-FirstClassSeat.maxChildCount = 20
-FirstClassSeat.connectionOutput = sm.interactable.connectionType.seated + sm.interactable.connectionType.power + sm.interactable.connectionType.bearing
-FirstClassSeat.colorNormal = sm.color.new( 0x80ff00ff )
-FirstClassSeat.colorHighlight = sm.color.new( 0xb4ff68ff )
+FirstClassSeat = class()
+FirstClassSeat.maxChildCount = 10
+FirstClassSeat.connectionOutput = sm.interactable.connectionType.seated
+FirstClassSeat.colorNormal = sm.color.new( 0x00ff80ff )
+FirstClassSeat.colorHighlight = sm.color.new( 0x6affb6ff )
 
-local SpeedPerStep = 1 / math.rad( 27 ) / 3
+--[[ Server ]]
 
 function FirstClassSeat.server_onCreate( self )
-	Seat:server_onCreate( self )
 	self.sv = {}
 	self.sv.saved = self.storage:load()
 	if self.sv.saved == nil then
@@ -25,24 +23,76 @@ function FirstClassSeat.server_onCreate( self )
 end
 
 function FirstClassSeat.server_onFixedUpdate( self )
-	Seat.server_onFixedUpdate( self )
 	
 	--ClientHack anti system
 	if self.interactable:getSeatCharacter() and self.sv.saved.owner ~= 0 and self.interactable:getSeatCharacter():getPlayer().id ~= self.sv.saved.owner then
 		self.interactable:getSeatCharacter():setLockingInteractable(nil)
 	end
-	
-	if self.interactable:isActive() then
-		self.interactable:setPower( self.interactable:getSteeringPower() )
-	else
-		self.interactable:setPower( 0 )
-		self.interactable:setSteeringFlag( 0 )
+
+	self.interactable:setActive( self.interactable:getSeatCharacter() ~= nil )
+end
+
+function FirstClassSeat.sv_claim( self, params, player )
+	if self.sv.saved.owner == 0 then
+		self.sv.saved.owner = player.id
+		self.sv.saved.name = player.name
+		self.storage:save( self.sv.saved )
+	end
+	self.network:setClientData( { owner = self.sv.saved.owner, name = self.sv.saved.name } )
+end
+
+--[[ Client ]]
+
+function FirstClassSeat.client_onCreate( self )
+	self.cl = {}
+	self.cl.seatedCharacter = nil
+end
+
+function FirstClassSeat.client_onDestroy( self )
+	if self.gui then
+		self.gui:destroy()
+		self.gui = nil
 	end
 end
 
 function FirstClassSeat.client_onClientDataUpdate( self, params )
 	self.owner = params.owner
 	self.name = params.name
+end
+
+function FirstClassSeat.client_onUpdate( self, dt )
+	-- Update gui upon character change in seat
+	local seatedCharacter = self.interactable:getSeatCharacter()
+	if self.cl.seatedCharacter ~= seatedCharacter then
+		if seatedCharacter and seatedCharacter:getPlayer() and seatedCharacter:getPlayer():getId() == sm.localPlayer.getId() then
+			self.gui = sm.gui.createSeatGui()
+			self.gui:open()
+		else
+			if self.gui then
+				self.gui:destroy()
+				self.gui = nil
+			end
+		end
+		self.cl.seatedCharacter = seatedCharacter
+	end
+
+	-- Update gui upon toolbar updates
+	if self.gui then
+
+		local interactables = self.interactable:getSeatInteractables()
+		for i=1, 10 do
+			local value = interactables[i]
+			if value and value:getConnectionInputType() == sm.interactable.connectionType.seated then
+				self.gui:setGridItem( "ButtonGrid", i-1, {
+					["itemId"] = tostring(value:getShape():getShapeUuid()),
+					["active"] = value:isActive()
+				})
+			else
+				self.gui:setGridItem( "ButtonGrid", i-1, nil)
+			end
+		end
+	end
+
 end
 
 function FirstClassSeat.client_canInteract( self, character, state )
@@ -58,228 +108,22 @@ function FirstClassSeat.client_canInteract( self, character, state )
 	return true
 end
 
+function FirstClassSeat.cl_seat( self )
+	if sm.localPlayer.getPlayer() and sm.localPlayer.getPlayer():getCharacter() then
+		self.interactable:setSeatCharacter( sm.localPlayer.getPlayer():getCharacter() )
+	end
+end
+
 function FirstClassSeat.client_onInteract( self, character, state )
 	if state then
 		self:cl_seat()
 		if self.shape.interactable:getSeatCharacter() ~= nil then
 			sm.gui.displayAlertText( "#{ALERT_DRIVERS_SEAT_OCCUPIED}", 4.0 )
-		elseif self.shape.body:isOnLift() then
-			sm.gui.displayAlertText( "#{ALERT_DRIVERS_SEAT_ON_LIFT}", 8.0 )
 		end
 	end
 end
 
-function FirstClassSeat.client_canInteractThroughJoint( self )
-	if not self.shape.body.connectable then
-		return false
-	end
-	return true
-end
-
-function FirstClassSeat.client_onAction( self, controllerAction, state )
-	if state == true then
-		if controllerAction == sm.interactable.actions.forward then
-			self.interactable:setSteeringFlag( sm.interactable.steering.forward )
-		elseif controllerAction == sm.interactable.actions.backward then
-			self.interactable:setSteeringFlag( sm.interactable.steering.backward )
-		elseif controllerAction == sm.interactable.actions.left then
-			self.interactable:setSteeringFlag( sm.interactable.steering.left )
-		elseif controllerAction == sm.interactable.actions.right then
-			self.interactable:setSteeringFlag( sm.interactable.steering.right )
-		else
-			return Seat.client_onAction( self, controllerAction, state )
-		end
-	else
-		if controllerAction == sm.interactable.actions.forward then
-			self.interactable:unsetSteeringFlag( sm.interactable.steering.forward )
-		elseif controllerAction == sm.interactable.actions.backward then
-			self.interactable:unsetSteeringFlag( sm.interactable.steering.backward )
-		elseif controllerAction == sm.interactable.actions.left then
-			self.interactable:unsetSteeringFlag( sm.interactable.steering.left )
-		elseif controllerAction == sm.interactable.actions.right then
-			self.interactable:unsetSteeringFlag( sm.interactable.steering.right )
-		else
-			return Seat.client_onAction( self, controllerAction, state )
-		end
-	end
-	return true
-end
-
-function FirstClassSeat.client_getAvailableChildConnectionCount( self, connectionType )
-	local filter = sm.interactable.connectionType.seated + sm.interactable.connectionType.bearing + sm.interactable.connectionType.power
-	local currentConnectionCount = #self.interactable:getChildren( filter )
-
-	if bit.band( connectionType, filter ) then
-		local availableChildCount = 20
-		return availableChildCount - currentConnectionCount
-	end
-	return 0
-end
-
-function FirstClassSeat.client_onInteractThroughJoint( self, character, state, joint )
-	self.cl.bearingGui = sm.gui.createSteeringBearingGui()
-	self.cl.bearingGui:open()
-	self.cl.bearingGui:setOnCloseCallback( "cl_onGuiClosed" )
-
-	self.cl.currentJoint = joint
-
-	self.cl.bearingGui:setSliderCallback("LeftAngle", "cl_onLeftAngleChanged")
-	self.cl.bearingGui:setSliderData("LeftAngle", 120, self.interactable:getSteeringJointLeftAngleLimit( joint ) - 1 )
-
-	self.cl.bearingGui:setSliderCallback("RightAngle", "cl_onRightAngleChanged")
-	self.cl.bearingGui:setSliderData("RightAngle", 120, self.interactable:getSteeringJointRightAngleLimit( joint ) - 1 )
-
-	local leftSpeedValue = self.interactable:getSteeringJointLeftAngleSpeed( joint ) / SpeedPerStep
-	local rightSpeedValue = self.interactable:getSteeringJointRightAngleSpeed( joint ) / SpeedPerStep
-
-	self.cl.bearingGui:setSliderCallback("LeftSpeed", "cl_onLeftSpeedChanged")
-	self.cl.bearingGui:setSliderData("LeftSpeed", 10, leftSpeedValue - 1)
-
-	self.cl.bearingGui:setSliderCallback("RightSpeed", "cl_onRightSpeedChanged")
-	self.cl.bearingGui:setSliderData("RightSpeed", 10, rightSpeedValue - 1)
-
-	local unlocked = self.interactable:getSteeringJointUnlocked( joint )
-
-	if unlocked then
-		self.cl.bearingGui:setButtonState( "Off", true )
-	else
-		self.cl.bearingGui:setButtonState( "On", true )
-	end
-
-	self.cl.bearingGui:setButtonCallback( "On", "cl_onLockButtonClicked" )
-	self.cl.bearingGui:setButtonCallback( "Off", "cl_onLockButtonClicked" )
-end
-
-function FirstClassSeat.client_onCreate( self )
-	Seat.client_onCreate( self )
-	self.animWeight = 0.5
-	self.interactable:setAnimEnabled("j_ratt", true)
-
-	self.cl = {}
-	self.cl.updateDelay = 0.0
-	self.cl.updateSettings = {}
-end
-
-function FirstClassSeat.client_onFixedUpdate( self, timeStep )
-	if self.cl.updateDelay > 0.0 then
-		self.cl.updateDelay = math.max( 0.0, self.cl.updateDelay - timeStep )
-
-		if self.cl.updateDelay == 0 then
-			self:cl_applyBearingSettings()
-			self.cl.updateSettings = {}
-			self.cl.updateGuiCooldown = 0.2
-		end
-	else
-		if self.cl.updateGuiCooldown then
-			self.cl.updateGuiCooldown = self.cl.updateGuiCooldown - timeStep
-			if self.cl.updateGuiCooldown <= 0 then
-				self.cl.updateGuiCooldown = nil
-			end
-		end
-		if not self.cl.updateGuiCooldown then
-			self:cl_updateBearingGuiValues()
-		end
-	end
-end
-
-function FirstClassSeat.client_onUpdate( self, dt )
-	Seat.client_onUpdate( self, dt )
-
-	local steeringAngle = self.interactable:getSteeringAngle();
-	local angle = self.animWeight * 2.0 - 1.0 -- Convert anim weight 0,1 to angle -1,1
-
-	if angle < steeringAngle then
-		angle = min( angle + 4.2441*dt, steeringAngle )
-	elseif angle > steeringAngle then
-		angle = max( angle - 4.2441*dt, steeringAngle )
-	end
-
-	self.animWeight = angle * 0.5 + 0.5; -- Convert back to 0,1
-	self.interactable:setAnimProgress("j_ratt", self.animWeight)
-end
-
-function FirstClassSeat.cl_onLeftAngleChanged( self, sliderName, sliderPos )
-	self.cl.updateSettings.leftAngle = sliderPos + 1
-	self.cl.updateDelay = 0.1
-end
-
-function FirstClassSeat.cl_onRightAngleChanged( self, sliderName, sliderPos )
-	self.cl.updateSettings.rightAngle = sliderPos + 1
-	self.cl.updateDelay = 0.1
-end
-
-function FirstClassSeat.cl_onLeftSpeedChanged( self, sliderName, sliderPos )
-	self.cl.updateSettings.leftSpeed = ( sliderPos + 1 ) * SpeedPerStep
-	self.cl.updateDelay = 0.1
-end
-
-function FirstClassSeat.cl_onRightSpeedChanged( self, sliderName, sliderPos )
-	self.cl.updateSettings.rightSpeed = ( sliderPos + 1 ) * SpeedPerStep
-	self.cl.updateDelay = 0.1
-end
-
-function FirstClassSeat.cl_onLockButtonClicked( self, buttonName )
-	self.cl.updateSettings.unlocked = buttonName == "Off"
-	self.cl.updateDelay = 0.1
-end
-
-function FirstClassSeat.cl_onGuiClosed( self )
-	if self.cl.updateDelay > 0.0 then
-		self:cl_applyBearingSettings()
-		self.cl.updateSettings = {}
-		self.cl.updateDelay = 0.0
-		self.cl.currentJoint = nil
-	end
-	self.cl.bearingGui:destroy()
-	self.cl.bearingGui = nil
-end
-
-function FirstClassSeat.cl_applyBearingSettings( self )
-
-	assert( self.cl.currentJoint )
-
-	if self.cl.updateSettings.leftAngle then
-		self.interactable:setSteeringJointLeftAngleLimit( self.cl.currentJoint, self.cl.updateSettings.leftAngle )
-	end
-
-	if self.cl.updateSettings.rightAngle then
-		self.interactable:setSteeringJointRightAngleLimit( self.cl.currentJoint, self.cl.updateSettings.rightAngle )
-	end
-
-	if self.cl.updateSettings.leftSpeed then
-		self.interactable:setSteeringJointLeftAngleSpeed( self.cl.currentJoint, self.cl.updateSettings.leftSpeed )
-	end
-
-	if self.cl.updateSettings.rightSpeed then
-		self.interactable:setSteeringJointRightAngleSpeed( self.cl.currentJoint, self.cl.updateSettings.rightSpeed )
-	end
-
-	if self.cl.updateSettings.unlocked ~= nil then
-		self.interactable:setSteeringJointUnlocked( self.cl.currentJoint, self.cl.updateSettings.unlocked )
-	end
-end
-
-function FirstClassSeat.cl_updateBearingGuiValues( self )
-	if self.cl.bearingGui and self.cl.bearingGui:isActive() then
-
-		local leftSpeed, rightSpeed, leftAngle, rightAngle, unlocked = self.interactable:getSteeringJointSettings( self.cl.currentJoint )
-
-		if leftSpeed and rightSpeed and leftAngle and rightAngle and unlocked ~= nil then
-			self.cl.bearingGui:setSliderPosition( "LeftAngle", leftAngle - 1 )
-			self.cl.bearingGui:setSliderPosition( "RightAngle", rightAngle - 1 )
-			self.cl.bearingGui:setSliderPosition( "LeftSpeed", ( leftSpeed / SpeedPerStep ) - 1 )
-			self.cl.bearingGui:setSliderPosition( "RightSpeed", ( rightSpeed / SpeedPerStep ) - 1 )
-
-			if unlocked then
-				self.cl.bearingGui:setButtonState( "Off", true )
-			else
-				self.cl.bearingGui:setButtonState( "On", true )
-			end
-		end
-	end
-end
-
-function FirstClassSeat.client_canTinker( self, character, state )
+function FirstClassSeat.client_canTinker( self )
 	if self.owner == 0 then
 		return true
 	end
@@ -292,13 +136,62 @@ function FirstClassSeat.client_onTinker( self, character, state )
 	end	
 end
 
-function FirstClassSeat.sv_claim( self, params, player )
-	if self.sv.saved.owner == 0 then
-		self.sv.saved.owner = player.id
-		self.sv.saved.name = player.name
-		self.storage:save( self.sv.saved )
+function FirstClassSeat.client_onAction( self, controllerAction, state )
+	local consumeAction = true
+	if state == true then
+		if controllerAction == sm.interactable.actions.use or controllerAction == sm.interactable.actions.jump then
+			self:cl_seat()
+		elseif controllerAction == sm.interactable.actions.item0 then
+			self.interactable:pressSeatInteractable( 0 )
+		elseif controllerAction == sm.interactable.actions.item1 then
+			self.interactable:pressSeatInteractable( 1 )
+		elseif controllerAction == sm.interactable.actions.item2 then
+			self.interactable:pressSeatInteractable( 2 )
+		elseif controllerAction == sm.interactable.actions.item3 then
+			self.interactable:pressSeatInteractable( 3 )
+		elseif controllerAction == sm.interactable.actions.item4 then
+			self.interactable:pressSeatInteractable( 4 )
+		elseif controllerAction == sm.interactable.actions.item5 then
+			self.interactable:pressSeatInteractable( 5 )
+		elseif controllerAction == sm.interactable.actions.item6 then
+			self.interactable:pressSeatInteractable( 6 )
+		elseif controllerAction == sm.interactable.actions.item7 then
+			self.interactable:pressSeatInteractable( 7 )
+		elseif controllerAction == sm.interactable.actions.item8 then
+			self.interactable:pressSeatInteractable( 8 )
+		elseif controllerAction == sm.interactable.actions.item9 then
+			self.interactable:pressSeatInteractable( 9 )
+		elseif controllerAction == sm.interactable.actions.attack or controllerAction == sm.interactable.actions.create then
+		else
+			consumeAction = false
+		end
+	else
+		if controllerAction == sm.interactable.actions.item0 then
+			self.interactable:releaseSeatInteractable( 0 )
+		elseif controllerAction == sm.interactable.actions.item1 then
+			self.interactable:releaseSeatInteractable( 1 )
+		elseif controllerAction == sm.interactable.actions.item2 then
+			self.interactable:releaseSeatInteractable( 2 )
+		elseif controllerAction == sm.interactable.actions.item3 then
+			self.interactable:releaseSeatInteractable( 3 )
+		elseif controllerAction == sm.interactable.actions.item4 then
+			self.interactable:releaseSeatInteractable( 4 )
+		elseif controllerAction == sm.interactable.actions.item5 then
+			self.interactable:releaseSeatInteractable( 5 )
+		elseif controllerAction == sm.interactable.actions.item6 then
+			self.interactable:releaseSeatInteractable( 6 )
+		elseif controllerAction == sm.interactable.actions.item7 then
+			self.interactable:releaseSeatInteractable( 7 )
+		elseif controllerAction == sm.interactable.actions.item8 then
+			self.interactable:releaseSeatInteractable( 8 )
+		elseif controllerAction == sm.interactable.actions.item9 then
+			self.interactable:releaseSeatInteractable( 9 )
+		elseif controllerAction == sm.interactable.actions.attack or controllerAction == sm.interactable.actions.create then
+		else
+			consumeAction = false
+		end
 	end
-	self.network:setClientData( { owner = self.sv.saved.owner, name = self.sv.saved.name } )
+	return consumeAction
 end
 
 function FirstClassSeat.client_canErase(self)
@@ -328,10 +221,7 @@ function FirstClassSeat.server_canErase(self)
 	return false
 end
 
-function FirstClassSeat.client_playSound(self, name)
-	sm.audio.play(name, self.shape.worldPosition)
-end
-
-function FirstClassSeat.cl_onAlert( self, params )
-	sm.gui.displayAlertText(params)
+function FirstClassSeat.client_getAvailableChildConnectionCount( self, connectionType )
+	local maxButtonCount = 10
+	return maxButtonCount - #self.interactable:getChildren( sm.interactable.connectionType.seated )
 end

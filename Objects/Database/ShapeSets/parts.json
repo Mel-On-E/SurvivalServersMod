@@ -1185,8 +1185,8 @@
         "col": "$SURVIVAL_DATA/Objects/Collision/obj_interactive_driverseat_05.obj"
       },
       "scripted": {
-        "filename": "$MOD_DATA/Scripts/FirstClassSeat.lua",
-        "classname": "FirstClassSeat",
+        "filename": "$MOD_DATA/Scripts/FirstClassDriversSeat.lua",
+        "classname": "FirstClassDriversSeat",
         "data": {},
         "seat": {
           "bones": [
@@ -1286,8 +1286,8 @@
         "col": "$SURVIVAL_DATA/Objects/Collision/obj_interactive_driversaddle_05.obj"
       },
       "scripted": {
-        "filename": "$MOD_DATA/Scripts/FirstClassSeat.lua",
-        "classname": "FirstClassSeat",
+        "filename": "$MOD_DATA/Scripts/FirstClassDriversSeat.lua",
+        "classname": "FirstClassDriversSeat",
         "data": {},
         "seat": {
           "bones": [
@@ -1338,6 +1338,278 @@
         "buoyancy": 2
       },
       "flammable": false
+    },
+    {
+      "uuid": "703ca746-d802-4e76-b443-4881e395fb73",
+      "name": "obj_interactive_protectedseat",
+      "renderable": {
+        "lodList": [
+          {
+            "minViewSize": 45,
+            "mesh": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_seat_05.fbx",
+            "subMeshMap": {
+              "submesh4": {
+                "material": "DifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_05_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_05_asg.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_05_nor.tga"
+                ]
+              }
+            }
+          },
+          {
+            "mesh": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_seat_05_lod1.fbx",
+            "subMeshMap": {
+              "submesh4": {
+                "material": "DifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_05_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_05_asg.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_05_nor.tga"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "color": "000000",
+      "hull": {
+        "x": 4,
+        "y": 4,
+        "z": 4,
+        "col": "$SURVIVAL_DATA/Objects/Collision/obj_interactive_seat_05.obj"
+      },
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/FirstClassSeat.lua",
+        "classname": "FirstClassSeat",
+        "data": {},
+        "seat": {
+          "bones": [
+            {
+              "name": "Hips",
+              "offset": {
+                "x": 0.0,
+                "y": -0.2,
+                "z": 0.25
+              }
+            },
+            {
+              "name": "LeftForeArm",
+              "offset": {
+                "x": 1.0,
+                "y": -0.25,
+                "z": 1.5
+              },
+              "freeRotation": true
+            },
+            {
+              "name": "RightForeArm",
+              "offset": {
+                "x": -1.0,
+                "y": -0.25,
+                "z": 1.5
+              },
+              "freeRotation": true
+            }
+          ],
+          "ragdollFile": "$GAME_DATA/Character/seat_ragdoll.json",
+          "enterAudio": "Seat seated",
+          "exitAudio": "Seat unseated"
+        }
+      },
+      "rotationSet": "PropY",
+      "sticky": "-Y",
+      "physicsMaterial": "Mechanical",
+      "ratings": {
+        "density": 3,
+        "durability": 7,
+        "friction": 5,
+        "buoyancy": 2
+      },
+      "flammable": false
+    },
+    {
+      "uuid": "42f70341-207d-4e9d-b8ed-37966293a926",
+      "name": "obj_interactive_protectedsaddle",
+      "renderable": {
+        "lodList": [
+          {
+            "minViewSize": 45,
+            "mesh": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_saddle_05.fbx",
+            "subMeshMap": {
+              "submesh4": {
+                "material": "DifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driversaddle_05_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driversaddle_05_asg.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driversaddle_05_nor.tga"
+                ]
+              }
+            }
+          },
+          {
+            "mesh": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_saddle_05_lod1.fbx",
+            "subMeshMap": {
+              "submesh4": {
+                "material": "DifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driversaddle_05_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driversaddle_05_asg.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driversaddle_05_nor.tga"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "color": "000000",
+      "hull": {
+        "x": 3,
+        "y": 4,
+        "z": 3,
+        "col": "$SURVIVAL_DATA/Objects/Collision/obj_interactive_saddle_05.obj"
+      },
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/FirstClassSeat.lua",
+        "classname": "FirstClassSeat",
+        "data": {},
+        "seat": {
+          "bones": [
+            {
+              "name": "Hips",
+              "offset": {
+                "x": 0.0,
+                "y": 0.36,
+                "z": 0.8
+              }
+            },
+            {
+              "name": "LeftForeArm",
+              "offset": {
+                "x": 0.92,
+                "y": 0.456,
+                "z": 2.024
+              },
+              "freeRotation": true
+            },
+            {
+              "name": "RightForeArm",
+              "offset": {
+                "x": -0.92,
+                "y": 0.456,
+                "z": 2.024
+              },
+              "freeRotation": true
+            }
+          ],
+          "ragdollFile": "$GAME_DATA/Character/bikeseat_ragdoll.json",
+          "enterAudio": "Seat seated",
+          "exitAudio": "Seat unseated"
+        }
+      },
+      "rotationSet": "PropY",
+      "sticky": "-Y",
+      "physicsMaterial": "Mechanical",
+      "ratings": {
+        "density": 3,
+        "durability": 7,
+        "friction": 5,
+        "buoyancy": 2
+      },
+      "flammable": false
+    },
+    {
+      "uuid": "5eb8975b-0acf-43a7-ab4e-62ce66305df7",
+      "name": "obj_interactive_protectedcomfybed",
+      "renderable": {
+        "lodList": [
+          {
+            "minViewSize": 55,
+            "subMeshList": [
+              {
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_comfybed_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_comfybed_asg.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_comfybed_nor.tga"
+                ],
+                "material": "DifAsgNor"
+              }
+            ],
+            "mesh": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_comfybed.fbx"
+          },
+          {
+            "subMeshList": [
+              {
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_comfybed_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_comfybed_asg.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_comfybed_nor.tga"
+                ],
+                "material": "DifAsgNor"
+              }
+            ],
+            "mesh": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_comfybed_lod1.fbx"
+          }
+        ]
+      },
+      "color": "000000",
+      "box": {
+        "x": 4,
+        "y": 1,
+        "z": 7
+      },
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/Bed.lua",
+        "classname": "Bed",
+        "data": {},
+        "seat": {
+          "bones": [
+            {
+              "name": "root_jnt",
+              "offset": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.3
+              }
+            },
+            {
+              "name": "LeftForeArm",
+              "offset": {
+                "x": 1.5,
+                "y": 1.1,
+                "z": 1.1
+              },
+              "freeRotation": true
+            },
+            {
+              "name": "RightForeArm",
+              "offset": {
+                "x": -1.5,
+                "y": 1.1,
+                "z": 1.1
+              },
+              "freeRotation": true
+            }
+          ],
+          "ragdollFile": "$SURVIVAL_DATA/Character/bed_ragdoll.json",
+          "enterAudio": "Seat seated",
+          "exitAudio": "Seat unseated"
+        }
+      },
+      "rotationSet": "PropFullMinusNegY",
+      "sticky": "-Z+Z-Y-X+X",
+      "physicsMaterial": "Metal",
+      "ratings": {
+        "density": 3,
+        "durability": 3,
+        "friction": 4,
+        "buoyancy": 6
+      },
+      "flammable": true,
+      "restrictions": {
+        "usable": true
+      }
     }
   ]
 }
