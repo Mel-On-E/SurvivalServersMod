@@ -1,0 +1,1343 @@
+{
+  "partList": [
+    {
+      "uuid": "9f0f57e8-2c31-4d83-996c-d00a9b296c3f",
+      "name": "wocoin",
+      "renderable": {
+        "lodList": [
+          {
+            "subMeshList": [
+              {
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_milk_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/consumable/obj_consumable_milk_asg.tga",
+                  "$MOD_DATA/Objects/Textures/obj_consumable_milk_nor.tga"
+                ],
+                "material": "DifAsgNorAlphaFlip"
+              }
+            ],
+            "mesh": "$MOD_DATA/Objects/Mesh/coin.obj"
+          }
+        ]
+      },
+      "color": "ffd700",
+      "hull": {
+        "x": 1,
+        "y": 1,
+        "z": 1,
+        "col": "$GAME_DATA/Objects/Collision/obj_decor_screw01.obj"
+      },
+      "rotationSet": "PropY",
+      "sticky": "-Y",
+      "physicsMaterial": "Mechanical",
+      "ratings": {
+        "density": 2,
+        "durability": 3,
+        "friction": 3,
+        "buoyancy": 1
+      },
+      "flammable": false,
+      "stackSize": 1000,
+      "destroyTime": 0.069420,
+      "consumable": true,
+      "itemStack": {}
+    },
+    {
+      "uuid": "608d772f-9851-400f-a014-d847900458a7",
+      "name": "obj_interactive_atm",
+      "renderable": {
+        "lodList": [
+          {
+            "minViewSize": 30,
+            "mesh": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_fridge.fbx",
+            "subMeshMap": {
+              "fridge": {
+                "material": "DifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_fridge_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_fridge_asg.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_fridge_nor.tga"
+                ]
+              }
+            }
+          },
+          {
+            "mesh": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_fridge_lod1.fbx",
+            "subMeshMap": {
+              "fridge": {
+                "material": "DifAsg",
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_fridge_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_fridge_asg.tga",
+                  ""
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "color": "696969",
+      "box": {
+        "x": 3,
+        "y": 3,
+        "z": 2
+      },
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/ATM.lua",
+        "classname": "ATM"
+      },
+      "rotationSet": "PropY",
+      "sticky": "-X+X-Y+Y-Z",
+      "physicsMaterial": "Mechanical",
+      "ratings": {
+        "density": 4,
+        "durability": 3,
+        "friction": 4,
+        "buoyancy": 6
+      },
+      "flammable": false,
+      "restrictions": {
+        "usable": true
+      }
+    },
+    {
+      "uuid": "111c2b9f-98a9-44e4-9cb8-d4ec7e95b40f",
+      "name": "obj_birchtree_sapling",
+      "renderable": {
+        "lodList": [
+          {
+            "minViewSize": 12,
+            "subMeshList": [
+              {
+                "textureList": [
+                  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_dif.tga",
+                  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_asg.tga",
+                  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_nor.tga"
+                ],
+                "material": "DifAsgNor"
+              }
+            ],
+            "mesh": "$GAME_DATA/Objects/Mesh/decor/obj_decor_babyduck.fbx"
+          },
+          {
+            "subMeshList": [
+              {
+                "textureList": [
+                  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_dif.tga",
+                  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_asg.tga",
+                  ""
+                ],
+                "material": "DifAsg"
+              }
+            ],
+            "mesh": "$GAME_DATA/Objects/Mesh/decor/obj_decor_babyduck_lod1.fbx"
+          }
+        ]
+      },
+      "color": "ffffff",
+      "cylinder": {
+        "diameter": 1,
+        "depth": 1,
+        "margin": 0.1,
+        "axis": "Y"
+      },
+      "rotationSet": "PropY",
+      "sticky": "-Y",
+      "physicsMaterial": "Wood",
+      "ratings": {
+        "density": 2,
+        "durability": 4,
+        "friction": 5,
+        "buoyancy": 8
+      },
+      "flammable": true,
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/Sapling.lua",
+        "classname": "BirchSapling"
+      }
+    },
+    {
+      "uuid": "222c2b9f-98a9-44e4-9cb8-d4ec7e95b40f",
+      "name": "obj_leafytree_sapling",
+      "renderable": {
+        "lodList": [
+          {
+            "subMeshList": [
+              {
+                "textureList": [
+                  "$MOD_DATA/Objects/Textures/acorn_dif.png",
+                  "$GAME_DATA/Textures/transparent.tga",
+                  "$MOD_DATA/Objects/Textures/acorn_nor.png"
+                ],
+                "material": "DifAsgNor"
+              }
+            ],
+            "mesh": "$MOD_DATA/Objects/Mesh/acorn.obj"
+          }
+        ]
+      },
+      "color": "00ff00",
+      "cylinder": {
+        "diameter": 1,
+        "depth": 1,
+        "margin": 0.1,
+        "axis": "Y"
+      },
+      "rotationSet": "PropY",
+      "sticky": "-Y",
+      "physicsMaterial": "Wood",
+      "ratings": {
+        "density": 2,
+        "durability": 1,
+        "friction": 5,
+        "buoyancy": 5
+      },
+      "flammable": true,
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/Sapling.lua",
+        "classname": "LeafySapling"
+      }
+    },
+    {
+      "uuid": "333c2b9f-98a9-44e4-9cb8-d4ec7e95b40f",
+      "name": "obj_sprucetree_sapling",
+      "renderable": {
+        "lodList": [
+          {
+            "minViewSize": 12,
+            "subMeshList": [
+              {
+                "textureList": [
+                  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_dif.tga",
+                  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_asg.tga",
+                  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_nor.tga"
+                ],
+                "material": "DifAsgNor"
+              }
+            ],
+            "mesh": "$GAME_DATA/Objects/Mesh/decor/obj_decor_babyduck.fbx"
+          },
+          {
+            "subMeshList": [
+              {
+                "textureList": [
+                  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_dif.tga",
+                  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_asg.tga",
+                  ""
+                ],
+                "material": "DifAsg"
+              }
+            ],
+            "mesh": "$GAME_DATA/Objects/Mesh/decor/obj_decor_babyduck_lod1.fbx"
+          }
+        ]
+      },
+      "color": "654321",
+      "cylinder": {
+        "diameter": 1,
+        "depth": 1,
+        "margin": 0.1,
+        "axis": "Y"
+      },
+      "rotationSet": "PropY",
+      "sticky": "-Y",
+      "physicsMaterial": "Wood",
+      "ratings": {
+        "density": 2,
+        "durability": 4,
+        "friction": 5,
+        "buoyancy": 8
+      },
+      "flammable": true,
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/Sapling.lua",
+        "classname": "SpruceSapling"
+      }
+    },
+    {
+      "uuid": "444c2b9f-98a9-44e4-9cb8-d4ec7e95b40f",
+      "name": "obj_pinetree_sapling",
+      "renderable": {
+        "lodList": [
+          {
+            "minViewSize": 12,
+            "subMeshList": [
+              {
+                "textureList": [
+                  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_dif.tga",
+                  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_asg.tga",
+                  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_nor.tga"
+                ],
+                "material": "DifAsgNor"
+              }
+            ],
+            "mesh": "$GAME_DATA/Objects/Mesh/decor/obj_decor_babyduck.fbx"
+          },
+          {
+            "subMeshList": [
+              {
+                "textureList": [
+                  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_dif.tga",
+                  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_asg.tga",
+                  ""
+                ],
+                "material": "DifAsg"
+              }
+            ],
+            "mesh": "$GAME_DATA/Objects/Mesh/decor/obj_decor_babyduck_lod1.fbx"
+          }
+        ]
+      },
+      "color": "ff0000",
+      "cylinder": {
+        "diameter": 1,
+        "depth": 1,
+        "margin": 0.1,
+        "axis": "Y"
+      },
+      "rotationSet": "PropY",
+      "sticky": "-Y",
+      "physicsMaterial": "Wood",
+      "ratings": {
+        "density": 2,
+        "durability": 4,
+        "friction": 5,
+        "buoyancy": 8
+      },
+      "flammable": true,
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/Sapling.lua",
+        "classname": "PineSapling"
+      }
+    },
+    {
+      "uuid": "111b101c-508b-4630-9f9d-47ef1c834183",
+      "name": "obj_birchgrowing_tree",
+      "renderable": {
+        "lodList": [
+          {
+            "subMeshList": [
+              {
+                "textureList": [
+                  "$GAME_DATA/Objects/Textures/industrial/obj_atlas_generic_dif.tga",
+                  "$GAME_DATA/Objects/Textures/industrial/obj_atlas_generic_asg.tga",
+                  "$GAME_DATA/Objects/Textures/industrial/obj_atlas_generic_nor.tga",
+                  "$GAME_DATA/Objects/Textures/industrial/obj_industrial_cylinder_ao.tga"
+                ],
+                "material": "DifAsgNorAo"
+              }
+            ],
+            "mesh": "$GAME_DATA/Objects/Mesh/industrial/obj_industrial_cylindersmall.fbx",
+            "includes": [
+              "POSITION",
+              "UV0",
+              "UV1",
+              "NORMAL",
+              "TANGENTS"
+            ]
+          }
+        ]
+      },
+      "color": "ffffff",
+      "cylinder": {
+        "diameter": 3,
+        "depth": 4,
+        "margin": 0.5,
+        "axis": "Y"
+      },
+      "rotationSet": "PropY",
+      "sticky": "-Y+Y",
+      "physicsMaterial": "Wood",
+      "ratings": {
+        "density": 2,
+        "durability": 2,
+        "friction": 4,
+        "buoyancy": 6
+      },
+      "flammable": true,
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/GrowingTree.lua",
+        "classname": "BirchGrowingTree"
+      },
+      "restrictions": {
+        "destructable": false,
+        "erasable": false,
+        "buildable": true,
+        "usable": false,
+        "connectable": false,
+        "liftable": false,
+        "convertibleToDynamic": false,
+        "paintable": false
+      }
+    },
+    {
+      "uuid": "222b101c-508b-4630-9f9d-47ef1c834183",
+      "name": "obj_leafygrowing_tree",
+      "renderable": {
+        "lodList": [
+          {
+            "subMeshList": [
+              {
+                "textureList": [
+                  "$GAME_DATA/Objects/Textures/industrial/obj_atlas_generic_dif.tga",
+                  "$GAME_DATA/Objects/Textures/industrial/obj_atlas_generic_asg.tga",
+                  "$GAME_DATA/Objects/Textures/industrial/obj_atlas_generic_nor.tga",
+                  "$GAME_DATA/Objects/Textures/industrial/obj_industrial_cylinder_ao.tga"
+                ],
+                "material": "DifAsgNorAo"
+              }
+            ],
+            "mesh": "$GAME_DATA/Objects/Mesh/industrial/obj_industrial_cylindersmall.fbx",
+            "includes": [
+              "POSITION",
+              "UV0",
+              "UV1",
+              "NORMAL",
+              "TANGENTS"
+            ]
+          }
+        ]
+      },
+      "color": "00ff00",
+      "cylinder": {
+        "diameter": 3,
+        "depth": 4,
+        "margin": 0.5,
+        "axis": "Y"
+      },
+      "rotationSet": "PropY",
+      "sticky": "-Y+Y",
+      "physicsMaterial": "Wood",
+      "ratings": {
+        "density": 2,
+        "durability": 2,
+        "friction": 4,
+        "buoyancy": 6
+      },
+      "flammable": true,
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/GrowingTree.lua",
+        "classname": "LeafyGrowingTree"
+      },
+      "restrictions": {
+        "destructable": false,
+        "erasable": false,
+        "buildable": true,
+        "usable": false,
+        "connectable": false,
+        "liftable": false,
+        "convertibleToDynamic": false,
+        "paintable": false
+      }
+    },
+    {
+      "uuid": "333b101c-508b-4630-9f9d-47ef1c834183",
+      "name": "obj_sprucegrowing_tree",
+      "renderable": {
+        "lodList": [
+          {
+            "subMeshList": [
+              {
+                "textureList": [
+                  "$GAME_DATA/Objects/Textures/industrial/obj_atlas_generic_dif.tga",
+                  "$GAME_DATA/Objects/Textures/industrial/obj_atlas_generic_asg.tga",
+                  "$GAME_DATA/Objects/Textures/industrial/obj_atlas_generic_nor.tga",
+                  "$GAME_DATA/Objects/Textures/industrial/obj_industrial_cylinder_ao.tga"
+                ],
+                "material": "DifAsgNorAo"
+              }
+            ],
+            "mesh": "$GAME_DATA/Objects/Mesh/industrial/obj_industrial_cylindersmall.fbx",
+            "includes": [
+              "POSITION",
+              "UV0",
+              "UV1",
+              "NORMAL",
+              "TANGENTS"
+            ]
+          }
+        ]
+      },
+      "color": "654321",
+      "cylinder": {
+        "diameter": 3,
+        "depth": 4,
+        "margin": 0.5,
+        "axis": "Y"
+      },
+      "rotationSet": "PropY",
+      "sticky": "-Y+Y",
+      "physicsMaterial": "Wood",
+      "ratings": {
+        "density": 2,
+        "durability": 2,
+        "friction": 4,
+        "buoyancy": 6
+      },
+      "flammable": true,
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/GrowingTree.lua",
+        "classname": "SpruceGrowingTree"
+      },
+      "restrictions": {
+        "destructable": false,
+        "erasable": false,
+        "buildable": true,
+        "usable": false,
+        "connectable": false,
+        "liftable": false,
+        "convertibleToDynamic": false,
+        "paintable": false
+      }
+    },
+    {
+      "uuid": "444b101c-508b-4630-9f9d-47ef1c834183",
+      "name": "obj_pinegrowing_tree",
+      "renderable": {
+        "lodList": [
+          {
+            "subMeshList": [
+              {
+                "textureList": [
+                  "$GAME_DATA/Objects/Textures/industrial/obj_atlas_generic_dif.tga",
+                  "$GAME_DATA/Objects/Textures/industrial/obj_atlas_generic_asg.tga",
+                  "$GAME_DATA/Objects/Textures/industrial/obj_atlas_generic_nor.tga",
+                  "$GAME_DATA/Objects/Textures/industrial/obj_industrial_cylinder_ao.tga"
+                ],
+                "material": "DifAsgNorAo"
+              }
+            ],
+            "mesh": "$GAME_DATA/Objects/Mesh/industrial/obj_industrial_cylindersmall.fbx",
+            "includes": [
+              "POSITION",
+              "UV0",
+              "UV1",
+              "NORMAL",
+              "TANGENTS"
+            ]
+          }
+        ]
+      },
+      "color": "ff0000",
+      "cylinder": {
+        "diameter": 3,
+        "depth": 4,
+        "margin": 0.5,
+        "axis": "Y"
+      },
+      "rotationSet": "PropY",
+      "sticky": "-Y+Y",
+      "physicsMaterial": "Wood",
+      "ratings": {
+        "density": 2,
+        "durability": 2,
+        "friction": 4,
+        "buoyancy": 6
+      },
+      "flammable": true,
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/GrowingTree.lua",
+        "classname": "PineGrowingTree"
+      },
+      "restrictions": {
+        "destructable": false,
+        "erasable": false,
+        "buildable": true,
+        "usable": false,
+        "connectable": false,
+        "liftable": false,
+        "convertibleToDynamic": false,
+        "paintable": false
+      }
+    },
+    {
+      "uuid": "614c3193-13da-40f4-9b03-37f34e760fd6",
+      "name": "obj_market",
+      "renderable": {
+        "lodList": [
+          {
+            "mesh": "$SURVIVAL_DATA/Character/Char_hideoutfarmer/char_hideoutfarmer.dae",
+            "subMeshMap": {
+              "skin": {
+                "material": "SkelAnimDifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Character/Char_Farmer/char_farmer_dif.tga",
+                  "$SURVIVAL_DATA/Character/Char_Farmer/char_farmer_asg.tga",
+                  "$SURVIVAL_DATA/Character/Char_Farmer/char_farmer_nor.tga"
+                ]
+              },
+              "hair": {
+                "material": "SkelAnimDifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Character/Char_Farmer/char_farmer_dif.tga",
+                  "$SURVIVAL_DATA/Character/Char_Farmer/char_farmer_asg.tga",
+                  "$SURVIVAL_DATA/Character/Char_Farmer/char_farmer_nor.tga"
+                ]
+              },
+              "clothes": {
+                "material": "SkelAnimDifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Character/Char_Farmer/char_farmer_clothes_dif.tga",
+                  "$SURVIVAL_DATA/Character/Char_Farmer/char_farmer_clothes_asg.tga",
+                  "$SURVIVAL_DATA/Character/Char_Farmer/char_farmer_clothes_nor.tga"
+                ]
+              },
+              "hatgloves": {
+                "material": "SkelAnimDifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Character/Char_Farmer/char_farmer_hatgloves_dif.tga",
+                  "$SURVIVAL_DATA/Character/Char_Farmer/char_farmer_hatgloves_asg.tga",
+                  "$SURVIVAL_DATA/Character/Char_Farmer/char_farmer_hatgloves_nor.tga"
+                ]
+              },
+              "hideoutfarmer_texture": {
+                "material": "SkelAnimDifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Character/Char_hideoutfarmer/char_hideoutfarmer_dif.tga",
+                  "$SURVIVAL_DATA/Character/Char_hideoutfarmer/char_hideoutfarmer_asg.tga",
+                  "$SURVIVAL_DATA/Character/Char_hideoutfarmer/char_hideoutfarmer_nor.tga"
+                ]
+              },
+              "net": {
+                "material": "SkelAnimDifAsgNorAlpha",
+                "textureList": [
+                  "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/t_tiled_brokennet_dif.tga",
+                  "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/t_tiled_brokennet_asg.tga",
+                  "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/t_tiled_brokennet_nor.tga",
+                  "$SURVIVAL_DATA/Terrain/Textures/Tiledtextures/t_tiled_brokennet_ao.tga"
+                ]
+              }
+            },
+            "animationList": [
+              {
+                "name": "Idle",
+                "file": "$SURVIVAL_DATA/Character/Char_hideoutfarmer/Animations/ani_char_hideoutfarmer_idle.dae",
+                "looping": true
+              },
+              {
+                "name": "Close",
+                "file": "$SURVIVAL_DATA/Character/Char_hideoutfarmer/Animations/ani_char_hideoutfarmer_close.dae"
+              },
+              {
+                "name": "Open",
+                "file": "$SURVIVAL_DATA/Character/Char_hideoutfarmer/Animations/ani_char_hideoutfarmer_open.dae"
+              },
+              {
+                "name": "Confirm01",
+                "file": "$SURVIVAL_DATA/Character/Char_hideoutfarmer/Animations/ani_char_hideoutfarmer_confirm01.dae"
+              },
+              {
+                "name": "Confirm02",
+                "file": "$SURVIVAL_DATA/Character/Char_hideoutfarmer/Animations/ani_char_hideoutfarmer_confirm02.dae"
+              },
+              {
+                "name": "Confirm03",
+                "file": "$SURVIVAL_DATA/Character/Char_hideoutfarmer/Animations/ani_char_hideoutfarmer_confirm03.dae"
+              }
+            ]
+          }
+        ]
+      },
+      "color": "ffffff",
+      "box": {
+        "x": 20,
+        "y": 17,
+        "z": 12
+      },
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/Trader.lua",
+        "classname": "Trader",
+        "data": {
+          "animationList": [
+            {
+              "name": "Idle",
+              "looping": true
+            },
+            {
+              "name": "Close",
+              "effect": {
+                "name": "Farmerhideout - Close",
+                "joint": "root_jnt"
+              }
+            },
+            {
+              "name": "Open",
+              "effect": {
+                "name": "Farmerhideout - Open",
+                "joint": "root_jnt"
+              },
+              "nextAnimation": "Idle"
+            },
+            {
+              "name": "Confirm01",
+              "effect": {
+                "name": "Farmerhideout - Accept",
+                "joint": "root_jnt"
+              },
+              "nextAnimation": "Idle"
+            },
+            {
+              "name": "Confirm02",
+              "effect": {
+                "name": "Farmerhideout - Accept",
+                "joint": "root_jnt"
+              },
+              "nextAnimation": "Idle"
+            },
+            {
+              "name": "Confirm03",
+              "effect": {
+                "name": "Farmerhideout - Accept",
+                "joint": "root_jnt"
+              },
+              "nextAnimation": "Idle"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "056123f1-f030-40df-946a-b830bf494c92",
+      "name": "obj_container_coin",
+      "renderable": {
+        "lodList": [
+          {
+            "subMeshMap": {
+              "containergas": {
+                "material": "DifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_gas_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_gas_asg.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_gas_nor.tga"
+                ]
+              },
+              "connectionpoint": {
+                "material": "2PoseAnimDifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/containers/obj_interactive_container_connectorpoint_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/containers/obj_interactive_container_connectorpoint_asg.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/containers/obj_interactive_container_connectorpoint_nor.tga"
+                ]
+              },
+              "screen": {
+                "material": "UVAnimDifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_screen_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_screen_asg.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_screen_nor.tga"
+                ],
+                "custom": {
+                  "uv0": {
+                    "v": 0.167,
+                    "u": 1
+                  }
+                }
+              }
+            },
+            "mesh": "$SURVIVAL_DATA/Objects/Mesh/containers/obj_containers_gas.fbx",
+            "pose0": "$SURVIVAL_DATA/Objects/Mesh/containers/obj_containers_gas_pose0.fbx",
+            "pose1": "$SURVIVAL_DATA/Objects/Mesh/containers/obj_containers_gas_pose1.fbx"
+          }
+        ]
+      },
+      "color": "ffd700",
+      "box": {
+        "x": 4,
+        "y": 3,
+        "z": 3
+      },
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/Container.lua",
+        "classname": "CoinContainer",
+        "data": {
+          "containerSize": 10,
+          "stackSize": 1000,
+          "filterUid": "9f0f57e8-2c31-4d83-996c-d00a9b296c3f"
+        }
+      },
+      "rotationSet": "PropYZ",
+      "physicsMaterial": "Metal",
+      "ratings": {
+        "density": 5,
+        "durability": 6,
+        "friction": 4,
+        "buoyancy": 6
+      },
+      "flammable": false,
+      "restrictions": {
+        "usable": true
+      },
+      "pipe": {
+        "openings": [
+          {
+            "side": "-X",
+            "x": -2.0,
+            "y": 0,
+            "z": 0
+          },
+          {
+            "side": "Y",
+            "x": 0.5,
+            "y": 1.5,
+            "z": 0
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "f08d7482-9851-400f-a014-d847900458a7",
+      "name": "obj_interactive_safe",
+      "renderable": {
+        "lodList": [
+          {
+            "minViewSize": 30,
+            "mesh": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_fridge.fbx",
+            "subMeshMap": {
+              "fridge": {
+                "material": "DifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_fridge_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_fridge_asg.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_fridge_nor.tga"
+                ]
+              }
+            }
+          },
+          {
+            "mesh": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_fridge_lod1.fbx",
+            "subMeshMap": {
+              "fridge": {
+                "material": "DifAsg",
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_fridge_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_fridge_asg.tga",
+                  ""
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "color": "000000",
+      "box": {
+        "x": 3,
+        "y": 3,
+        "z": 2
+      },
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/Container.lua",
+        "classname": "Container",
+        "data": {
+          "containerSize": 10,
+          "stackSize": 1000
+        }
+      },
+      "rotationSet": "PropY",
+      "sticky": "-X+X-Y+Y-Z",
+      "physicsMaterial": "Mechanical",
+      "ratings": {
+        "density": 4,
+        "durability": 3,
+        "friction": 4,
+        "buoyancy": 6
+      },
+      "flammable": false,
+      "restrictions": {
+        "usable": true
+      }
+    },
+    {
+      "uuid": "fcfa0612-1df9-47d8-bb9a-30bec9b5b1f5",
+      "name": "obj_container_protectedsmallchest",
+      "renderable": {
+        "lodList": [
+          {
+            "minViewSize": 40,
+            "mesh": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_smallchest_off.fbx",
+            "pose0": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_smallchest_on.fbx",
+            "subMeshMap": {
+              "chest_extras": {
+                "material": "PoseAnimDifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_smallchest_extras_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_smallchest_extras_asg.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_smallchest_extras_nor.tga"
+                ]
+              },
+              "small_chest": {
+                "material": "PoseAnimDifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_smallchest_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_smallchest_asg.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_smallchest_nor.tga"
+                ]
+              }
+            }
+          },
+          {
+            "mesh": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_smallchest_lod1.fbx",
+            "subMeshMap": {
+              "chest_extras": {
+                "material": "DifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_smallchest_extras_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_smallchest_extras_asg.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_smallchest_extras_nor.tga"
+                ]
+              },
+              "small_chest": {
+                "material": "DifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_smallchest_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_smallchest_asg.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_smallchest_nor.tga"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "color": "000000",
+      "box": {
+        "x": 3,
+        "y": 2,
+        "z": 3
+      },
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/Container.lua",
+        "classname": "Container",
+        "data": {
+          "containerSize": 20,
+          "stackSize": 1000
+        }
+      },
+      "rotationSet": "PropY",
+      "sticky": "-Y",
+      "physicsMaterial": "Mechanical",
+      "ratings": {
+        "density": 8,
+        "durability": 6,
+        "friction": 5,
+        "buoyancy": 8
+      },
+      "flammable": false
+    },
+    {
+      "uuid": "ad35f395-af8f-40fa-aef4-77d827ac8a8a",
+      "name": "obj_container_protectedchest",
+      "renderable": {
+        "lodList": [
+          {
+            "minViewSize": 30,
+            "subMeshMap": {
+              "chest": {
+                "material": "3PoseAnimDifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_chest_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_chest_asg.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_chest_nor.tga"
+                ]
+              },
+              "connectionpoint": {
+                "material": "3PoseAnimDifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/containers/obj_interactive_container_connectorpoint_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/containers/obj_interactive_container_connectorpoint_asg.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/containers/obj_interactive_container_connectorpoint_nor.tga"
+                ]
+              }
+            },
+            "mesh": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_chest.fbx",
+            "pose0": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_chest_pose0.fbx",
+            "pose1": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_chest_pose1.fbx",
+            "pose2": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_chest_pose2.fbx"
+          },
+          {
+            "subMeshMap": {
+              "chest": {
+                "material": "DifAsg",
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_chest_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_chest_asg.tga",
+                  ""
+                ]
+              },
+              "connectionpoint": {
+                "material": "DifAsg",
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/containers/obj_interactive_container_connectorpoint_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/containers/obj_interactive_container_connectorpoint_asg.tga",
+                  ""
+                ]
+              }
+            },
+            "mesh": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_chest_lod1.fbx"
+          }
+        ]
+      },
+      "color": "000000",
+      "box": {
+        "x": 5,
+        "y": 3,
+        "z": 4
+      },
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/Container.lua",
+        "classname": "Container",
+        "data": {
+          "containerSize": 30,
+          "stackSize": 1000
+        }
+      },
+      "rotationSet": "PropFullMinusNegY",
+      "physicsMaterial": "Mechanical",
+      "ratings": {
+        "density": 5,
+        "durability": 6,
+        "friction": 4,
+        "buoyancy": 6
+      },
+      "flammable": false,
+      "pipe": {
+        "openings": [
+          {
+            "side": "-X",
+            "x": -2.5,
+            "y": 0,
+            "z": -0.5
+          },
+          {
+            "side": "+X",
+            "x": 2.5,
+            "y": 0,
+            "z": -0.5
+          },
+          {
+            "side": "+Y",
+            "x": 0.0,
+            "y": 1.5,
+            "z": -0.5
+          }
+        ]
+      }
+    },
+    {
+      "uuid": "7cf717d7-d167-4f2d-a6e7-6b2c70aa9286",
+      "name": "obj_interactive_protectedswitch",
+      "renderable": {
+        "lodList": [
+          {
+            "minViewSize": 7,
+            "mesh": "$GAME_DATA/Objects/Mesh/interactive/obj_interactive_switch_off.fbx",
+            "pose0": "$GAME_DATA/Objects/Mesh/interactive/obj_interactive_switch_on.fbx",
+            "subMeshMap": {
+              "Switch": {
+                "material": "PoseAnimDifAsgNor",
+                "textureList": [
+                  "$GAME_DATA/Objects/Textures/interactive/obj_interactive_switchbutton_dif.tga",
+                  "$GAME_DATA/Objects/Textures/interactive/obj_interactive_switchbutton_asg.tga",
+                  "$GAME_DATA/Objects/Textures/interactive/obj_interactive_switchbutton_nor.tga"
+                ]
+              }
+            }
+          },
+          {
+            "mesh": "$GAME_DATA/Objects/Mesh/interactive/obj_interactive_switch_lod1.fbx",
+            "subMeshMap": {
+              "Switch": {
+                "material": "DifAsg",
+                "textureList": [
+                  "$GAME_DATA/Objects/Textures/interactive/obj_interactive_switchbutton_dif.tga",
+                  "$GAME_DATA/Objects/Textures/interactive/obj_interactive_switchbutton_asg.tga",
+                  ""
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "color": "000000",
+      "hull": {
+        "x": 1,
+        "y": 1,
+        "z": 1,
+        "col": "$GAME_DATA/Objects/Collision/obj_interactive_switch.obj"
+      },
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/Trigger.lua",
+        "classname": "SwitchTrigger"
+      },
+      "rotationSet": "PropY",
+      "sticky": "-Y",
+      "physicsMaterial": "Mechanical",
+      "ratings": {
+        "density": 2,
+        "durability": 3,
+        "friction": 5,
+        "buoyancy": 2
+      },
+      "flammable": true,
+      "stackSize": 10
+    },
+    {
+      "uuid": "1e4993a4-506b-470d-9ada-9c0a321e2db5",
+      "name": "obj_interactive_protectedbutton",
+      "renderable": {
+        "lodList": [
+          {
+            "minViewSize": 11,
+            "mesh": "$GAME_DATA/Objects/Mesh/interactive/obj_interactive_button_off.fbx",
+            "pose0": "$GAME_DATA/Objects/Mesh/interactive/obj_interactive_button_on.fbx",
+            "subMeshMap": {
+              "button": {
+                "material": "PoseAnimDifAsgNor",
+                "textureList": [
+                  "$GAME_DATA/Objects/Textures/interactive/obj_interactive_switchbutton_dif.tga",
+                  "$GAME_DATA/Objects/Textures/interactive/obj_interactive_switchbutton_asg.tga",
+                  "$GAME_DATA/Objects/Textures/interactive/obj_interactive_switchbutton_nor.tga"
+                ]
+              }
+            }
+          },
+          {
+            "mesh": "$GAME_DATA/Objects/Mesh/interactive/obj_interactive_button_lod1.fbx",
+            "subMeshMap": {
+              "button": {
+                "material": "DifAsg",
+                "textureList": [
+                  "$GAME_DATA/Objects/Textures/interactive/obj_interactive_switchbutton_dif.tga",
+                  "$GAME_DATA/Objects/Textures/interactive/obj_interactive_switchbutton_asg.tga",
+                  ""
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "color": "000000",
+      "hull": {
+        "x": 1,
+        "y": 1,
+        "z": 1,
+        "col": "$GAME_DATA/Objects/Collision/obj_interactive_button.obj"
+      },
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/Trigger.lua",
+        "classname": "ButtonTrigger"
+      },
+      "rotationSet": "PropY",
+      "sticky": "-Y",
+      "physicsMaterial": "Mechanical",
+      "ratings": {
+        "density": 2,
+        "durability": 3,
+        "friction": 5,
+        "buoyancy": 2
+      },
+      "flammable": true,
+      "stackSize": 10
+    },
+    {
+      "uuid": "ffa3a47e-fc0d-4977-802f-bd19613bbe5c",
+      "name": "obj_interactive_protecteddriverseat",
+      "renderable": {
+        "lodList": [
+          {
+            "minViewSize": 45,
+            "subMeshMap": {
+              "submesh7": {
+                "material": "SkelAnimDifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_05_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_05_asg.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_05_nor.tga"
+                ]
+              }
+            },
+            "mesh": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_driverseat_05.dae",
+            "animationList": [
+              {
+                "name": "j_ratt",
+                "file": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_driverseat_05.dae"
+              }
+            ]
+          },
+          {
+            "subMeshMap": {
+              "submesh7": {
+                "material": "DifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_05_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_05_asg.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_05_nor.tga"
+                ]
+              }
+            },
+            "mesh": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_driverseat_05_lod1.fbx"
+          }
+        ]
+      },
+      "color": "000000",
+      "hull": {
+        "x": 4,
+        "y": 4,
+        "z": 6,
+        "col": "$SURVIVAL_DATA/Objects/Collision/obj_interactive_driverseat_05.obj"
+      },
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/FirstClassSeat.lua",
+        "classname": "FirstClassSeat",
+        "data": {},
+        "seat": {
+          "bones": [
+            {
+              "name": "Hips",
+              "offset": {
+                "x": 0.0,
+                "y": -0.064,
+                "z": -0.544
+              }
+            },
+            {
+              "name": "LeftForeArm",
+              "offset": {
+                "x": 1.172,
+                "y": 0.968,
+                "z": 0.968
+              },
+              "freeRotation": true,
+              "steers": true
+            },
+            {
+              "name": "RightForeArm",
+              "offset": {
+                "x": -1.172,
+                "y": 0.968,
+                "z": 0.968
+              },
+              "freeRotation": true,
+              "steers": true
+            }
+          ],
+          "ragdollFile": "$GAME_DATA/Character/seat_ragdoll.json",
+          "enterAudio": "Seat seated",
+          "exitAudio": "Seat unseated"
+        },
+        "steering": {
+          "steerAngle": 45.0
+        }
+      },
+      "rotationSet": "PropY",
+      "sticky": "-Y",
+      "physicsMaterial": "Mechanical",
+      "ratings": {
+        "density": 3,
+        "durability": 7,
+        "friction": 5,
+        "buoyancy": 2
+      },
+      "flammable": false
+    },
+    {
+      "uuid": "9dd1ccea-1e44-430d-b706-3ff45418263e",
+      "name": "obj_interactive_protecteddriversaddle",
+      "renderable": {
+        "lodList": [
+          {
+            "minViewSize": 45,
+            "subMeshMap": {
+              "submesh13": {
+                "material": "SkelAnimDifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driversaddle_05_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driversaddle_05_asg.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driversaddle_05_nor.tga"
+                ]
+              }
+            },
+            "mesh": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_driversaddle_05.dae",
+            "animationList": [
+              {
+                "name": "j_ratt",
+                "file": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_driversaddle_01.dae"
+              }
+            ]
+          },
+          {
+            "subMeshMap": {
+              "submesh13": {
+                "material": "DifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driversaddle_05_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driversaddle_05_asg.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driversaddle_05_nor.tga"
+                ]
+              }
+            },
+            "mesh": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_driversaddle_05_lod1.fbx"
+          }
+        ]
+      },
+      "color": "000000",
+      "hull": {
+        "x": 3,
+        "y": 4,
+        "z": 5,
+        "col": "$SURVIVAL_DATA/Objects/Collision/obj_interactive_driversaddle_05.obj"
+      },
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/FirstClassSeat.lua",
+        "classname": "FirstClassSeat",
+        "data": {},
+        "seat": {
+          "bones": [
+            {
+              "name": "Hips",
+              "offset": {
+                "x": 0.0,
+                "y": 0.384,
+                "z": -0.3
+              }
+            },
+            {
+              "name": "LeftForeArm",
+              "offset": {
+                "x": 1.2,
+                "y": 1.2,
+                "z": 1.7
+              },
+              "freeRotation": true,
+              "steers": true
+            },
+            {
+              "name": "RightForeArm",
+              "offset": {
+                "x": -1.2,
+                "y": 1.2,
+                "z": 1.7
+              },
+              "freeRotation": true,
+              "steers": true
+            }
+          ],
+          "ragdollFile": "$GAME_DATA/Character/bikeseat_ragdoll.json",
+          "enterAudio": "Seat seated",
+          "exitAudio": "Seat unseated"
+        },
+        "steering": {
+          "steerAngle": 25.0
+        }
+      },
+      "rotationSet": "PropY",
+      "sticky": "-Y",
+      "physicsMaterial": "Mechanical",
+      "ratings": {
+        "density": 3,
+        "durability": 7,
+        "friction": 5,
+        "buoyancy": 2
+      },
+      "flammable": false
+    }
+  ]
+}

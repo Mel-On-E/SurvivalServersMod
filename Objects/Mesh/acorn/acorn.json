@@ -1,0 +1,38 @@
+{
+			"uuid": "9c19cf5c-94f8-4ce0-8022-41856e453ab1",
+			"name": "acorn",
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/acorn_dif.png",
+									"$GAME_DATA/Textures/transparent.tga",
+									"$MOD_DATA/Objects/Textures/acorn_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/acorn.obj"
+					}
+				]
+			},
+			"color": "ffffff",
+			"cylinder": {
+				"diameter": 1,
+				"depth": 1,
+				"margin": 0.1,
+				"axis": "Y"
+			},
+			"rotationSet": "PropY",
+			"sticky": "-Y",
+			"physicsMaterial": "Wood",
+			"ratings": {
+				"density": 2,
+				"durability": 1,
+				"friction": 5,
+				"buoyancy": 5
+			},
+			"flammable": false
+		}
