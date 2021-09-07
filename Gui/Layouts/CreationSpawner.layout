@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MyGUI type="Layout" version="3.2.0">
+    <Widget type="Widget" skin="BackgroundInteractableWide" position_real="0 0 0.364583 0.4" name="BackPanel">
+        <Widget type="TextBox" skin="TextBox" position_real="0 0.0869565 1 0.106087" align="HStretch Top" name="GuiTitle">
+            <Property key="Caption" value="#ffff00C R E A T I O N   S P A W N E R"/>
+            <Property key="TextAlign" value="Center"/>
+            <Property key="FontName" value="SM_HeaderLarge_Medium"/>
+            <Property key="TextShadow" value="true"/>
+        </Widget>
+        <Widget type="Widget" skin="BackgroundPopup" position_real="0 0.306087 1.00286 0.693913" align="HStretch Bottom" name="MainPanelBG">
+            <Widget type="Widget" skin="SequenceListBackgroundLocked" position_real="0.0569801 0.100251 0.42735 0.799499" align="Left Bottom" name="PlayerDataBG">
+                <Widget type="TextBox" skin="TextBox" position_real="0.0333333 0.031348 0.933333 0.141066" align="HStretch Top" name="PlayerDataLabel">
+                    <Property key="Caption" value="Blueprint Info"/>
+                    <Property key="FontName" value="SM_ItemTitle"/>
+                    <Property key="TextAlign" value="Center"/>
+                    <Property key="TextShadow" value="true"/>
+                </Widget>
+                <Widget type="TextBox" skin="TextBox" position_real="0.05 0.05 1 1" align="Left VStretch" name="BlueprintInfo">
+                    <Property key="Caption" value="Parts: 69420\nDate: 0069-04-20\nRent: $69420\nInfo: SUS"/>
+                    <Property key="TextAlign" value="Left"/>
+                    <Property key="TextShadow" value="true"/>
+                    <Property key="FontName" value="SM_ItemTitle"/>
+                </Widget>
+            </Widget>
+            <Widget type="Widget" skin="HudBackgroundShadowLarge" position_real="0.51567 0.100251 0.42735 0.799499" align="Right Bottom" name="FunctionsBG">
+                <Widget type="TextBox" skin="TextBox" position_real="0.0333333 0.031348 0.933333 0.141066" align="HStretch Top" name="FunctionsLabel">
+                    <Property key="Caption" value="Actions"/>
+                    <Property key="TextAlign" value="Center"/>
+                    <Property key="TextShadow" value="true"/>
+                    <Property key="FontName" value="SM_ItemTitle"/>
+                </Widget>
+				<Widget type="TextBox" skin="TextBox" position_real="0.0333333 0.23 0.933333 0.15" align="HStretch Top" name="Warning">
+                    <Property key="Caption" value="#ff0000Building creations will\n delete the blueprint!"/>
+                    <Property key="FontName" value="InventoryTabLabel"/>
+                    <Property key="TextAlign" value="Center"/>
+                    <Property key="TextShadow" value="true"/>
+					<Property key="Visible" value="false" />
+                </Widget>
+                <Widget type="Button" skin="PrimaryButton" position_real="0.0333333 0.45 0.933333 0.25" align="HStretch Bottom" name="Preview">
+                    <Property key="Caption" value="Preview Creation"/>
+                    <Property key="FontName" value="SM_ItemTitle"/>
+                    <Property key="TextAlign" value="Center"/>
+                </Widget>
+                <Widget type="Button" skin="DressbotArrowRight" position_real="0.766667 0.75 0.2 0.188088" align="Right Bottom" name="Next"/>
+                <Widget type="Button" skin="DressbotArrowLeft" position_real="0.0333333 0.75 0.2 0.188088" align="Left Bottom" name="Prev"/>
+                <Widget type="TextBox" skin="TextBox" position_real="0.233333 0.75 0.533333 0.188088" align="HStretch Bottom" name="Page">
+                    <Property key="Caption" value="0 / 0"/>
+                    <Property key="FontName" value="SM_ItemTitle"/>
+                    <Property key="TextAlign" value="Center"/>
+                    <Property key="TextShadow" value="true"/>
+                </Widget>
+            </Widget>
+        </Widget>
+    </Widget>
+</MyGUI>
