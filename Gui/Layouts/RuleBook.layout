@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MyGUI type="Layout" version="3.2.0">
+    <Widget type="Widget" skin="BackgroundInteractableWide" position_real="0 0 0.55 0.65" name="BackPanel">
+        <Widget type="TextBox" skin="TextBox" position_real="0 0.03 1 0.106087" align="HStretch Top" name="GuiTitle">
+            <Property key="Caption" value="#ffff00R U L E   B O O K"/>
+            <Property key="TextAlign" value="Center"/>
+            <Property key="FontName" value="SM_HeaderLarge_Medium"/>
+            <Property key="TextShadow" value="true"/>
+        </Widget>
+        <Widget type="Widget" skin="BackgroundPopup" position_real="0 0.15 1.00286 0.85" align="HStretch Bottom" name="MainPanelBG">
+            <Widget type="Widget" skin="SequenceListBackgroundLocked" position_real="0.05 0.075 0.90 0.85" align="Left Bottom" name="PlayerDataBG">
+                <Widget type="TextBox" skin="TextBox" position_real="0.0333333 0.031348 0.933333 0.141066" align="HStretch Top" name="PageTitle">
+                    <Property key="Caption" value=""/>
+                    <Property key="FontName" value="ImportCreationName"/>
+                    <Property key="TextAlign" value="Center"/>
+                    <Property key="TextShadow" value="true"/>
+                </Widget>
+                <Widget type="TextBox" skin="TextBox" position_real="0.0333333 0 0.933333 1" align="HStretch VCenter" name="PageText">
+                    <Property key="Caption" value=""/>
+                    <Property key="TextAlign" value="Center"/>
+                    <Property key="TextShadow" value="true"/>
+                    <Property key="FontName" value="X_Hud_Alert"/>
+                </Widget>
+				<Widget type="ImageBox" skin="ImageBox" position_real="0.15 0.2 0.70 0.70" name="RickAstley">
+					<Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/Rick Astley.png" />
+					<Property key="Visible" value="false"/>
+				</Widget>
+				<Widget type="ImageBox" skin="ImageBox" position_real="0.35 0.2525 0.3 0.45" name="Sus">
+					<Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/sus.png" />
+					<Property key="Visible" value="false"/>
+				</Widget>
+				<Widget type="Button" skin="PrimaryButton" position_real="0.25 0.6 0.5 0.15" align="HStretch Bottom" name="AcceptRules">
+                    <Property key="Caption" value="Accept Rules"/>
+                    <Property key="TextShadow" value="false"/>
+                    <Property key="FontName" value="X_Hud_Alert"/>
+                    <Property key="TextAlign" value="Center"/>
+					<Property key="Visible" value="false"/>
+                </Widget>
+				<Widget type="Button" skin="DressbotArrowRight" position_real="0.90 0.8 0.075 0.15" align="Right Bottom" name="Next"/>
+                <Widget type="Button" skin="DressbotArrowLeft" position_real="0.025 0.8 0.075 0.15" align="Left Bottom" name="Prev"/>
+                <Widget type="TextBox" skin="TextBox" position_real="0.233333 0.8 0.533333 0.2" align="HStretch Bottom" name="Page">
+                    <Property key="Caption" value=""/>
+                    <Property key="FontName" value="X_Hud_Alert"/>
+                    <Property key="TextAlign" value="Center"/>
+                    <Property key="TextShadow" value="true"/>
+                </Widget>
+            </Widget>
+        </Widget>
+    </Widget>
+</MyGUI>

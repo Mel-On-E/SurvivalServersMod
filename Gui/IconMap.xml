@@ -74,8 +74,11 @@
             <Index name="9f6316e8-2c31-4d83-996c-d00a9b296c3f">
                 <Frame point="192 384"/>
             </Index>
-            <Index name="9f0f57e8-2c31-4d83-996c-d00a9b296c3f">
+            <Index name="9f6481e8-2c31-4d83-996c-d00a48196c3f">
                 <Frame point="288 384"/>
+            </Index>
+            <Index name="9f0f57e8-2c31-4d83-996c-d00a9b296c3f">
+                <Frame point="384 384"/>
             </Index>
         </Group>
     </Resource>

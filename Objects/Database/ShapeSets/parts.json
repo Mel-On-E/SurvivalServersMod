@@ -1779,6 +1779,50 @@
       },
       "flammable": false,
       "stackSize": 10
+    },
+    {
+      "uuid": "9f6481e8-2c31-4d83-996c-d00a48196c3f",
+      "name": "obj_rulebook",
+      "renderable": {
+        "lodList": [
+          {
+            "mesh": "$GAME_DATA/Character/Char_Tools/Char_handbook/char_handbook.dae",
+            "includes": [ "POSITION", "UV0", "NORMAL", "TANGENTS", "BLEND_INDICES", "BLEND_WEIGHTS" ],
+            "subMeshList": [
+              {
+                "textureList": [
+                  "$GAME_DATA/Character/Char_Tools/Char_handbook/Char_handbook_dif.tga",
+                  "$GAME_DATA/Character/Char_Tools/Char_handbook/Char_handbook_asg.tga",
+                  "$GAME_DATA/Character/Char_Tools/Char_handbook/Char_handbook_nor.tga"
+                ],
+                "color": "ffffff",
+                "material": "DifAsgNor"
+              }
+            ],
+            "maxViewDistance": 1000.0
+          }
+        ]
+      },
+      "color": "00ff00",
+      "box": {
+        "x": 3,
+        "y": 1,
+        "z": 1
+      },
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/RuleBook.lua",
+        "classname": "RuleBook"
+      },
+      "rotationSet": "PropYZ",
+      "physicsMaterial": "Mechanical",
+      "ratings": {
+        "density": 2,
+        "durability": 3,
+        "friction": 5,
+        "buoyancy": 2
+      },
+      "flammable": false,
+      "stackSize": 10
     }
   ]
 }
