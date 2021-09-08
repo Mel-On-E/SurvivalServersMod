@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MyGUI type="Layout" version="3.2.0">
+    <Widget type="Widget" skin="BackgroundInteractableNarrow" position_real="0.286979 0.324074 0.424479 0.349074" name="KeyboardPanel">
+        <Widget type="TextBox" skin="TextBox" position_real="0.0995086 0.05 0.799754 0.0984043" name="Title">
+            <Property key="FontName" value="SM_HeaderLarge_Medium"/>
+            <Property key="Caption" value="Title"/>
+            <Property key="TextAlign" value="Center"/>
+            <Property key="TextShadow" value="true"/>
+        </Widget>
+        <Widget type="EditBox" skin="EditBox_LiftInput" position_real="0.165644 0.19 0.628221 0.162234" name="Textbox">
+            <Property key="MultiLine" value="false"/>
+            <Property key="TextAlign" value="Center"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="ReadOnly" value="true"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.110429 0.371353 0.0453988 0.0928382" name="1">
+            <Property key="Caption" value="1"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.165644 0.371353 0.0453988 0.0928382" name="2">
+            <Property key="Caption" value="2"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.220859 0.371353 0.0453988 0.0928382" name="3">
+            <Property key="Caption" value="3"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.276074 0.371353 0.0453988 0.0928382" name="4">
+            <Property key="Caption" value="4"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.331288 0.371353 0.0453988 0.0928382" name="5">
+            <Property key="Caption" value="5"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.386503 0.371353 0.0453988 0.0928382" name="6">
+            <Property key="Caption" value="6"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.441718 0.371353 0.0453988 0.0928382" name="7">
+            <Property key="Caption" value="7"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.496933 0.371353 0.0453988 0.0928382" name="8">
+            <Property key="Caption" value="8"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.552147 0.371353 0.0453988 0.0928382" name="9">
+            <Property key="Caption" value="9"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.607362 0.371353 0.0453988 0.0928382" name="10">
+            <Property key="Caption" value="10"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.662577 0.371353 0.0453988 0.0928382" name="11">
+            <Property key="Caption" value="11"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.717791 0.371353 0.0453988 0.0928382" name="12">
+            <Property key="Caption" value="12"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.773006 0.371353 0.0453988 0.0928382" name="13">
+            <Property key="Caption" value="13"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.184049 0.477454 0.0453988 0.0928382" name="14">
+            <Property key="Caption" value="14"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.239264 0.477454 0.0453988 0.0928382" name="15">
+            <Property key="Caption" value="15"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.294479 0.477454 0.0453988 0.0928382" name="16">
+            <Property key="Caption" value="16"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.349693 0.477454 0.0453988 0.0928382" name="17">
+            <Property key="Caption" value="17"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.404908 0.477454 0.0453988 0.0928382" name="18">
+            <Property key="Caption" value="18"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.460123 0.477454 0.0453988 0.0928382" name="19">
+            <Property key="Caption" value="19"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.515337 0.477454 0.0453988 0.0928382" name="20">
+            <Property key="Caption" value="20"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.570552 0.477454 0.0453988 0.0928382" name="21">
+            <Property key="Caption" value="21"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.625767 0.477454 0.0453988 0.0928382" name="22">
+            <Property key="Caption" value="22"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.680982 0.477454 0.0453988 0.0928382" name="23">
+            <Property key="Caption" value="23"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.736196 0.477454 0.0453988 0.0928382" name="24">
+            <Property key="Caption" value="24"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.791411 0.477454 0.0453988 0.0928382" name="25">
+            <Property key="Caption" value="25"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.202454 0.583554 0.0453988 0.0928382" name="26">
+            <Property key="Caption" value="26"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.257669 0.583554 0.0453988 0.0928382" name="27">
+            <Property key="Caption" value="27"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.312883 0.583554 0.0453988 0.0928382" name="28">
+            <Property key="Caption" value="28"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.368098 0.583554 0.0453988 0.0928382" name="29">
+            <Property key="Caption" value="29"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.423313 0.583554 0.0453988 0.0928382" name="30">
+            <Property key="Caption" value="30"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.478528 0.583554 0.0453988 0.0928382" name="31">
+            <Property key="Caption" value="31"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.533742 0.583554 0.0453988 0.0928382" name="32">
+            <Property key="Caption" value="32"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.588957 0.583554 0.0453988 0.0928382" name="33">
+            <Property key="Caption" value="33"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.644172 0.583554 0.0453988 0.0928382" name="34">
+            <Property key="Caption" value="34"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.699386 0.583554 0.0453988 0.0928382" name="35">
+            <Property key="Caption" value="35"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.754601 0.583554 0.0453988 0.0928382" name="36">
+            <Property key="Caption" value="36"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.809816 0.583554 0.0453988 0.0928382" name="37">
+            <Property key="Caption" value="37"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.165644 0.689655 0.0453988 0.0928382" name="38">
+            <Property key="Caption" value="38"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.220859 0.689655 0.0453988 0.0928382" name="39">
+            <Property key="Caption" value="39"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.276074 0.689655 0.0453988 0.0928382" name="40">
+            <Property key="Caption" value="40"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.331288 0.689655 0.0453988 0.0928382" name="41">
+            <Property key="Caption" value="41"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.386503 0.689655 0.0453988 0.0928382" name="42">
+            <Property key="Caption" value="42"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.441718 0.689655 0.0453988 0.0928382" name="43">
+            <Property key="Caption" value="43"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.496933 0.689655 0.0453988 0.0928382" name="44">
+            <Property key="Caption" value="44"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.552147 0.689655 0.0453988 0.0928382" name="45">
+            <Property key="Caption" value="45"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.607362 0.689655 0.0453988 0.0928382" name="46">
+            <Property key="Caption" value="46"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.662577 0.689655 0.0453988 0.0928382" name="47">
+            <Property key="Caption" value="47"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.717791 0.689655 0.0453988 0.0928382" name="48">
+            <Property key="Caption" value="48"/>
+            <Property key="FontName" value="ButtonCaptionSmall"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.803681 0.225464 0.0453988 0.0928382" name="Confirm">
+            <Property key="FontName" value="InterMedium24"/>
+            <Property key="TextAlign" value="Center"/>
+            <Property key="Caption" value="✓"/>
+            <Property key="TextColour" value="0 1 0"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.858896 0.225464 0.0453988 0.0928382" name="Cancel">
+            <Property key="Caption" value="✗"/>
+            <Property key="FontName" value="InterMedium24"/>
+            <Property key="TextAlign" value="Center"/>
+            <Property key="TextColour" value="1 0 0"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.828221 0.371353 0.0809816 0.0928382" name="Backspace">
+            <Property key="Caption" value="←"/>
+            <Property key="FontName" value="InterMedium24"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.0858896 0.689655 0.0687117 0.0928382" name="Shift">
+            <Property key="Caption" value="⇪"/>
+            <Property key="FontName" value="InterMedium24"/>
+            <Property key="TextAlign" value="Center"/>
+        </Widget>
+        <Widget type="Button" skin="SecondaryButton" position_real="0.300613 0.795756 0.353374 0.0928382" name="Space">
+            <Property key="FontName" value="InterMedium24"/>
+            <Property key="TextAlign" value="Center"/>
+            <Property key="Caption" value="―"/>
+        </Widget>
+    </Widget>
+</MyGUI>
