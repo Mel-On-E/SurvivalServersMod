@@ -72889,6 +72889,111 @@
 					"shapeId" : "a6c6ce30-dd47-4587-b475-085d55c6a3b4",
 					"xaxis" : 1.0,
 					"zaxis" : 3.0
+				},
+				
+				{
+					"color" : "375c0b",
+					"controller" : 
+					{
+						"data" : "8BZMVUEAAAABBQAAAAkCAAAAAgByZW50BwGnBAAAAAVjb2lucwgADAAQDBgA0EZyYWN0aW9uAz2WxscWAJEFcGFydHMHDv4NAGFidWlsZAJHAICAcmFuZ2UIHhgAUAR0ZXh0CQCQCEFtb2d1czY5DQDwCApvbmxpbmVPbmx5AoIAAAABgHB2cAIA",
+						"id" : 1511.0
+					},
+					"pos" : 
+					{
+						"x" : 64.0,
+						"y" : 0.0,
+						"z" : 5.0
+					},
+					"shapeId" : "f8e28a14-dd70-4e7f-bb16-01723f0e0fab",
+					"xaxis" : 1.0,
+					"zaxis" : -2.0
+				},
+				
+				{
+					"color" : "ffd700",
+					"controller" : 
+					{
+						"containers" : 
+						[
+							
+							{
+								"container" : 
+								[
+									
+									{
+										"quantity" : 2.0,
+										"uuid" : "9f0f57e8-2c31-4d83-996c-d00a9b296c3f"
+									},
+									
+									{
+										"quantity" : 0.0,
+										"uuid" : "00000000-0000-0000-0000-000000000000"
+									},
+									
+									{
+										"quantity" : 0.0,
+										"uuid" : "00000000-0000-0000-0000-000000000000"
+									},
+									
+									{
+										"quantity" : 0.0,
+										"uuid" : "00000000-0000-0000-0000-000000000000"
+									},
+									
+									{
+										"quantity" : 0.0,
+										"uuid" : "00000000-0000-0000-0000-000000000000"
+									},
+									
+									{
+										"quantity" : 0.0,
+										"uuid" : "00000000-0000-0000-0000-000000000000"
+									},
+									
+									{
+										"quantity" : 0.0,
+										"uuid" : "00000000-0000-0000-0000-000000000000"
+									},
+									
+									{
+										"quantity" : 0.0,
+										"uuid" : "00000000-0000-0000-0000-000000000000"
+									},
+									
+									{
+										"quantity" : 0.0,
+										"uuid" : "00000000-0000-0000-0000-000000000000"
+									},
+									
+									{
+										"quantity" : 0.0,
+										"uuid" : "00000000-0000-0000-0000-000000000000"
+									}
+								],
+								"filters" : 
+								[
+									
+									{
+										"uuid" : "9f0f57e8-2c31-4d83-996c-d00a9b296c3f"
+									}
+								],
+								"id" : 0.0,
+								"slots" : 10.0,
+								"stackSize" : 1000.0
+							}
+						],
+						"data" : "0ExVQQAAAAEFAAAAAgIFAPACgG93bmVyCAEEAAAABG5hbWUJAPAADkRyIFBpeGVsIFBsYXlz",
+						"id" : 1512.0
+					},
+					"pos" : 
+					{
+						"x" : 58.0,
+						"y" : 0.0,
+						"z" : 8.0
+					},
+					"shapeId" : "056123f1-f030-40df-946a-b830bf494c92",
+					"xaxis" : 1.0,
+					"zaxis" : -3.0
 				}
 			],
 			"type" : 0.0

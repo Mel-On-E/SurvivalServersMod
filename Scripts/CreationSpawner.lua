@@ -196,7 +196,8 @@ function CreationSpawner.client_onFixedUpdate(self)
 	if self.gui then
 		if self.gui:isActive() and self.blueprints then
 			local blueprint = self.blueprints[self.pos]
-			self.gui:setText("BlueprintInfo", "Parts: " .. blueprint.parts .. "\nDate: " .. blueprint.date .. "\nRent: $" .. blueprint.rent .. "\nInfo: " .. blueprint.info)
+			local date = tostring(math.floor((os.time() - blueprint.date)/(24*60*60))) .. " days old"
+			self.gui:setText("BlueprintInfo", "Parts: " .. blueprint.parts .. "\nDate: " .. date .. "\nRent: $" .. blueprint.rent .. "/h\nInfo: " .. blueprint.info)
 			self.gui:setText("Page", self.pos .. " / " .. #self.blueprints)
 			if self.preview and self.pos == self.preview then
 				self.gui:setText("Preview", "Build Creation")

@@ -16,7 +16,7 @@
                     <Property key="TextShadow" value="true"/>
                 </Widget>
                 <Widget type="TextBox" skin="TextBox" position_real="0.05 0.05 1 1" align="Left VStretch" name="BlueprintInfo">
-                    <Property key="Caption" value="Parts: 69420\nDate: 0069-04-20\nRent: $69420\nInfo: SUS"/>
+                    <Property key="Caption" value="Parts: \nDate: \nRent: \nInfo:"/>
                     <Property key="TextAlign" value="Left"/>
                     <Property key="TextShadow" value="true"/>
                     <Property key="FontName" value="SM_ItemTitle"/>

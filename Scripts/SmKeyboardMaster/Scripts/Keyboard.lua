@@ -57,9 +57,9 @@ function Keyboard.new(scriptedShape, title, onConfirmCallback, onCloseCallback)
     instance.scriptedShape = scriptedShape
     instance.buffer = ""
     instance.shift = false
-    instance.gui = sm.gui.createGuiFromLayout("$MOD_DATA/Gui/Keyboard.layout")
+    instance.gui = sm.gui.createGuiFromLayout("$MOD_DATA/Scripts/SmKeyboardMaster/Gui/Keyboard.layout")
     instance.gui:setText("Title", title)
-    instance.layout = sm.json.open("$MOD_DATA/Gui/KeyboardLayouts/default.json")
+    instance.layout = sm.json.open("$MOD_DATA/Scripts/SmKeyboardMaster/Gui/KeyboardLayouts/default.json")
 
     instance.confirm = function (shape, buttonName)
         onConfirmCallback(instance.buffer)

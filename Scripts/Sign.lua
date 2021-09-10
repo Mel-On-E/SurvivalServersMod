@@ -25,7 +25,7 @@ function Sign.server_setText( self, text, player)
 	end
 end
 
-function Sign.client_onUpdate(self, dt)
+function Sign.client_onFixedUpdate(self, dt)
 	if self.gui then
 		self.gui:setWorldPosition( self.shape.worldPosition + self.shape.up*0.05)
 	end

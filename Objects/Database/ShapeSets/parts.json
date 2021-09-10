@@ -698,7 +698,7 @@
     },
     {
       "uuid": "056123f1-f030-40df-946a-b830bf494c92",
-      "name": "obj_container_coin",
+      "name": "obj_cointainer",
       "renderable": {
         "lodList": [
           {
@@ -1865,6 +1865,125 @@
         "buoyancy": 2
       },
       "flammable": false
+    },
+    {
+      "uuid": "f8e28a14-dd70-4e7f-bb16-01723f0e0fab",
+      "name": "creation_protector2",
+      "renderable": {
+        "lodList": [
+          {
+            "mesh": "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Mesh/protector_down.fbx",
+            "pose0": "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Mesh/protector_up.fbx",
+            "subMeshList": [
+              {
+                "material": "DifAsgNor",
+                "textureList": [
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/protector_dif.png",
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/protector_asg.png",
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/protector_nor.png"
+                ]
+              },
+              {
+                "material": "PoseAnimDifAsgNor",
+                "textureList": [
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/protector_dif.png",
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/protector_asg.png",
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/protector_nor.png"
+                ]
+              },
+              {
+                "material": "UVAnimDifAsgNor",
+                "textureList": [
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/protector_dif.png",
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/protector_asg.png",
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/protector_nor.png"
+                ],
+                "custom": {
+                  "uv0": {
+                    "u": 0.21484,
+                    "v": 1
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "color": "375C0B",
+      "box": {
+        "x": 3,
+        "y": 2,
+        "z": 1
+      },
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/CreationProtector.lua",
+        "classname": "CreationProtector"
+      },
+      "rotationSet": "PropZ",
+      "sticky": "-Z",
+      "ratings": {
+        "density": 2,
+        "durability": 10,
+        "friction": 10,
+        "buoyancy": 0
+      },
+      "flammable": false,
+      "density": 250.0,
+      "physicsMaterial": "Metal",
+      "qualityLevel": 0,
+      "stackSize": 1
+    },
+    {
+      "uuid": "20872a61-3179-4fd3-aa28-514120d105a4",
+      "name": "player_manager2",
+      "renderable": {
+        "lodList": [
+          {
+            "subMeshList": [
+              {
+                "textureList": [
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/texture_playermanager_Dif.png",
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/texture_playermanager_Asg.png"
+                ],
+                "material": "DifAsg"
+              }
+            ],
+            "mesh": "$MOD_DATA/Objects/Mesh/Player_manager.fbx"
+          }
+        ]
+      },
+      "color": "3a4944",
+      "box": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/PlayerManager.lua",
+        "classname": "PlayerManager"
+      },
+      "ratings": {
+        "density": 1,
+        "durability": 10,
+        "friction": 6,
+        "buoyancy": 0
+      },
+      "flammable": false,
+      "density": 250.0,
+      "rotationSet": "PropZ",
+      "sticky": "-Z",
+      "qualityLevel": 0,
+      "stackSize": 1,
+      "restrictions": {
+        "destructable": false,
+        "erasable": true,
+        "buildable": true,
+        "usable": true,
+        "connectable": true,
+        "liftable": false,
+        "convertibleToDynamic": false,
+        "paintable": true
+      }
     }
   ]
 }

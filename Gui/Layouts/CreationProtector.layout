@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MyGUI type="Layout" version="3.2.0">
+    <Widget type="Widget" skin="BackgroundInteractableWide" position_real="0 0 0.5 0.66667" name="BackPanel">
+        <Widget type="TextBox" skin="TextBox" position_real="0 0.04 1 0.106087" align="HStretch Top" name="GuiTitle">
+            <Property key="Caption" value="#ffff00C R E A T I O N   P R O T E C T O R"/>
+            <Property key="TextAlign" value="Center"/>
+            <Property key="FontName" value="SM_HeaderLarge_Medium"/>
+            <Property key="TextShadow" value="true"/>
+        </Widget>
+		<Widget type="Button" skin="GenericButton" position_real="0.2 0.15 0.6 0.1" name="ChangeName">
+				<Property key="Caption" value="Name here"/>
+				<Property key="TextAlign" value="Center"/>
+				<Property key="FontName" value="MessageCaptionLarge"/>
+				<Property key="TextShadow" value="true"/>
+		</Widget>
+        <Widget type="Widget" skin="BackgroundPopup" position_real="0 0.306087 1.00286 0.693913" align="HStretch Bottom" name="MainPanelBG">
+            <Widget type="Widget" skin="SequenceListBackgroundLocked" position_real="0.0569801 0.100251 0.42735 0.799499" align="Left Bottom" name="PlayerDataBG">
+                <Widget type="TextBox" skin="TextBox" position_real="0.0333333 0.031348 0.933333 0.141066" align="HStretch Top" name="PlayerDataLabel">
+                    <Property key="Caption" value="Creation Info"/>
+                    <Property key="FontName" value="ImportCreationName"/>
+                    <Property key="TextAlign" value="Center"/>
+                    <Property key="TextShadow" value="true"/>
+                </Widget>
+                <Widget type="TextBox" skin="TextBox" position_real="0.35 0.2 1 0.2" align="Left Top" name="PartCount">
+                    <Property key="Caption" value="Parts: 69420"/>
+                    <Property key="TextAlign" value="Left"/>
+                    <Property key="TextShadow" value="true"/>
+                    <Property key="FontName" value="MessageCaptionLarge"/>
+                </Widget>
+				<Widget type="TextBox" skin="TextBox" position_real="0.35 0.45 1 0.2" align="Left Top" name="Rent">
+                    <Property key="Caption" value="Rent: $420/h"/>
+                    <Property key="TextAlign" value="Left"/>
+                    <Property key="TextShadow" value="true"/>
+                    <Property key="FontName" value="MessageCaptionLarge"/>
+                </Widget>
+				<Widget type="TextBox" skin="TextBox" position_real="0.35 0.7 1 0.2" align="Left Top" name="Coins">
+                    <Property key="Caption" value="Coins: $42069"/>
+                    <Property key="TextAlign" value="Left"/>
+                    <Property key="TextShadow" value="true"/>
+                    <Property key="FontName" value="MessageCaptionLarge"/>
+                </Widget>
+				<Widget type="ImageBox" skin="ImageBox" position_real="0.1 0.2 0.2 0.2" name="Image1">
+					<Property key="ImageTexture" value="$GAME_DATA/Gui/scale.png" />
+				</Widget>
+				<Widget type="ImageBox" skin="ImageBox" position_real="0.1 0.45 0.2 0.2" name="Image2">
+					<Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/WoCoin.png" />
+				</Widget>
+				<Widget type="ImageBox" skin="ImageBox" position_real="0.1 0.7 0.2 0.2" name="Image3">
+					<Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/Cointainer.png" />
+				</Widget>
+            </Widget>
+            <Widget type="Widget" skin="HudBackgroundShadowLarge" position_real="0.51567 0.100251 0.42735 0.799499" align="Right Bottom" name="FunctionsBG">
+                <Widget type="TextBox" skin="TextBox" position_real="0.0333333 0.031348 0.933333 0.141066" align="HStretch Top" name="PlayerDataLabel">
+                    <Property key="Caption" value="Options"/>
+                    <Property key="FontName" value="ImportCreationName"/>
+                    <Property key="TextAlign" value="Center"/>
+                    <Property key="TextShadow" value="true"/>
+                </Widget>
+				<Widget type="Button" skin="PrimaryButton" position_real="0.05 0.15 0.9 0.15" align="HStretch Bottom" name="RentMode">
+                    <Property key="Caption" value="Rent: Online Only"/>
+                    <Property key="TextShadow" value="false"/>
+                    <Property key="FontName" value="SM_ItemTitle"/>
+                    <Property key="TextAlign" value="Center"/>
+                </Widget>
+                <Widget type="Button" skin="PrimaryButton" position_real="0.05 0.35 0.9 0.15" align="HStretch Bottom" name="PVP">
+                    <Property key="Caption" value="PVP: Off"/>
+                    <Property key="FontName" value="SM_ItemTitle"/>
+                    <Property key="TextAlign" value="Center"/>
+                </Widget>
+                <Widget type="Button" skin="PrimaryButton" position_real="0.05 0.4875 0.9 0.15" align="HStretch Bottom" name="Build">
+                    <Property key="Caption" value="Build Mode: Off"/>
+                    <Property key="TextShadow" value="false"/>
+                    <Property key="FontName" value="SM_ItemTitle"/>
+                    <Property key="TextAlign" value="Center"/>
+                </Widget>
+                <Widget type="Button" skin="DressbotArrowRight" position_real="0.8 0.633 0.125 0.125" align="Right Bottom" name="Range+"/>
+                <Widget type="Button" skin="DressbotArrowLeft" position_real="0.075 0.633 0.125 0.125" align="Left Bottom" name="Range-"/>
+                <Widget type="TextBox" skin="TextBox" position_real="0.233333 0.633 0.533333 0.125" align="HStretch Bottom" name="Range">
+                    <Property key="Caption" value="Range: 50"/>
+                    <Property key="FontName" value="SM_ItemTitle"/>
+                    <Property key="TextAlign" value="Center"/>
+                    <Property key="TextShadow" value="true"/>
+                </Widget>
+				<Widget type="Button" skin="StyledButtonLarge" name="Export" position_real="0.05 0.8125 0.9 0.15" align="HStretch Bottom">
+                    <Property key="Caption" value="Export Creation" />
+                    <Property key="FontName" value="SM_ItemTitle" />
+                    <Property key="TextAlign" value="Center" />
+                    <Property key="Enabled" value="true" />
+                </Widget>
+            </Widget>
+        </Widget>
+    </Widget>
+</MyGUI>
