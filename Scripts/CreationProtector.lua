@@ -270,7 +270,7 @@ function CreationProtector:server_export(disconnect, player)
 
 		--export
 		local obj = sm.json.parseJsonString( sm.creation.exportToString( self.shape.body ) )
-		sm.json.save( obj, "$MOD_DATA/Scripts/Blueprints/".. tostring(id) .. "/" .. name ))
+		sm.json.save( obj, "$MOD_DATA/Scripts/Blueprints/".. tostring(id) .. "/" .. name )
 	
 		--add to index
 		local success, data = pcall(sm.json.open, "$MOD_DATA/Scripts/Blueprints/" .. id .. "/index.json")
