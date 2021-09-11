@@ -48,28 +48,14 @@
       "renderable": {
         "lodList": [
           {
-            "minViewSize": 30,
-            "mesh": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_fridge.fbx",
+            "mesh": "$MOD_DATA/Objects/Mesh/ATM.obj",
             "subMeshMap": {
-              "fridge": {
+              "Material": {
                 "material": "DifAsgNor",
                 "textureList": [
-                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_fridge_dif.tga",
-                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_fridge_asg.tga",
-                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_fridge_nor.tga"
-                ]
-              }
-            }
-          },
-          {
-            "mesh": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_fridge_lod1.fbx",
-            "subMeshMap": {
-              "fridge": {
-                "material": "DifAsg",
-                "textureList": [
-                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_fridge_dif.tga",
-                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_fridge_asg.tga",
-                  ""
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/ATM/ATM_dif.tga",
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/ATM/ATM_asg.tga",
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/ATM/ATM_nor.tga"
                 ]
               }
             }
@@ -78,9 +64,9 @@
       },
       "color": "696969",
       "box": {
-        "x": 3,
-        "y": 3,
-        "z": 2
+        "x": 5,
+        "y": 8,
+        "z": 5
       },
       "scripted": {
         "filename": "$MOD_DATA/Scripts/ATM.lua",
