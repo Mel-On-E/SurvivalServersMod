@@ -270,26 +270,23 @@ function CreationProtector:server_export(disconnect, player)
 
 		--export
 		local obj = sm.json.parseJsonString( sm.creation.exportToString( self.shape.body ) )
-		sm.json.save( obj, "$MOD_DATA/Scripts/Blueprints/".. tostring(id) .. "/" .. name )
-		print("export")
+		sm.json.save( obj, "$MOD_DATA/Scripts/Blueprints/".. tostring(id) .. "/" .. name ))
 	
 		--add to index
 		local success, data = pcall(sm.json.open, "$MOD_DATA/Scripts/Blueprints/" .. id .. "/index.json")
-		if success and type(data) == "table" then
+		if success and type(data) == "table" and data.blueprints then
 			if data.blueprints then
 				data.blueprints[#data.blueprints + 1] = { date = os.time(), file = name, info = self.sv.saved.text, parts = self.sv.saved.parts, rent = self.sv.saved.rent}
 			end
 		else
 			data = {}
 			data.blueprints = {}
-			data.blueprints[1] = { date = os.time(), file = name, info = self.sv.saved.text, parts = self.sv.saved.parts, rent = self.sv.saved.parts}
+			data.blueprints[1] = { date = os.time(), file = name, info = self.sv.saved.text, parts = self.sv.saved.parts, rent = self.sv.saved.rent}
 		end
 		
-		print("index")
 		
 		sm.json.save( {blueprints = data.blueprints}, "$MOD_DATA/Scripts/Blueprints/" .. id .. "/index.json" )
 		
-		print("new index")
 	
 		--delete
 		for k, shape in ipairs(self.shape.body:getCreationShapes()) do

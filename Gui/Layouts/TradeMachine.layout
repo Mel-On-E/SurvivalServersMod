@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MyGUI type="Layout" version="3.2.0">
+    <Widget type="Widget" skin="BackgroundInteractableWide" position_real="0 0 0.364583 0.532407" name="BackPanel">
+        <Widget type="TextBox" skin="TextBox" position_real="0 0.0869565 1 0.106087" align="HStretch Top" name="GuiTitle">
+            <Property key="Caption" value="#ffff00T R A D E   M A C H I N E"/>
+            <Property key="TextAlign" value="Center"/>
+            <Property key="FontName" value="SM_HeaderLarge_Medium"/>
+            <Property key="TextShadow" value="true"/>
+        </Widget>
+        <Widget type="Widget" skin="BackgroundPopup" position_real="0 0.306087 1.00286 0.693913" align="HStretch Bottom" name="MainPanelBG">
+            <Widget type="Widget" skin="SequenceListBackgroundLocked" position_real="0.0569801 0.100251 0.42735 0.799499" align="Left Bottom" name="PlayerDataBG">
+                <Widget type="TextBox" skin="TextBox" position_real="0.0333333 0.031348 0.933333 0.141066" align="HStretch Top" name="PlayerDataLabel">
+                    <Property key="Caption" value="Offer"/>
+                    <Property key="FontName" value="SM_ItemTitle"/>
+                    <Property key="TextAlign" value="Center"/>
+                    <Property key="TextShadow" value="true"/>
+                </Widget>
+				<Widget type="TextBox" skin="TextBox"position_real="0.0333333 0.7 0.933333 0.188088" align="HStretch Top" name="Sales">
+                    <Property key="Caption" value=""/>
+                    <Property key="FontName" value="SM_ItemTitle"/>
+                    <Property key="TextAlign" value="Center"/>
+                    <Property key="TextShadow" value="true"/>
+                </Widget>
+                <Widget type="Button" skin="PrimaryButton" position_real="0.0333333 0.475 0.933333 0.188088" align="HStretch Bottom" name="Price">
+                    <Property key="Caption" value=""/>
+                    <Property key="TextShadow" value="false"/>
+                    <Property key="FontName" value="SM_ItemTitle"/>
+                    <Property key="TextAlign" value="Center"/>
+                </Widget>
+				<Widget type="Button" skin="PrimaryButton" position_real="0.0333333 0.25 0.933333 0.188088" align="HStretch Bottom" name="Offer">
+                    <Property key="Caption" value=""/>
+                    <Property key="TextShadow" value="false"/>
+                    <Property key="FontName" value="SM_ItemTitle"/>
+                    <Property key="TextAlign" value="Center"/>
+                </Widget>
+            </Widget>
+            <Widget type="Widget" skin="HudBackgroundShadowLarge" position_real="0.51567 0.100251 0.42735 0.799499" align="Right Bottom" name="FunctionsBG">
+                <Widget type="TextBox" skin="TextBox" position_real="0.0333333 0.031348 0.933333 0.141066" align="HStretch Top" name="FunctionsLabel">
+                    <Property key="Caption" value="Manage"/>
+                    <Property key="TextAlign" value="Center"/>
+                    <Property key="TextShadow" value="true"/>
+                    <Property key="FontName" value="SM_ItemTitle"/>
+                </Widget>
+                <Widget type="Button" skin="PrimaryButton" position_real="0.0333333 0.475 0.933333 0.188088" align="HStretch Bottom" name="Restock">
+                    <Property key="Caption" value="Restock"/>
+                    <Property key="TextShadow" value="false"/>
+                    <Property key="FontName" value="SM_ItemTitle"/>
+                    <Property key="TextAlign" value="Center"/>
+					<Property key="Visible" value="false"/>
+                </Widget>
+				<Widget type="Button" skin="PrimaryButton" position_real="0.0333333 0.25 0.933333 0.188088" align="HStretch Bottom" name="Profits">
+                    <Property key="Caption" value="Profits"/>
+                    <Property key="TextShadow" value="false"/>
+                    <Property key="FontName" value="SM_ItemTitle"/>
+                    <Property key="TextAlign" value="Center"/>
+					<Property key="Visible" value="false"/>
+                </Widget>
+				<Widget type="Button" skin="StyledButtonLarge" position_real="0.0333333 0.375 0.933333 0.188088" align="HStretch Bottom" name="Buy">
+                    <Property key="Caption" value="Buy"/>
+                    <Property key="TextShadow" value="false"/>
+                    <Property key="FontName" value="SM_ItemTitle"/>
+                    <Property key="TextAlign" value="Center"/>
+					<Property key="Visible" value="false"/>
+                </Widget>
+				<Widget type="Button" skin="DressbotArrowRight" position_real="0.8 0.65 0.125 0.125" align="Right Bottom" name="QuantityUp">
+					<Property key="Visible" value="false"/>
+				</Widget>
+                <Widget type="Button" skin="DressbotArrowLeft" position_real="0.075 0.65 0.125 0.125" align="Left Bottom" name="QuantityDown">
+					<Property key="Visible" value="false"/>
+				</Widget>
+                <Widget type="TextBox" skin="TextBox" position_real="0.233333 0.65 0.53333 0.125" align="HStretch Bottom" name="Quantity">
+                    <Property key="Caption" value=""/>
+                    <Property key="FontName" value="SM_ItemTitle"/>
+                    <Property key="TextAlign" value="Center"/>
+                    <Property key="TextShadow" value="true"/>
+					<Property key="Visible" value="false"/>
+                </Widget>
+            </Widget>
+        </Widget>
+    </Widget>
+</MyGUI>
