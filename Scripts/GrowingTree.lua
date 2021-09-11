@@ -1,7 +1,7 @@
 GrowingTree = class()
 
 function GrowingTree.server_onCreate(self)
-	self.growTick = sm.game.getCurrentTick() + math.random(2400,144000)
+	self.growTick = sm.game.getCurrentTick() + math.random(2400,144000) --Debug
 	self:server_init()
 end
 
@@ -57,5 +57,27 @@ function PineGrowingTree.server_init(self)
 		self.tree = sm.uuid.new("1cb503a4-9306-412f-9e13-371bc634af60")
 	elseif i == 3 then
 		self.tree = sm.uuid.new("fa864e51-67db-4ac9-823b-cfbdf523375d")
+	end
+end
+
+EmberGrowingTree = class( GrowingTree )
+function EmberGrowingTree.server_init(self)
+	local i = math.random(1,8)
+	if i == 1 then
+		self.tree = sm.uuid.new("9ef210c0-ea30-4442-a1fe-924b5609b0cc")
+	elseif i == 2 then
+		self.tree = sm.uuid.new("2bae67d4-c8ef-4c6e-a1a7-42281d0b7489")
+	elseif i == 3 then
+		self.tree = sm.uuid.new("8f7a8108-2712-47b3-bce2-f25315165094")
+	elseif i == 4 then
+		self.tree = sm.uuid.new("515aed88-0594-42b6-a352-617e5f5a3e45")
+	elseif i == 5 then
+		self.tree = sm.uuid.new("2d5aa53d-eb9c-478c-a70f-c57a43753814")
+	elseif i == 6 then
+		self.tree = sm.uuid.new("c08b553a-a917-4e26-bbb6-7b8523789cad")
+	elseif i == 7 then
+		self.tree = sm.uuid.new("d3fcfc06-a6b6-4598-99b1-9a6445b976b3")
+	elseif i == 8 then
+		self.tree = sm.uuid.new("b5f90719-fbca-4c59-89c3-187cdb5553d4")
 	end
 end

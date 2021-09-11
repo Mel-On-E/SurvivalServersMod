@@ -35,7 +35,7 @@ function RuleBook.client_onCreate(self)
 	end
 end
 
-function CreationSpawner.client_onClientDataUpdate( self, params )
+function RuleBook.client_onClientDataUpdate( self, params )
 	self.g_rules = params.rules
 end
 

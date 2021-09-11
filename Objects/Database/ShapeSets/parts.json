@@ -297,6 +297,103 @@
       }
     },
     {
+      "uuid": "555c2b9f-98a9-44e4-9cb8-d4ec7e95b40f",
+      "name": "obj_embertree_sapling",
+      "renderable": {
+        "lodList": [
+          {
+            "minViewSize": 12,
+            "subMeshList": [
+              {
+                "textureList": [
+                  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_dif.tga",
+                  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_asg.tga",
+                  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_nor.tga"
+                ],
+                "material": "DifAsgNor"
+              }
+            ],
+            "mesh": "$GAME_DATA/Objects/Mesh/decor/obj_decor_babyduck.fbx"
+          },
+          {
+            "subMeshList": [
+              {
+                "textureList": [
+                  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_dif.tga",
+                  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_asg.tga",
+                  ""
+                ],
+                "material": "DifAsg"
+              }
+            ],
+            "mesh": "$GAME_DATA/Objects/Mesh/decor/obj_decor_babyduck_lod1.fbx"
+          }
+        ]
+      },
+      "color": "ff8000",
+      "cylinder": {
+        "diameter": 1,
+        "depth": 1,
+        "margin": 0.1,
+        "axis": "Y"
+      },
+      "rotationSet": "PropY",
+      "sticky": "-Y",
+      "physicsMaterial": "Wood",
+      "ratings": {
+        "density": 2,
+        "durability": 4,
+        "friction": 5,
+        "buoyancy": 8
+      },
+      "flammable": true,
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/Sapling.lua",
+        "classname": "EmberSapling"
+      }
+    },
+    {
+      "uuid": "666c2b9f-98a9-44e4-9cb8-d4ec7e95b40f",
+      "name": "obj_stonetree_sapling",
+      "renderable": {
+        "lodList": [
+          {
+            "subMeshList": [
+              {
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_stonecrate_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_stonecrate_asg.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/containers/obj_containers_stonecrate_nor.tga"
+                ],
+                "material": "DifAsgNorAlpha"
+              }
+            ],
+            "mesh": "$SURVIVAL_DATA/Objects/Mesh/containers/obj_containers_stonecrate.fbx"
+          }
+        ]
+      },
+      "color": "902513",
+      "hull": {
+        "x": 7,
+        "y": 6,
+        "z": 7,
+        "col": "$SURVIVAL_DATA/Objects/Collision/obj_containers_stonecrate.obj"
+      },
+      "rotationSet": "PropY",
+      "physicsMaterial": "Metal",
+      "ratings": {
+        "density": 2,
+        "durability": 1,
+        "friction": 4,
+        "buoyancy": 2
+      },
+      "flammable": false,
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/Sapling.lua",
+        "classname": "StoneSapling"
+      }
+    },
+    {
       "uuid": "111b101c-508b-4630-9f9d-47ef1c834183",
       "name": "obj_birchgrowing_tree",
       "renderable": {
@@ -524,6 +621,66 @@
       "scripted": {
         "filename": "$MOD_DATA/Scripts/GrowingTree.lua",
         "classname": "PineGrowingTree"
+      },
+      "restrictions": {
+        "destructable": false,
+        "erasable": false,
+        "buildable": true,
+        "usable": false,
+        "connectable": false,
+        "liftable": false,
+        "convertibleToDynamic": false,
+        "paintable": false
+      }
+    },
+    {
+      "uuid": "555b101c-508b-4630-9f9d-47ef1c834183",
+      "name": "obj_embergrowing_tree",
+      "renderable": {
+        "lodList": [
+          {
+            "subMeshList": [
+              {
+                "textureList": [
+                  "$GAME_DATA/Objects/Textures/industrial/obj_atlas_generic_dif.tga",
+                  "$GAME_DATA/Objects/Textures/industrial/obj_atlas_generic_asg.tga",
+                  "$GAME_DATA/Objects/Textures/industrial/obj_atlas_generic_nor.tga",
+                  "$GAME_DATA/Objects/Textures/industrial/obj_industrial_cylinder_ao.tga"
+                ],
+                "material": "DifAsgNorAo"
+              }
+            ],
+            "mesh": "$GAME_DATA/Objects/Mesh/industrial/obj_industrial_cylindersmall.fbx",
+            "includes": [
+              "POSITION",
+              "UV0",
+              "UV1",
+              "NORMAL",
+              "TANGENTS"
+            ]
+          }
+        ]
+      },
+      "color": "ff8000",
+      "cylinder": {
+        "diameter": 3,
+        "depth": 4,
+        "margin": 0.5,
+        "axis": "Y"
+      },
+      "rotationSet": "PropY",
+      "sticky": "-Y+Y",
+      "physicsMaterial": "Wood",
+      "ratings": {
+        "density": 2,
+        "durability": 2,
+        "friction": 4,
+        "buoyancy": 6
+      },
+      "flammable": true,
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/GrowingTree.lua",
+        "classname": "EmberGrowingTree"
       },
       "restrictions": {
         "destructable": false,
