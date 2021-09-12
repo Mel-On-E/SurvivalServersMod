@@ -33,6 +33,12 @@ function WASDengine.server_onRefresh( self )
 end
 
 function WASDengine.server_init(self)
+	local container = self.shape.interactable:getContainer( 0 )
+	if not container then
+		container = self.shape:getInteractable():addContainer( 0, 1, 10 )
+	end
+	container:setFilters( { obj_consumable_gas } )
+	
 	self.saved = self.storage:load()
 	if self.saved == nil then
 		self.saved = {}
@@ -224,7 +230,7 @@ function WASDengine.server_onFixedUpdate(self)
 				self.network:sendToClient( parent:getSeatCharacter():getPlayer(), "client_msg", "#ff0000Too fast! Engine exploded!" )
 			end
 			
-			--animations aka particles and sound
+			--animations aka particles and sound (naming skills go brrrr)
 			if parent.power == 1 and self.saved.ws then
 				newAnimations.w = true
 				newAnimations.s = false
@@ -263,6 +269,21 @@ function WASDengine.server_onFixedUpdate(self)
 			newAnimations.engine = false
 		end
 	end
+	
+	--disconnect more than 1 seat or fuel container
+	local seat = false
+	for k,parent in ipairs(self.interactable:getParents()) do
+		if parent:getConnectionOutputType() == 14 then
+			if not seat then
+				seat = true
+			else
+				sm.interactable.disconnect(parent, self.interactable)
+			end
+		elseif not seat and k == 2 then
+			sm.interactable.disconnect(parent, self.interactable)
+		end
+	end
+	
 	--UpdateAnimation
 	if newAnimations.w ~= self.saved.animations.w or newAnimations.a ~= self.saved.animations.a or newAnimations.s ~= self.saved.animations.s or newAnimations.d ~= self.saved.animations.d or newAnimations.engine ~= self.saved.animations.engine then
 		self.network:sendToClients( "client_updateAnimation", newAnimations )
@@ -272,6 +293,11 @@ end
 
 function WASDengine.client_onFixedUpdate(self)
 	self.effect.engine:setParameter("rpm", self.interactable:getBody():getVelocity():length()*0.01)
+
+	local active, direction, externalFuelTank, hasInput = self:getInputs()
+	if self.gui then
+		self.gui:setVisible( "FuelContainer", externalFuelTank ~= nil )
+	end
 end
 
 function WASDengine.client_updateAnimation(self, params)
@@ -372,11 +398,6 @@ function WASDengine.client_initializeGUI(self)
 	
 	self.gui:setText( "UpgradeInfo", "Press UPGRADE for advanced settings" )
 
-	local _, _, externalFuelContainer, _ = self:getInputs()
-	if externalFuelContainer then
-		self.gui:setVisible( "FuelContainer", true )
-	end
-
 	local fuelContainer = self.shape.interactable:getContainer( 0 )
 
 	if not sm.game.getEnableFuelConsumption() then
@@ -384,7 +405,7 @@ function WASDengine.client_initializeGUI(self)
 		self.gui:setVisible( "FuelGrid", false )
 	end
 
-	if fuelContainer then
+	if fuelContainer and sm.game.getEnableFuelConsumption() then
 		self.gui:setContainer( "Fuel", fuelContainer )
 	end
 
