@@ -3,16 +3,23 @@ dofile("$SURVIVAL_DATA/Scripts/game/survival_loot.lua")
 Sapling = class()
 
 function Sapling.server_onCreate(self)
-	self.valid = false
-	local success, result = sm.physics.raycast( self.shape.worldPosition + sm.vec3.new(0,0,0.125), self.shape.worldPosition + sm.vec3.new(0,0,-0.3) )
-	if success and result.type == "terrainSurface" then
-		self.valid = true
-	end
-	if self.shape.at.z ~= 1 then
-		self.valid = false
-	end
-	self.network:setClientData( { valid = self.valid } )
+	valid, treePos = Sapling.check_ground(self)
+	self.network:setClientData( { valid = valid } )
 	self:server_init()
+end
+
+function Sapling.check_ground(self)
+	local valid = false
+	local treePos = sm.vec3.zero()
+	local raycast_start = self.shape.worldPosition + sm.vec3.new(0,0,0.125)
+	local raycast_end = self.shape.worldPosition + sm.vec3.new(0,0,-0.3)
+	local body = sm.shape.getBody(self.shape)
+	local success, result = sm.physics.raycast( raycast_start, raycast_end, body)
+	if success and result.type == "terrainSurface" then
+		valid = true
+		treePos = result.pointWorld
+	end
+	return valid, treePos
 end
 
 function Sapling.client_onClientDataUpdate( self, params )
@@ -29,7 +36,24 @@ function Sapling.client_canInteract(self)
 end
 
 function Sapling.server_onProjectile( self, hitPos, hitTime, hitVelocity, projectileName, attacker, damage )
-	if self.valid and projectileName == "water" then
+	local valid = false
+	local burnt = false
+	
+	if projectileName == "chemical" then 
+		burnt = true
+		valid = true
+	end
+	if projectileName == "water" then 
+		valid = true 
+	end
+	
+	if self.planted then valid = false end
+	
+	if not valid then return end
+	
+	local treePos
+	valid, treePos = Sapling.check_ground(self)
+	if valid then
 		--local lootList = {}
 		--lootList[1] = { uuid = sm.uuid.new("9f0f57e8-2c31-4d83-996c-d00a9b296c3f"), quantity = 1 }
 		--SpawnLoot( self.shape, lootList, self.shape.worldPosition + sm.vec3.new( 0, 0, 1.0 ) )
@@ -50,37 +74,45 @@ function Sapling.server_onProjectile( self, hitPos, hitTime, hitVelocity, projec
 			end
 		end
 		
+		sm.effect.playEffect("Cotton - Picked", treePos + sm.vec3.new(0, 0, -0.5))
+		sm.effect.playEffect("Tree - LogAppear", treePos)
 		
-		local offset = self.shape.xAxis*0.375
-		if offset.x == 0 then
-			offset.x = offset.y
-		end
-		if offset.y == 0 then
-			offset.y = -offset.x
-		end
-		sm.shape.createPart(self.tree, self.shape.worldPosition - sm.vec3.new( 0, 0, 0.25 ) - offset, self.shape.worldRotation, false, true)
-		self.valid = false
+		local offset = sm.vec3.new(0.375, -0.375, 0)	
+		
+		if not burnt then sm.shape.createPart(self.tree, treePos - offset, sm.quat.new(0.707, 0, 0, 0.707), false, true)
+		else sm.shape.createPart(self.burnt_tree, treePos - offset, sm.quat.new(0.707, 0, 0, 0.707), false, true) end
+		
+		self.planted = true
 		self.shape:destroyPart(0)
 	end
 end
 
+function Sapling.server_init(self)
+	self.tree = sm.uuid.new("222b101c-508b-4630-9f9d-47ef1c834183")
+	self.burnt_tree = sm.uuid.new("555b101c-508b-4630-9f9d-47ef1c834183")
+end
+
 BirchSapling = class( Sapling )
 function BirchSapling.server_init(self)
+	Sapling.server_init(self)
 	self.tree = sm.uuid.new("111b101c-508b-4630-9f9d-47ef1c834183")
 end
 
 LeafySapling = class( Sapling )
 function LeafySapling.server_init(self)
+	Sapling.server_init(self)
 	self.tree = sm.uuid.new("222b101c-508b-4630-9f9d-47ef1c834183")
 end
 
 SpruceSapling = class( Sapling )
 function SpruceSapling.server_init(self)
+	Sapling.server_init(self)
 	self.tree = sm.uuid.new("333b101c-508b-4630-9f9d-47ef1c834183")
 end
 
 PineSapling = class( Sapling )
 function PineSapling.server_init(self)
+	Sapling.server_init(self)
 	self.tree = sm.uuid.new("444b101c-508b-4630-9f9d-47ef1c834183")
 end
 
@@ -180,4 +212,17 @@ function StoneSapling.server_onProjectile( self, hitPos, hitTime, hitVelocity, p
 	return
 end
 
---birch, leafy, spruce, pine
+--[[
+function Sapling.server_onSledgehammer( self, position, player ) 
+	sm.effect.playEffect("Farmbot - Destroyed", self.shape.worldPosition)
+	self.network:sendToClient(player, "client_msg", { msg = "#ff0000TeamTrees will find you."})
+	
+	sm.effect.playEffect("Tree - DefaultHit", self.shape.worldPosition)
+	sm.effect.playEffect("Tree - LogAppear", self.shape.worldPosition)
+	self.shape:destroyPart(0)
+end
+
+function Sapling.client_msg(self, params)
+	sm.gui.displayAlertText(params.msg)
+end
+--]]
