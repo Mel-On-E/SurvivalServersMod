@@ -1267,6 +1267,122 @@
       "stackSize": 10
     },
     {
+      "uuid": "7cf717d7-d167-4f2d-a6e7-6b2c70431286",
+      "name": "obj_interactive_paidswitch",
+      "renderable": {
+        "lodList": [
+          {
+            "minViewSize": 7,
+            "mesh": "$GAME_DATA/Objects/Mesh/interactive/obj_interactive_switch_off.fbx",
+            "pose0": "$GAME_DATA/Objects/Mesh/interactive/obj_interactive_switch_on.fbx",
+            "subMeshMap": {
+              "Switch": {
+                "material": "PoseAnimDifAsgNor",
+                "textureList": [
+                  "$GAME_DATA/Objects/Textures/interactive/obj_interactive_switchbutton_dif.tga",
+                  "$GAME_DATA/Objects/Textures/interactive/obj_interactive_switchbutton_asg.tga",
+                  "$GAME_DATA/Objects/Textures/interactive/obj_interactive_switchbutton_nor.tga"
+                ]
+              }
+            }
+          },
+          {
+            "mesh": "$GAME_DATA/Objects/Mesh/interactive/obj_interactive_switch_lod1.fbx",
+            "subMeshMap": {
+              "Switch": {
+                "material": "DifAsg",
+                "textureList": [
+                  "$GAME_DATA/Objects/Textures/interactive/obj_interactive_switchbutton_dif.tga",
+                  "$GAME_DATA/Objects/Textures/interactive/obj_interactive_switchbutton_asg.tga",
+                  ""
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "color": "00ff00",
+      "hull": {
+        "x": 1,
+        "y": 1,
+        "z": 1,
+        "col": "$GAME_DATA/Objects/Collision/obj_interactive_switch.obj"
+      },
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/Trigger.lua",
+        "classname": "PaidSwitchTrigger"
+      },
+      "rotationSet": "PropY",
+      "sticky": "-Y",
+      "physicsMaterial": "Mechanical",
+      "ratings": {
+        "density": 2,
+        "durability": 3,
+        "friction": 5,
+        "buoyancy": 2
+      },
+      "flammable": true,
+      "stackSize": 10
+    },
+    {
+      "uuid": "1e4993a4-506b-470d-9ada-9c0a32319db5",
+      "name": "obj_interactive_paidbutton",
+      "renderable": {
+        "lodList": [
+          {
+            "minViewSize": 11,
+            "mesh": "$GAME_DATA/Objects/Mesh/interactive/obj_interactive_button_off.fbx",
+            "pose0": "$GAME_DATA/Objects/Mesh/interactive/obj_interactive_button_on.fbx",
+            "subMeshMap": {
+              "button": {
+                "material": "PoseAnimDifAsgNor",
+                "textureList": [
+                  "$GAME_DATA/Objects/Textures/interactive/obj_interactive_switchbutton_dif.tga",
+                  "$GAME_DATA/Objects/Textures/interactive/obj_interactive_switchbutton_asg.tga",
+                  "$GAME_DATA/Objects/Textures/interactive/obj_interactive_switchbutton_nor.tga"
+                ]
+              }
+            }
+          },
+          {
+            "mesh": "$GAME_DATA/Objects/Mesh/interactive/obj_interactive_button_lod1.fbx",
+            "subMeshMap": {
+              "button": {
+                "material": "DifAsg",
+                "textureList": [
+                  "$GAME_DATA/Objects/Textures/interactive/obj_interactive_switchbutton_dif.tga",
+                  "$GAME_DATA/Objects/Textures/interactive/obj_interactive_switchbutton_asg.tga",
+                  ""
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "color": "00ff00",
+      "hull": {
+        "x": 1,
+        "y": 1,
+        "z": 1,
+        "col": "$GAME_DATA/Objects/Collision/obj_interactive_button.obj"
+      },
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/Trigger.lua",
+        "classname": "PaidButtonTrigger"
+      },
+      "rotationSet": "PropY",
+      "sticky": "-Y",
+      "physicsMaterial": "Mechanical",
+      "ratings": {
+        "density": 2,
+        "durability": 3,
+        "friction": 5,
+        "buoyancy": 2
+      },
+      "flammable": true,
+      "stackSize": 10
+    },
+    {
       "uuid": "ffa3a47e-fc0d-4977-802f-bd19613bbe5c",
       "name": "obj_interactive_protecteddriverseat",
       "renderable": {
@@ -2202,6 +2318,377 @@
         "buoyancy": 6
       },
       "flammable": false
+    },
+    {
+      "uuid": "69696969-9340-46d9-83d6-69d7c68ad950",
+      "name": "wasd_magic_engine1",
+      "renderable": {
+        "lodList": [
+          {
+            "subMeshList": [
+              {
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_gasengine_01_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_gasengine_01_asg.tga",
+                  "$GAME_DATA/Textures/nonor_nor.tga"
+                ],
+                "material": "DifAsgNor"
+              }
+            ],
+            "mesh": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_gasengine_01_on.fbx"
+          }
+        ]
+      },
+      "color": "00ffff",
+      "box": {
+        "x": 2,
+        "y": 2,
+        "z": 2
+      },
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/WASDengine.lua",
+        "classname": "WASDengine"
+      },
+      "rotationSet": "PropY",
+      "sticky": "-Y-Z+Z+X-X",
+      "physicsMaterial": "Mechanical",
+      "ratings": {
+        "density": 2,
+        "durability": 9,
+        "friction": 5,
+        "buoyancy": 2
+      },
+      "flammable": false
+    },
+    {
+      "uuid": "69696969-9340-46d9-83d6-89d7c68a6950",
+      "name": "wasd_magic_engine2",
+      "renderable": {
+        "lodList": [
+          {
+            "subMeshList": [
+              {
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_gasengine_02_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_gasengine_02_asg.tga",
+                  "$GAME_DATA/Textures/nonor_nor.tga"
+                ],
+                "material": "DifAsgNor"
+              }
+            ],
+            "mesh": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_gasengine_02_on.fbx"
+          }
+        ]
+      },
+      "color": "00ffff",
+      "box": {
+        "x": 2,
+        "y": 2,
+        "z": 2
+      },
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/WASDengine.lua",
+        "classname": "WASDengine"
+      },
+      "rotationSet": "PropY",
+      "sticky": "-Y-Z+Z+X-X",
+      "physicsMaterial": "Mechanical",
+      "ratings": {
+        "density": 2,
+        "durability": 9,
+        "friction": 5,
+        "buoyancy": 2
+      },
+      "flammable": false
+    },
+    {
+      "uuid": "69696969-9340-46d9-83d6-89d7c69ad950",
+      "name": "wasd_magic_engine3",
+      "renderable": {
+        "lodList": [
+          {
+            "subMeshList": [
+              {
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_gasengine_03_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_gasengine_03_asg.tga",
+                  "$GAME_DATA/Textures/nonor_nor.tga"
+                ],
+                "material": "DifAsgNor"
+              }
+            ],
+            "mesh": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_gasengine_03_on.fbx"
+          }
+        ]
+      },
+      "color": "00ffff",
+      "box": {
+        "x": 2,
+        "y": 2,
+        "z": 2
+      },
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/WASDengine.lua",
+        "classname": "WASDengine"
+      },
+      "rotationSet": "PropY",
+      "sticky": "-Y-Z+Z+X-X",
+      "physicsMaterial": "Mechanical",
+      "ratings": {
+        "density": 2,
+        "durability": 9,
+        "friction": 5,
+        "buoyancy": 2
+      },
+      "flammable": false
+    },
+    {
+      "uuid": "69696969-9340-46d9-83d6-89d6968ad950",
+      "name": "wasd_magic_engine4",
+      "renderable": {
+        "lodList": [
+          {
+            "subMeshList": [
+              {
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_gasengine_04_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_gasengine_04_asg.tga",
+                  "$GAME_DATA/Textures/nonor_nor.tga"
+                ],
+                "material": "DifAsgNor"
+              }
+            ],
+            "mesh": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_gasengine_04_on.fbx"
+          }
+        ]
+      },
+      "color": "00ffff",
+      "box": {
+        "x": 2,
+        "y": 2,
+        "z": 2
+      },
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/WASDengine.lua",
+        "classname": "WASDengine"
+      },
+      "rotationSet": "PropY",
+      "sticky": "-Y-Z+Z+X-X",
+      "physicsMaterial": "Mechanical",
+      "ratings": {
+        "density": 2,
+        "durability": 9,
+        "friction": 5,
+        "buoyancy": 2
+      },
+      "flammable": false
+    },
+    {
+      "uuid": "69696969-9340-46d9-83d6-89d7c68ad969",
+      "name": "wasd_magic_engine5",
+      "renderable": {
+        "lodList": [
+          {
+            "subMeshList": [
+              {
+                "textureList": [
+                  "$MOD_DATA/Objects/Textures/obj_interactive_gasengine_05_dif.tga",
+                  "$MOD_DATA/Objects/Textures/obj_interactive_gasengine_05_asg.tga",
+                  "$GAME_DATA/Textures/nonor_nor.tga"
+                ],
+                "material": "DifAsgNor"
+              }
+            ],
+            "mesh": "$MOD_DATA/Objects/Mesh/wasd_egine5.fbx"
+          }
+        ]
+      },
+      "color": "00ffff",
+      "box": {
+        "x": 2,
+        "y": 2,
+        "z": 2
+      },
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/WASDengine.lua",
+        "classname": "WASDengine"
+      },
+      "rotationSet": "PropY",
+      "sticky": "-Y-Z+Z+X-X",
+      "physicsMaterial": "Mechanical",
+      "ratings": {
+        "density": 2,
+        "durability": 9,
+        "friction": 5,
+        "buoyancy": 2
+      },
+      "flammable": false
+    },
+    {
+      "uuid": "694202c3-32aa-4cd1-adc0-dcfc44312c0d",
+      "name": "fucking_amazing_magic_wheel",
+      "renderable": {
+        "lodList": [
+          {
+            "subMeshList": [
+              {
+                "textureList": [
+                  "$MOD_DATA/Objects/Textures/rubber high friction_dif.png",
+                  "$MOD_DATA/Objects/Textures/rubber high friction_asg.png",
+                  "$GAME_DATA/Textures/nonor_nor.tga"
+                ],
+                "material": "DifAsgNor"
+              }
+            ],
+            "mesh": "$MOD_DATA/Objects/Mesh/wheel_high_friction.fbx"
+          }
+        ]
+      },
+      "color": "00ffff",
+      "cylinder": {
+        "diameter": 3,
+        "depth": 1,
+        "margin": 0.5,
+        "axis": "Z"
+      },
+      "rotationSet": "PropZ",
+      "sticky": "-Z+Z",
+      "physicsMaterial": "Plastic",
+      "ratings": {
+        "density": 7,
+        "durability": 5,
+        "friction": 5,
+        "buoyancy": 6
+      },
+      "flammable": true,
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/MagicWheel.lua",
+        "classname": "MagicWheel"
+      }
+    },
+    {
+      "uuid": "694202c3-32aa-4cd1-adc0-d23147b69420",
+      "name": "fucking_amazing_magic_wheel_go_brrrrr",
+      "renderable": {
+        "lodList": [
+          {
+            "subMeshList": [
+              {
+                "textureList": [
+                  "$MOD_DATA/Objects/Textures/rubber_low_friction_dif.tga",
+                  "$MOD_DATA/Objects/Textures/rubber_low_friction_asg.tga"
+                ],
+                "material": "DifAsg"
+              }
+            ],
+            "mesh": "$MOD_DATA/Objects/Mesh/wheel_low_friction.fbx"
+          }
+        ]
+      },
+      "color": "00ffff",
+      "cylinder": {
+        "diameter": 3,
+        "depth": 1,
+        "margin": 0.5,
+        "axis": "Z"
+      },
+      "rotationSet": "PropZ",
+      "sticky": "-Z+Z",
+      "physicsMaterial": "Plastic",
+      "ratings": {
+        "density": 7,
+        "durability": 5,
+        "friction": 1,
+        "buoyancy": 6
+      },
+      "flammable": true,
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/MagicWheel.lua",
+        "classname": "MagicWheel"
+      }
+    },
+    {
+      "uuid": "694324b1-0c50-4b74-bdc7-771374204b1f",
+      "name": "big_fucking_amazing_magic_wheel",
+      "renderable": {
+        "lodList": [
+          {
+            "subMeshList": [
+              {
+                "textureList": [
+                  "$MOD_DATA/Objects/Textures/rubber high friction_dif.png",
+                  "$MOD_DATA/Objects/Textures/rubber high friction_asg.png",
+                  "$GAME_DATA/Textures/nonor_nor.tga"
+                ],
+                "material": "DifAsgNor"
+              }
+            ],
+            "mesh": "$MOD_DATA/Objects/Mesh/wheel_high_friction_large.fbx"
+          }
+        ]
+      },
+      "color": "00ffff",
+      "cylinder": {
+        "diameter": 5,
+        "depth": 2,
+        "margin": 0.5,
+        "axis": "Z"
+      },
+      "rotationSet": "PropZ",
+      "sticky": "-Z+Z",
+      "physicsMaterial": "Plastic",
+      "ratings": {
+        "density": 4,
+        "durability": 5,
+        "friction": 5,
+        "buoyancy": 6
+      },
+      "flammable": false,
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/MagicWheel.lua",
+        "classname": "MagicWheel"
+      }
+    },
+    {
+      "uuid": "694200b1-0c50-4b74-bdc7-732174269420",
+      "name": "big_fucking_amazing_magic_wheel_go_brrrrr",
+      "renderable": {
+        "lodList": [
+          {
+            "subMeshList": [
+              {
+                "textureList": [
+                  "$MOD_DATA/Objects/Textures/rubber_low_friction_dif.tga",
+                  "$MOD_DATA/Objects/Textures/rubber_low_friction_asg.tga"
+                ],
+                "material": "DifAsg"
+              }
+            ],
+            "mesh": "$MOD_DATA/Objects/Mesh/wheel_low_friction_large.fbx"
+          }
+        ]
+      },
+      "color": "00ffff",
+      "cylinder": {
+        "diameter": 5,
+        "depth": 2,
+        "margin": 0.5,
+        "axis": "Z"
+      },
+      "rotationSet": "PropZ",
+      "sticky": "-Z+Z",
+      "physicsMaterial": "Plastic",
+      "ratings": {
+        "density": 4,
+        "durability": 5,
+        "friction": 1,
+        "buoyancy": 6
+      },
+      "flammable": false,
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/MagicWheel.lua",
+        "classname": "MagicWheel"
+      }
     }
   ]
 }
