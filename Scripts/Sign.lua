@@ -11,8 +11,6 @@ function Sign.client_onCreate(self)
         end,
 
         function ()
-			
-            --print("Keyboard closed")
         end
     )
 end

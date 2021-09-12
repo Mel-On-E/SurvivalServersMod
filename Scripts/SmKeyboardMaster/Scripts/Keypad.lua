@@ -63,7 +63,7 @@ function Keypad.new(scriptedShape, title, onConfirmCallback, onCloseCallback)
     instance.buffer = ""
     instance.hasDecimalPoint = false
     instance.negative = false
-    instance.gui = sm.gui.createGuiFromLayout("$MOD_DATA/Gui/Keypad.layout")
+    instance.gui = sm.gui.createGuiFromLayout("$MOD_DATA/Scripts/SmKeyboardMaster/Gui/Keypad.layout")
     instance.gui:setText("Title", title)
 
     instance.confirm = function (shape, buttonName)
@@ -98,25 +98,29 @@ function Keypad:open(initialBuffer)
 end
 
 function Keypad:onButtonClick(buttonName)
-    if self.buffer == "0" then
-        self.buffer = buttonName
-    elseif self.buffer == "-0" then
-        self.buffer = "-" .. buttonName
-    else
-        self.buffer = self.buffer .. buttonName
-    end
+	if tonumber(self.buffer .. buttonName) <= 1000 then
+		sm.audio.play("Button on")
+		if self.buffer == "0" then
+			self.buffer = buttonName
+		elseif self.buffer == "-0" then
+			self.buffer = "-" .. buttonName
+		else
+			self.buffer = self.buffer .. buttonName
+		end
+	else
+		sm.gui.displayAlertText("Price limit reached!")
+		sm.audio.play("RaftShark")
+	end
+	
 
     self.gui:setText("Textbox", self.buffer)
 end
 
 function Keypad:cancel()
-    self.gui:close()
-end
-
-function Keypad:clear()
     self.buffer = "0"
     self.hasDecimalPoint = false
     self.gui:setText("Textbox", self.buffer)
+	sm.audio.play("Dancebass")
 end
 
 function Keypad:backspace()
@@ -128,22 +132,6 @@ function Keypad:backspace()
 
     self.buffer = #tempBuffer > 0 and tempBuffer or "0"
     self.gui:setText("Textbox", self.buffer)
+	sm.audio.play("Button off")
 end
 
-function Keypad:negate()
-    local number = tonumber(self.buffer) or 0
-    number = number * -1
-    self.hasDecimalPoint = number % 1 ~= 0
-    self.negative = number < 0
-    self.buffer = tostring(number)
-    self.gui:setText("Textbox", self.buffer)
-end
-
-function Keypad:decimalPoint()
-    if not self.hasDecimalPoint then
-        self.hasDecimalPoint = true
-        self.buffer = self.buffer .. "."
-    end
-
-    self.gui:setText("Textbox", self.buffer)
-end

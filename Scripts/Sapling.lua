@@ -122,6 +122,12 @@ function StoneSapling.server_onCreate(self)
 	local success, result = sm.physics.raycast( self.shape.worldPosition + sm.vec3.new(0,0,0.375), self.shape.worldPosition + sm.vec3.new(0,0,-0.8) )
 	if success and result.type == "terrainSurface" then
 		self.valid = true
+		local body = self.shape:getBody()
+		body:setDestructable(false)
+		body:setBuildable(false)
+		body:setLiftable(false)
+		body:setErasable(false)
+		body:setConvertibleToDynamic(false)
 	end
 	if self.shape.at.z ~= 1 then
 		self.valid = false
@@ -139,7 +145,7 @@ function StoneSapling.server_init(self)
 	elseif i == 3 then
 		self.tree = sm.uuid.new( "60ad4b7f-a7ef-4944-8a87-0844e6305513" )
 	end
-	self.growTick = sm.game.getCurrentTick() + math.random(24,1440)
+	self.growTick = sm.game.getCurrentTick() + math.random(2400,144000)
 end
 
 function StoneSapling.client_canInteract(self)

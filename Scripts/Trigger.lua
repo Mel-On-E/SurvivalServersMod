@@ -155,6 +155,6 @@ function ButtonTrigger.sv_activate( self, params, player )
 		self.interactable:setActive(not self.interactable.active)
 		self.network:sendToClients("client_playSound", "Button " .. (self.interactable.active and "on" or "off" ))
 	elseif player.character:getLockingInteractable() then
-		self.network:sendToClient(player,"cl_onAlert", "This switch is owned by " .. self.sv.saved.name)
+		self.network:sendToClient(player,"cl_onAlert", "This button is owned by " .. self.sv.saved.name)
 	end
 end

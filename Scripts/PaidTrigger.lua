@@ -6,6 +6,8 @@ PaidTrigger.connectionInput = sm.interactable.connectionType.seated + sm.interac
 PaidTrigger.colorNormal = sm.color.new( 0xee2a7bff )
 PaidTrigger.colorHighlight = sm.color.new( 0xff4394ff )
 
+dofile( "./SmKeyboardMaster/Scripts/Keypad.lua" )
+
 function PaidTrigger.server_onCreate( self )
 	self.sv = {}
 	self.sv.saved = self.storage:load()
@@ -25,26 +27,57 @@ function PaidTrigger.client_onClientDataUpdate( self, params )
 	self.price = params.price
 end
 
+function PaidTrigger.client_onCreate( self )
+	self.keypad = Keypad.new(self, "Price",
+        function (bufferedValue)
+            sm.audio.play("Retrowildblip")
+			self.network:sendToServer("server_setPrice", bufferedValue)
+        end,
+
+        function ()
+        end
+    )
+end
+
 function PaidTrigger.server_onFixedUpdate( self )
-	for k,interactable in ipairs(self.interactable:getParents()) do
-		print(interactable:getConnectionOutputType())
+	local seat = false
+	for k,parent in ipairs(self.interactable:getParents()) do
+		--print(k)
 		-- 8 or 14 == seat 512 = battery
-		--if interactable:getConnectionOutputType() == 4 then
-			--sm.interactable.disconnect(self.interactable, interactable)
-		--end
+		if parent:getConnectionOutputType() == 8 or parent:getConnectionOutputType() == 14 then
+			if not seat then
+				seat = true
+			else
+				sm.interactable.disconnect(parent, self.interactable)
+			end
+		elseif (not seat and k == 2) or parent.shape:getShapeUuid() ~= sm.uuid.new("056123f1-f030-40df-946a-b830bf494c92") then --2nd cointainer or not cointainer
+			sm.interactable.disconnect(parent, self.interactable)
+		end
 	end
 end
 
 function PaidTrigger.client_canInteract( self, character, state )
-	if self.owner == 0 then
-		sm.gui.setInteractionText("", sm.gui.getKeyBinding("Tinker"), "Claim")
-		return false
-	elseif self.owner == sm.localPlayer.getPlayer().id then
-		sm.gui.setInteractionText("You own this")
-		return true
-	else
-		sm.gui.setInteractionText("Owned by", self.name)
-		sm.gui.setInteractionText("")
+	local hasCointainer = false
+	for k, container in ipairs(self.interactable:getParents()) do
+		if container:getContainer(0) then
+			if self.owner == 0 then
+				sm.gui.setInteractionText("", sm.gui.getKeyBinding("Tinker"), "Claim")
+				return false
+			elseif self.owner == sm.localPlayer.getPlayer().id then
+				sm.gui.setInteractionText("", sm.gui.getKeyBinding("Tinker"), "Edit price: #FFD700" .. tostring(self.price) .. "#FFFFFF WoCoins™")
+				return true
+			else
+				sm.gui.setInteractionText("Owned by", self.name)
+				sm.gui.setInteractionText("", sm.gui.getKeyBinding("Use"), "Use (#FFD700" .. tostring(self.price) .. "#FFFFFF WoCoins™)")
+				return true
+			end
+		end
+	end
+	if not hasCointainer then
+		sm.gui.setInteractionText("Connect to ", "Cointainer")
+		if self.owner == 0 then
+			sm.gui.setInteractionText("", sm.gui.getKeyBinding("Tinker"), "Claim")
+		end
 		return false
 	end
 end
@@ -52,29 +85,74 @@ end
 function PaidTrigger.client_onInteract( self, character, state )
 	if state == true then
 		self.network:sendToServer("sv_activate")
-	end	
+	end
 end
 
 function PaidTrigger.sv_activate( self, params, player )
 	if player.id == self.sv.saved.owner or self.sv.saved.owner == 0 then
 		self.interactable:setActive(not self.interactable.active)
-		self.network:sendToClients("client_playSound", "Lever " .. (self.interactable.active and "on" or "off" ))
+		self.network:sendToClients("client_msg", {sound = "Lever " .. (self.interactable.active and "on" or "off" )})
 	elseif player.character:getLockingInteractable() then
-		self.network:sendToClient(player,"cl_onAlert", "This switch is owned by " .. self.sv.saved.name)
+		self.network:sendToClient(player, "client_msg", {msg = "This switch is owned by " .. self.sv.saved.name})
+	else --transaction
+		local inventory = player:getInventory()
+		local cointainer
+		for k, container in ipairs(self.interactable:getParents()) do
+			if container:getContainer(0) then
+				cointainer = container:getContainer(0)
+			end
+		end
+		
+		if inventory:canSpend(sm.uuid.new("9f0f57e8-2c31-4d83-996c-d00a9b296c3f"), self.sv.saved.price) then
+			if cointainer:canCollect(sm.uuid.new("9f0f57e8-2c31-4d83-996c-d00a9b296c3f"), self.sv.saved.price) then
+				sm.container.beginTransaction()
+				sm.container.spend(inventory, sm.uuid.new("9f0f57e8-2c31-4d83-996c-d00a9b296c3f"), self.sv.saved.price, false)
+				sm.container.collect(cointainer, sm.uuid.new("9f0f57e8-2c31-4d83-996c-d00a9b296c3f"), self.sv.saved.price, false)
+				sm.container.endTransaction()
+				
+				self.interactable:setActive(not self.interactable.active)
+				self.network:sendToClients("client_msg", {sound = "Lever " .. (self.interactable.active and "on" or "off" )})
+			else
+				self.network:sendToClient(player, "client_msg", {msg = "#ff0000Cointainer full", sound = "RaftShark"})
+			end
+		else
+			self.network:sendToClient(player, "client_msg", {msg = "#ff0000Insufficent funds", sound = "RaftShark"})
+		end
 	end
 end
 
 function PaidTrigger.client_canTinker( self, character, state )
-	if self.owner == 0 then
-		return true
+	if self.owner == 0 or sm.localPlayer.getPlayer().id == self.owner then
+		for k, container in ipairs(self.interactable:getParents()) do
+			if container:getContainer(0) then
+				if sm.localPlayer.getPlayer().id == self.owner then
+					return true
+				end
+			end
+		end
+		if self.owner == 0 then
+			return true
+		end
 	end
 	return false
 end
 
 function PaidTrigger.client_onTinker( self, character, state )
 	if state == true then
+		if self.owner == 0 then
 		self.network:sendToServer("sv_claim")
+		elseif sm.localPlayer.getPlayer().id == self.owner then
+			self.keypad:open(self.price)
+		end
 	end	
+end
+
+function PaidTrigger.server_setPrice( self, price, player)
+	if player.id == self.sv.saved.owner or self.sv.saved.owner == 0 then
+		self.sv.saved.price = price
+		self.storage:save( self.sv.saved )
+		self.network:setClientData( { owner = self.sv.saved.owner, name = self.sv.saved.name, price = self.sv.saved.price } )
+	end
 end
 
 function PaidTrigger.sv_claim( self, params, player )
@@ -83,7 +161,7 @@ function PaidTrigger.sv_claim( self, params, player )
 		self.sv.saved.name = player.name
 		self.storage:save( self.sv.saved )
 	end
-	self.network:setClientData( { owner = self.sv.saved.owner, name = self.sv.saved.name } )
+	self.network:setClientData( { owner = self.sv.saved.owner, name = self.sv.saved.name, price = self.sv.saved.price } )
 end
 
 function PaidTrigger.client_canErase(self)
@@ -113,12 +191,13 @@ function PaidTrigger.server_canErase(self)
 	return false
 end
 
-function PaidTrigger.client_playSound(self, name)
-	sm.audio.play(name, self.shape.worldPosition)
-end
-
-function PaidTrigger.cl_onAlert( self, params )
-	sm.gui.displayAlertText(params)
+function PaidTrigger.client_msg(self, params)
+	if params.msg then
+		sm.gui.displayAlertText(params.msg)
+	end
+	if params.sound then
+		sm.audio.play(params.sound, self.shape.worldPosition)
+	end
 end
 
 PaidSwitchTrigger = class( PaidTrigger )
@@ -126,16 +205,30 @@ PaidButtonTrigger = class( PaidTrigger )
 
 function PaidButtonTrigger.client_canInteract( self, character, state )
 	self.look = true
-	if self.owner == 0 then
-		sm.gui.setInteractionText("", sm.gui.getKeyBinding("Tinker"), "Claim")
-	elseif self.owner == sm.localPlayer.getPlayer().id then
-		sm.gui.setInteractionText("You own this")
-	else
-		sm.gui.setInteractionText("Owned by", self.name)
-		sm.gui.setInteractionText("")
+
+	local hasCointainer = false
+	for k, container in ipairs(self.interactable:getParents()) do
+		if container:getContainer(0) then
+			if self.owner == 0 then
+				sm.gui.setInteractionText("", sm.gui.getKeyBinding("Tinker"), "Claim")
+				return false
+			elseif self.owner == sm.localPlayer.getPlayer().id then
+				sm.gui.setInteractionText("", sm.gui.getKeyBinding("Tinker"), "Edit price: #FFD700" .. tostring(self.price) .. "#FFFFFF WoCoins™")
+				return true
+			else
+				sm.gui.setInteractionText("Owned by", self.name)
+				sm.gui.setInteractionText("", sm.gui.getKeyBinding("Use"), "Use (#FFD700" .. tostring(self.price) .. "#FFFFFF WoCoins™)")
+				return true
+			end
+		end
+	end
+	if not hasCointainer then
+		sm.gui.setInteractionText("Connect to ", "Cointainer")
+		if self.owner == 0 then
+			sm.gui.setInteractionText("", sm.gui.getKeyBinding("Tinker"), "Claim")
+		end
 		return false
 	end
-	return true
 end
 
 function PaidButtonTrigger.client_onInteract( self, character, state )
@@ -166,8 +259,37 @@ end
 function PaidButtonTrigger.sv_activate( self, params, player )
 	if player.id == self.sv.saved.owner or self.sv.saved.owner == 0 then
 		self.interactable:setActive(not self.interactable.active)
-		self.network:sendToClients("client_playSound", "Button " .. (self.interactable.active and "on" or "off" ))
+		self.network:sendToClients("client_msg", {sound = "Lever " .. (self.interactable.active and "on" or "off" )})
 	elseif player.character:getLockingInteractable() then
-		self.network:sendToClient(player,"cl_onAlert", "This switch is owned by " .. self.sv.saved.name)
+		self.network:sendToClient(player, "client_msg", {msg = "This button is owned by " .. self.sv.saved.name})
+	else --transaction
+		if self.interactable.active then 
+			self.interactable:setActive(not self.interactable.active)
+			return
+		end
+			
+		local inventory = player:getInventory()
+		local cointainer
+		for k, container in ipairs(self.interactable:getParents()) do
+			if container:getContainer(0) then
+				cointainer = container:getContainer(0)
+			end
+		end
+		
+		if inventory:canSpend(sm.uuid.new("9f0f57e8-2c31-4d83-996c-d00a9b296c3f"), self.sv.saved.price) then
+			if cointainer:canCollect(sm.uuid.new("9f0f57e8-2c31-4d83-996c-d00a9b296c3f"), self.sv.saved.price) then
+				sm.container.beginTransaction()
+				sm.container.spend(inventory, sm.uuid.new("9f0f57e8-2c31-4d83-996c-d00a9b296c3f"), self.sv.saved.price, false)
+				sm.container.collect(cointainer, sm.uuid.new("9f0f57e8-2c31-4d83-996c-d00a9b296c3f"), self.sv.saved.price, false)
+				sm.container.endTransaction()
+				
+				self.interactable:setActive(not self.interactable.active)
+				self.network:sendToClients("client_msg", {sound = "Lever " .. (self.interactable.active and "on" or "off" )})
+			else
+				self.network:sendToClient(player, "client_msg", {msg = "#ff0000Cointainer full", sound = "RaftShark"})
+			end
+		else
+			self.network:sendToClient(player, "client_msg", {msg = "#ff0000Insufficent funds", sound = "RaftShark"})
+		end
 	end
 end
