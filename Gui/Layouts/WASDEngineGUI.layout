@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MyGUI type="Layout" version="3.2.0">
+    <Widget type="Widget" skin="TextBox" position_real="0 0 0.45973 0.5856477" name="BackPanel">
+		<Widget type="ImageBox" skin="ImageBox" name="ControlPannelBackground" position_real="0 0 1 1">
+             <Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/background.png" />
+        </Widget>
+		<!-- skin="CloseButton" CloseButton2 -->
+        <Widget type="Widget" skin="ImageBox" position_real="0.1425 0.28 0.715 0.525" align="HStretch Bottom" name="MainPanelBG">
+			<Widget type="ImageBox" skin="ImageBox" name="ControlPannelBackground2" position_real="0 0 1 1">
+				<Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/back ground.png" />
+			</Widget>
+            <Widget type="Widget" skin="SequenceListBackgroundLocked" position_real="0.0569801 0.100251 0.42735 0.799499" align="Left Bottom" name="PlayerDataBG">
+                <Widget type="TextBox" skin="TextBox" position_real="0.0333333 0.031348 0.933333 0.141066" align="HStretch Top" name="Info header">
+                    <Property key="Caption" value="Information"/>
+                    <Property key="FontName" value="SM_HeaderLarge_Medium"/>
+                    <Property key="TextAlign" value="Center"/>
+                    <Property key="TextShadow" value="true"/>
+                </Widget>
+				<Widget type="TextBox" skin="TextBox" position_real="0.075 0.215 1 1" align="Left Top" name="Operation Info">
+                    <Property key="Caption" value="Controls the quantum \nfluctuations of the fusion \nreactor to disable/enable \ndirectional ion thrusters"/>
+                    <Property key="TextAlign" value="Left Top"/>
+                    <Property key="TextShadow" value="true"/>
+                    <Property key="FontName" value="SM_TextLabel"/>
+                </Widget>
+				<Widget type="TextBox" skin="TextBox" position_real="0.075 0.6 1 1" align="Left Top" name="Grounded Wheel Info">
+                    <Property key="Caption" value="Requires sc-fi wheels to be \nattached to the seat and \ntouch the ground\n(prevents random flying)"/>
+                    <Property key="TextAlign" value="Left Top"/>
+                    <Property key="TextShadow" value="true"/>
+                    <Property key="FontName" value="SM_TextLabel"/>
+                </Widget>
+            </Widget>
+            <Widget type="Widget" skin="HudBackgroundShadowLarge" position_real="0.51567 0.100251 0.42735 0.799499" align="Right Bottom" name="FunctionsBG">
+                <Widget type="TextBox" skin="TextBox" position_real="0.0333333 0.031348 0.933333 0.141066" align="HStretch Top" name="Settings">
+                    <Property key="Caption" value="Settings"/>
+                    <Property key="TextAlign" value="Center"/>
+                    <Property key="TextShadow" value="true"/>
+                    <Property key="FontName" value="SM_HeaderLarge_Medium"/>
+                </Widget>
+				<Widget type="TextBox" skin="TextBox" position_real="0.0333333 0.225 0.933333 0.141066" align="HStretch Top" name="Mode label">
+                    <Property key="Caption" value="Operation Mode"/>
+                    <Property key="TextAlign" value="Center"/>
+                    <Property key="TextShadow" value="true"/>
+                    <Property key="FontName" value="SM_ItemTitle"/>
+                </Widget>
+				<Widget type="Button" skin="DressbotArrowRight" position_real="0.766667 0.375 0.2 0.188088" align="Right Bottom" name="NextMode"/>
+                <Widget type="Button" skin="DressbotArrowLeft" position_real="0.0333333 0.375 0.2 0.188088" align="Left Bottom" name="PrevMode"/>
+                <Widget type="TextBox" skin="TextBox" position_real="0.233333 0.375 0.533333 0.188088" align="HStretch Bottom" name="CurMode">
+                    <Property key="Caption" value="WASD"/>
+                    <Property key="FontName" value="SM_ItemTitle"/>
+                    <Property key="TextAlign" value="Center"/>
+                    <Property key="TextShadow" value="true"/>
+                </Widget>
+				<Widget type="TextBox" skin="TextBox" position_real="0.0333333 0.6 0.933333 0.141066" align="HStretch Top" name="Grounded label">
+                    <Property key="Caption" value="Grounded Wheels"/>
+                    <Property key="TextAlign" value="Center"/>
+                    <Property key="TextShadow" value="true"/>
+                    <Property key="FontName" value="SM_ItemTitle"/>
+                </Widget>
+                <Widget type="Button" skin="PrimaryButton" position_real="0.0333333 0.75 0.933333 0.188088" align="HStretch Bottom" name="Grounded Button">
+                    <Property key="Caption" value="ON"/>
+                    <Property key="FontName" value="SM_ItemTitle"/>
+                    <Property key="TextAlign" value="Center"/>
+                </Widget>
+            </Widget>
+			<Widget type="Button" skin="PrimaryButton" position_real="0.0054 0.0096 0.072 0.128" align="HStretch Bottom" name="BackButton">
+                 <Property key="Caption" value="X"/>
+                 <Property key="FontName" value="SM_ItemTitle"/>
+                 <Property key="TextAlign" value="Center"/>
+            </Widget>
+        </Widget>
+    </Widget>
+</MyGUI>

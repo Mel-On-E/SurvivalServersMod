@@ -9,6 +9,14 @@
 			"info" : "SUS",
 			"parts" : 3838.0,
 			"rent" : 3838.0
+		},
+		
+		{
+			"date" : 1631428416.0,
+			"file" : "1631428416904.blueprint",
+			"info" : "Car",
+			"parts" : 265.0,
+			"rent" : 87.0
 		}
 	]
 }

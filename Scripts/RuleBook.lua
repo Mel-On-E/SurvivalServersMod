@@ -111,6 +111,7 @@ function RuleBook.client_onUpdate(self)
 		self:client_guiUpdate()
 		self.guiUpdate = nil
 	end
+	sm.visualization.setBlockVisualization(self.shape.localPosition, true, self.shape)
 end
 
 function RuleBook:client_Next()
