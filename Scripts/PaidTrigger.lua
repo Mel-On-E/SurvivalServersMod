@@ -91,7 +91,7 @@ end
 function PaidTrigger.sv_activate( self, params, player )
 	if player.id == self.sv.saved.owner or self.sv.saved.owner == 0 then
 		self.interactable:setActive(not self.interactable.active)
-		self.network:sendToClients("client_msg", {sound = "Lever " .. (self.interactable.active and "on" or "off" )})
+		self.network:sendToClients("client_msg", {sound = "Lever " .. (self.interactable.active and "off" or "on" )})
 	elseif player.character:getLockingInteractable() then
 		self.network:sendToClient(player, "client_msg", {msg = "This switch is owned by " .. self.sv.saved.name})
 	else --transaction
@@ -111,7 +111,7 @@ function PaidTrigger.sv_activate( self, params, player )
 				sm.container.endTransaction()
 				
 				self.interactable:setActive(not self.interactable.active)
-				self.network:sendToClients("client_msg", {sound = "Lever " .. (self.interactable.active and "on" or "off" )})
+				self.network:sendToClients("client_msg", {sound = "Lever " .. (self.interactable.active and "off" or "on" )})
 			else
 				self.network:sendToClient(player, "client_msg", {msg = "#ff0000Cointainer full", sound = "RaftShark"})
 			end
@@ -259,7 +259,7 @@ end
 function PaidButtonTrigger.sv_activate( self, params, player )
 	if player.id == self.sv.saved.owner or self.sv.saved.owner == 0 then
 		self.interactable:setActive(not self.interactable.active)
-		self.network:sendToClients("client_msg", {sound = "Lever " .. (self.interactable.active and "on" or "off" )})
+		self.network:sendToClients("client_msg", {sound = "Lever " .. (self.interactable.active and "off" or "on" )})
 	elseif player.character:getLockingInteractable() then
 		self.network:sendToClient(player, "client_msg", {msg = "This button is owned by " .. self.sv.saved.name})
 	else --transaction
@@ -284,7 +284,7 @@ function PaidButtonTrigger.sv_activate( self, params, player )
 				sm.container.endTransaction()
 				
 				self.interactable:setActive(not self.interactable.active)
-				self.network:sendToClients("client_msg", {sound = "Lever " .. (self.interactable.active and "on" or "off" )})
+				self.network:sendToClients("client_msg", {sound = "Lever " .. (self.interactable.active and "off" or "on" )})
 			else
 				self.network:sendToClient(player, "client_msg", {msg = "#ff0000Cointainer full", sound = "RaftShark"})
 			end

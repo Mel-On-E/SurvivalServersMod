@@ -45,7 +45,7 @@ end
 function Trigger.sv_activate( self, params, player )
 	if player.id == self.sv.saved.owner or self.sv.saved.owner == 0 then
 		self.interactable:setActive(not self.interactable.active)
-		self.network:sendToClients("client_playSound", "Lever " .. (self.interactable.active and "on" or "off" ))
+		self.network:sendToClients("client_playSound", "Lever " .. (self.interactable.active and "off" or "on" ))
 	elseif player.character:getLockingInteractable() then
 		self.network:sendToClient(player,"cl_onAlert", "This switch is owned by " .. self.sv.saved.name)
 	end
@@ -153,7 +153,7 @@ end
 function ButtonTrigger.sv_activate( self, params, player )
 	if player.id == self.sv.saved.owner or self.sv.saved.owner == 0 then
 		self.interactable:setActive(not self.interactable.active)
-		self.network:sendToClients("client_playSound", "Button " .. (self.interactable.active and "on" or "off" ))
+		self.network:sendToClients("client_playSound", "Button " .. (self.interactable.active and "off" or "on" ))
 	elseif player.character:getLockingInteractable() then
 		self.network:sendToClient(player,"cl_onAlert", "This button is owned by " .. self.sv.saved.name)
 	end

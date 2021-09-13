@@ -6,10 +6,10 @@ MagicWheel.maxChildCount = 0
 MagicWheel.connectionInput = sm.interactable.connectionType.power
 MagicWheel.connectionOutput = sm.interactable.connectionType.none
 
-local Uuid1_Str = "694202c3-32aa-4cd1-adc0-dcfc47b92c0d"
-local Uuid2_Str = "694202c3-32aa-4cd1-adc0-dcfc47b69420"
-local Uuid3_Str = "694200b1-0c50-4b74-bdc7-771374204b1f"
-local Uuid4_Str = "694200b1-0c50-4b74-bdc7-771374269420"
+local Uuid1_Str = "694202c3-32aa-4cd1-adc0-dcfc44312c0d"
+local Uuid2_Str = "694202c3-32aa-4cd1-adc0-d23147b69420"
+local Uuid3_Str = "694324b1-0c50-4b74-bdc7-771374204b1f"
+local Uuid4_Str = "694200b1-0c50-4b74-bdc7-732174269420"
 
 local Uuid1 = sm.uuid.new(Uuid1_Str)
 local Uuid2 = sm.uuid.new(Uuid2_Str)

@@ -11,18 +11,52 @@ local gears = {
 	{ power = 1 },
 	{ power = 2 },
 	{ power = 4 },
-	{ power = 8 },
+	{ power = 8 },--1
 	{ power = 16 },
-	{ power = 32 },
+	{ power = 32 },--2
 	{ power = 64 },
-	{ power = 128 },
+	{ power = 128 },--3
 	{ power = 256 },
-	{ power = 512 },
+	{ power = 512 }, --4
 	{ power = 1024 },
-	{ power = 2048 },
+	{ power = 2048 }, --5
 }
 
-wheels = {}
+local EngineLevels = {
+	["69696969-9340-46d9-83d6-69d7c68ad950"] = {
+		upgrade = "69696969-9340-46d9-83d6-89d7c68a6950",
+		cost = 8,
+		gearCount = 5,
+		pointsPerFuel = 3000,
+		level = 1
+	},
+	["69696969-9340-46d9-83d6-89d7c68a6950"] = {
+		upgrade = "69696969-9340-46d9-83d6-89d7c69ad950",
+		cost = 12,
+		gearCount = 7,
+		pointsPerFuel = 5250,
+		level = 2
+	},
+	["69696969-9340-46d9-83d6-89d7c69ad950"] = {
+		upgrade = "69696969-9340-46d9-83d6-89d6968ad950",
+		cost = 16,
+		gearCount = 9,
+		pointsPerFuel = 10000,
+		level = 3
+	},
+	["69696969-9340-46d9-83d6-89d6968ad950"] = {
+		upgrade = "69696969-9340-46d9-83d6-89d7c68ad969",
+		cost = 20,
+		gearCount = 11,
+		pointsPerFuel = 13500,
+		level = 4
+	},
+	["69696969-9340-46d9-83d6-89d7c68ad969"] = {
+		gearCount = #gears,
+		pointsPerFuel = 22500,
+		level = 5
+	}
+}
 
 function WASDengine.server_onCreate(self)
 	self:server_init()
@@ -33,6 +67,8 @@ function WASDengine.server_onRefresh( self )
 end
 
 function WASDengine.server_init(self)
+	local level = EngineLevels[tostring( self.shape:getShapeUuid() )]
+	self.pointsPerFuel = level.pointsPerFuel
 	local container = self.shape.interactable:getContainer( 0 )
 	if not container then
 		container = self.shape:getInteractable():addContainer( 0, 1, 10 )
@@ -54,23 +90,35 @@ function WASDengine.server_init(self)
 		self.saved.animations.sparks = false
 		self.saved.weight = nil
 		self.saved.boom = false
+		self.saved.fuelPoints = 0
 		
 		--Settings
 		self.saved.ws = true
 		self.saved.ad = true
 		self.saved.ground = true
-		self.saved.gear = 1
+		self.saved.gear = 2
 	end
+	self.hasFuel = false
+	
 	self.network:setClientData( { gearId = self.saved.gear, ws = self.saved.ws, ad = self.saved.ad, ground = self.saved.ground } )
 end
 
+function WASDengine.sv_updateFuelStatus( self, fuelContainer )
+	local hasFuel = self.saved.fuelPoints > 0 or sm.container.canSpend( fuelContainer, sm.uuid.new( "d4d68946-aa03-4b8f-b1af-96b81ad4e305" ), 1 )
+	if self.hasFuel ~= hasFuel then
+		self.hasFuel = hasFuel
+	end
+end
+
 function WASDengine.client_onCreate( self )
+	local level = EngineLevels[tostring( self.shape:getShapeUuid() )]
+
 	self.effect = {}
-	self.effect.w = sm.effect.createEffect( "ThrusterW", self.interactable)
-	self.effect.a = sm.effect.createEffect( "ThrusterA", self.interactable)
-	self.effect.s = sm.effect.createEffect( "ThrusterS", self.interactable)
-	self.effect.d = sm.effect.createEffect( "ThrusterD", self.interactable)
-	self.effect.engine = sm.effect.createEffect( "GasEngine - Level 5", self.interactable)
+	self.effect.w = sm.effect.createEffect( "ThrusterW" .. tostring(level.level), self.interactable)
+	self.effect.a = sm.effect.createEffect( "ThrusterA" .. tostring(level.level), self.interactable)
+	self.effect.s = sm.effect.createEffect( "ThrusterS" .. tostring(level.level), self.interactable)
+	self.effect.d = sm.effect.createEffect( "ThrusterD" .. tostring(level.level), self.interactable)
+	self.effect.engine = sm.effect.createEffect( "GasEngine - Level " .. tostring(level.level), self.interactable)
 	self.effect.sparks = sm.effect.createEffect( "Part - Electricity", self.interactable)
 	
 	self.client_gearId = 1
@@ -86,9 +134,20 @@ function WASDengine.server_onFixedUpdate(self)
 	local WASDEngineInteractible = self.interactable
 	local GearPower = gears[self.saved.gear].power
 	
+	-- Check engine connections (copy paste go brrr)
+	local hadInput = self.hasInput == nil and true or self.hasInput --Pretend to have had input if nil to avoid starting engines at load
+	local active, direction, fuelContainer, hasInput = self:getInputs()
+	self.hasInput = hasInput
+	local useCreativeFuel = not sm.game.getEnableFuelConsumption() and fuelContainer == nil
+	
+	-- Check fuel container
+	if not fuelContainer or fuelContainer:isEmpty() then
+		fuelContainer = self.shape.interactable:getContainer( 0 )
+	end
+	
 	
 	--explode engine
-	if self.saved.boom then
+	if self.saved.boom then 
 		sm.physics.explode( WASDEngineShape.worldPosition, 0, 0, 6, 25, "ThrusterBoom", nil)
 		for _, body in ipairs(WASDEngineBody:getCreationBodies()) do
 			for _, shape in ipairs(body:getShapes()) do
@@ -118,6 +177,24 @@ function WASDengine.server_onFixedUpdate(self)
 	local newAnimations = { w = false, a = false, s = false, d = false, engine = false, sparks = false }
 
 	for _, parent in ipairs(WASDEngineInteractible:getParents()) do
+		--don't do shit twice if parent == container
+		if parent:getConnectionOutputType() == 14 then
+		
+		-- Consume fuel for fuel points
+		local canSpend = false
+		if self.saved.fuelPoints <= 0 then
+			canSpend = sm.container.canSpend( fuelContainer, sm.uuid.new( "d4d68946-aa03-4b8f-b1af-96b81ad4e305" ), 1 )
+		end
+		if canSpend and self.saved.fuelPoints <= 0 then
+			sm.container.beginTransaction()
+			sm.container.spend( fuelContainer, sm.uuid.new( "d4d68946-aa03-4b8f-b1af-96b81ad4e305" ), 1, true )
+			sm.container.endTransaction()
+			self.saved.fuelPoints = self.saved.fuelPoints + self.pointsPerFuel
+		elseif parent:getSeatCharacter() and self.saved.fuelPoints < 0 then
+			self.saved.fuelPoints = 0
+			self.network:sendToClient( parent:getSeatCharacter():getPlayer(), "client_msg", "Out of fuel" )
+		end
+		
 		
 		--find wheels
 		if changed or self.saved.onGround == nil then
@@ -125,7 +202,7 @@ function WASDengine.server_onFixedUpdate(self)
 			local hasWheels = false
 			for __, child in ipairs(parent:getChildren()) do
 				local childUuid = child.shape.shapeUuid
-				if childUuid == sm.uuid.new("694200b1-0c50-4b74-bdc7-771374204b1f") or childUuid == sm.uuid.new("694202c3-32aa-4cd1-adc0-dcfc47b92c0d") or childUuid == sm.uuid.new("694202c3-32aa-4cd1-adc0-dcfc47b69420") or childUuid == sm.uuid.new("694200b1-0c50-4b74-bdc7-771374269420") then
+				if childUuid == sm.uuid.new("694324b1-0c50-4b74-bdc7-771374204b1f") or childUuid == sm.uuid.new("694202c3-32aa-4cd1-adc0-dcfc44312c0d") or childUuid == sm.uuid.new("694202c3-32aa-4cd1-adc0-d23147b69420") or childUuid == sm.uuid.new("694200b1-0c50-4b74-bdc7-732174269420") then
 					
 					if self.wheels == nil then
 						self.wheels = {}
@@ -165,8 +242,7 @@ function WASDengine.server_onFixedUpdate(self)
 			end
 		end
 
-		
-		if GearPower > 0 and ((not self.saved.ground and parent:getSeatCharacter()) or self.saved.onGround) then
+		if GearPower > 0 and ((not self.saved.ground and parent:getSeatCharacter()) or self.saved.onGround) and self.saved.fuelPoints > 0 or useCreativeFuel then
 			--calculate upTime
 			if self.saved.power == parent.power then
 				self.saved.upTime = math.min(self.saved.upTime + 2, 100)
@@ -175,6 +251,35 @@ function WASDengine.server_onFixedUpdate(self)
 			else
 				self.saved.power = parent.power
 				self.saved.upTime = 0
+			end
+			
+			
+			--basic fuel calculation I guess
+			if not useCreativeFuel then
+				local appliedImpulseCost = 0.35
+				local fuelCost = 0
+				
+				if self.saved.ws and parent:getPower() ~= 0 then
+					fuelCost = appliedImpulseCost*GearPower*0.9
+				end
+				
+				if self.saved.ad and parent:getSteeringAngle() ~= 0 then
+					fuelCost = fuelCost + (self.saved.weight^0.8)/10000 * appliedImpulseCost *GearPower*0.9
+				end
+
+				self.saved.fuelPoints = self.saved.fuelPoints - fuelCost
+				print(self.saved.fuelPoints)
+				
+				fuelCost = math.min( fuelCost, math.sqrt( fuelCost / 7 ) * 7 )
+				--print(fuelCost)
+				
+				if self.saved.fuelPoints <= 0 and fuelCost > 0 then
+					sm.container.beginTransaction()
+					sm.container.spend( fuelContainer, sm.uuid.new( "d4d68946-aa03-4b8f-b1af-96b81ad4e305" ), 1, true )
+					if sm.container.endTransaction() then
+						self.saved.fuelPoints = self.saved.fuelPoints + self.pointsPerFuel
+					end
+				end
 			end
 			
 			
@@ -204,7 +309,7 @@ function WASDengine.server_onFixedUpdate(self)
 			
 			
 			--add turning torque
-			local torque = WASDEngineShape.at * self.saved.weight * parent:getSteeringAngle() * -0.01 * (10 - math.abs(WASDEngineBody:getAngularVelocity():dot(WASDEngineShape.at))) * math.pow(GearPower, 0.5)
+			local torque = WASDEngineShape.at * self.saved.weight/3 * parent:getSteeringAngle() * -0.01 * (10 - math.abs(WASDEngineBody:getAngularVelocity():dot(WASDEngineShape.at))) * math.pow(GearPower, 0.5)
 
 			if self.saved.ad and math.abs(parent:getSteeringAngle()) > 0.5 then
 				sm.physics.applyTorque( WASDEngineBody, torque, 1)
@@ -268,6 +373,7 @@ function WASDengine.server_onFixedUpdate(self)
 		else
 			newAnimations.engine = false
 		end
+	end--double parent fix
 	end
 	
 	--disconnect more than 1 seat or fuel container
@@ -289,6 +395,36 @@ function WASDengine.server_onFixedUpdate(self)
 		self.network:sendToClients( "client_updateAnimation", newAnimations )
 	end
 	self.saved.animations = newAnimations
+	
+	self.storage:save( self.saved )
+end
+
+function WASDengine.sv_n_tryUpgrade( self, player )
+	local level = EngineLevels[tostring( self.shape:getShapeUuid() )]
+	local function fnUpgrade()
+		local nextLevel = EngineLevels[level.upgrade]
+		assert( nextLevel )
+		self.network:sendToClients( "cl_n_onUpgrade", level.upgrade )
+
+		if nextLevel.fn then
+			nextLevel.fn( self )
+		end
+		self.shape:replaceShape( sm.uuid.new( level.upgrade ) )
+	end
+
+	if not sm.game.getEnableUpgradeCost() then
+		fnUpgrade()
+	else
+		local inventory = player:getInventory()
+		if sm.container.totalQuantity( inventory, sm.uuid.new( "5530e6a0-4748-4926-b134-50ca9ecb9dcf" ) ) >= level.cost then
+			if sm.container.beginTransaction() then
+				sm.container.spend( inventory, sm.uuid.new( "5530e6a0-4748-4926-b134-50ca9ecb9dcf" ), level.cost, true )
+				if sm.container.endTransaction() then
+					fnUpgrade()
+				end
+			end
+		end
+	end
 end
 
 function WASDengine.client_onFixedUpdate(self)
@@ -375,6 +511,49 @@ function WASDengine.getInputs( self )
 	return active, direction, fuelContainer, hasInput
 end
 
+function WASDengine.cl_n_onUpgrade( self, upgrade )
+	local level = EngineLevels[upgrade]
+
+	if self.gui and self.gui:isActive() then
+		self.gui:setSliderRangeLimit( "Setting", level.gearCount )
+		self.gui:setIconImage( "Icon", sm.uuid.new(upgrade) )
+		self.gui:setText( "SubTitle", "LEVEL " .. tostring(level.level) )
+	
+		if level.upgrade then
+			self.gui:setData( "UpgradeInfo", { Gears = 2, Efficiency = 1 } )
+			if level.level == 4 then
+				self.gui:setText( "UpgradeInfo", "#9f9e9eEfficiency #c4f42b+1\n#9f9e9eGears #c4f42b+2\n+Advanced Settings" )
+			end
+			self.gui:setIconImage( "UpgradeIcon", sm.uuid.new( level.upgrade ) )
+		else
+			self.gui:setText( "UpgradeInfo", "Press #c4f42bUPGRADE#ffffff for advanced settings" )
+		end
+
+		if level.cost then
+			if not sm.game.getEnableUpgradeCost() then
+				self.gui:setData( "Upgrade", { cost = level.cost, available = 1000 } )
+			else
+				local inventory = sm.localPlayer.getPlayer():getInventory()
+				local availableKits = sm.container.totalQuantity( inventory, sm.uuid.new( "5530e6a0-4748-4926-b134-50ca9ecb9dcf" ) )
+				local upgradeData = { cost = level.cost, available = availableKits }
+				self.gui:setData( "Upgrade", upgradeData )
+			end
+		else
+			local upgradeData = { cost = 0, available = 69420 }
+			self.gui:setData( "Upgrade", upgradeData )
+			self.gui:setVisible( "Upgrade", true )
+		end
+	self.gui:open()
+	end
+
+	self.effect.w = sm.effect.createEffect( "ThrusterW" .. tostring(level.level), self.interactable)
+	self.effect.a = sm.effect.createEffect( "ThrusterA" .. tostring(level.level), self.interactable)
+	self.effect.s = sm.effect.createEffect( "ThrusterS" .. tostring(level.level), self.interactable)
+	self.effect.d = sm.effect.createEffect( "ThrusterD" .. tostring(level.level), self.interactable)
+	self.effect.engine = sm.effect.createEffect( "GasEngine - Level " .. tostring(level.level), self.interactable)
+	sm.effect.playHostedEffect( "Part - Upgrade", self.interactable )
+end
+
 
 ---GUI STUFF START
 function WASDengine.client_onInteract(self, character, state)
@@ -384,19 +563,19 @@ function WASDengine.client_onInteract(self, character, state)
 end
 
 function WASDengine.client_initializeGUI(self)	
+	local level = EngineLevels[tostring( self.shape:getShapeUuid() )]
 	self.gui = sm.gui.createEngineGui()
 
 	self.gui:setText( "Name", "WASD ENGINE" )
 	self.gui:setText( "Interaction", "#{CONTROLLER_ENGINE_INSTRUCTION}" )
 	self.gui:setOnCloseCallback( "cl_onGuiClosed" )
 	self.gui:setSliderCallback( "Setting", "cl_onSliderChange" )
-	self.gui:setSliderData( "Setting", 13, self.client_gearId - 1)
+	self.gui:setSliderData( "Setting", 13, self.client_gearId - 1 )
+	self.gui:setSliderRangeLimit( "Setting", level.gearCount )
 	self.gui:setIconImage( "Icon", self.shape:getShapeUuid() )
 	self.gui:setButtonCallback( "Upgrade", "cl_onUpgradeClicked" )
-	self.gui:setText( "SubTitle", "A Fusion-Based Ion Engine™" )
+	self.gui:setText( "SubTitle", "LEVEL " .. tostring(level.level) )
 	self.gui:setText( "Interaction", "#ff0000WARNING!#ffffff High velocity can cause a\nfusion-based reactor backfeed reaction. BOOM!" )
-	
-	self.gui:setText( "UpgradeInfo", "Press UPGRADE for advanced settings" )
 
 	local fuelContainer = self.shape.interactable:getContainer( 0 )
 
@@ -408,15 +587,36 @@ function WASDengine.client_initializeGUI(self)
 	if fuelContainer and sm.game.getEnableFuelConsumption() then
 		self.gui:setContainer( "Fuel", fuelContainer )
 	end
+	
+	if level.upgrade then
+		local nextLevel = EngineLevels[ level.upgrade ]
+		self.gui:setData( "UpgradeInfo", { Gears = nextLevel.gearCount - level.gearCount, Efficiency = 1 } )
+		if level.level == 4 then
+			self.gui:setText( "UpgradeInfo", "#9f9e9eEfficiency #c4f42b+1\n#9f9e9eGears #c4f42b+2\n+Advanced Settings" )
+		end
+		self.gui:setIconImage( "UpgradeIcon", sm.uuid.new( level.upgrade ) )
+	else
+		--self.gui:setImage( "UpgradeIcon", "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/panel.png" )
+		self.gui:setIconImage( "UpgradeIcon", sm.uuid.new( tostring(self.shape.shapeUuid) ) )
+		self.gui:setText( "UpgradeInfo", "Press #c4f42bUPGRADE#ffffff for advanced settings" )
+	end
+
+	if level.cost then
+		if not sm.game.getEnableUpgradeCost() then
+			self.gui:setData( "Upgrade", { cost = level.cost, available = 1000 } )
+		else
+			local inventory = sm.localPlayer.getPlayer():getInventory()
+			local availableKits = sm.container.totalQuantity( inventory, sm.uuid.new( "5530e6a0-4748-4926-b134-50ca9ecb9dcf" ) )
+			local upgradeData = { cost = level.cost, available = availableKits }
+			self.gui:setData( "Upgrade", upgradeData )
+		end
+	else
+		local upgradeData = { cost = 0, available = 69420 }
+		self.gui:setData( "Upgrade", upgradeData )
+		self.gui:setVisible( "Upgrade", true )
+	end
 
 	self.gui:open()
-	
-	local upgradeData = { cost = 69420, available = 69420 }
-	self.gui:setData( "Upgrade", upgradeData )
-	self.gui:setVisible( "Upgrade", true )
-	self.gui:setImage( "UpgradeIcon", "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/panel.png" )
-	
-	self.gui = self.gui
 end
 
 function WASDengine.cl_onGuiClosed( self )
@@ -451,21 +651,26 @@ function WASDengine.client_onClientDataUpdate( self, params )
 end
 
 function WASDengine.cl_onUpgradeClicked( self, buttonName )
-	self.gui:close()
+	local level = EngineLevels[tostring( self.shape:getShapeUuid() )]
+	if level.level < 5 then
+		self.network:sendToServer("sv_n_tryUpgrade", sm.localPlayer.getPlayer() )
+	else
+		self.gui:close()
 
-	self.gui = sm.gui.createGuiFromLayout("$MOD_DATA/Gui/Layouts/WASDEngineGUI.layout")
+		self.gui = sm.gui.createGuiFromLayout("$MOD_DATA/Gui/Layouts/WASDEngineGUI.layout")
 	
-	self.gui:setText( "Grounded Button", self.client_ground and "ON" or "OFF" )
-	self.gui:setButtonCallback( "Grounded Button", "cl_onGroundedButtonClicked" )
+		self.gui:setText( "Grounded Button", self.client_ground and "ON" or "OFF" )
+		self.gui:setButtonCallback( "Grounded Button", "cl_onGroundedButtonClicked" )
 	
-	self.gui:setText( "CurMode", (self.client_ws and "W" or "") .. (self.client_ad and "A" or "") .. (self.client_ws and "S" or "") .. (self.client_ad and "D" or ""))
-	self.gui:setButtonCallback( "NextMode", "cl_onNextClicked" )
-	self.gui:setButtonCallback( "PrevMode", "cl_onPrevClicked" )
+		self.gui:setText( "CurMode", (self.client_ws and "W" or "") .. (self.client_ad and "A" or "") .. (self.client_ws and "S" or "") .. (self.client_ad and "D" or ""))
+		self.gui:setButtonCallback( "NextMode", "cl_onNextClicked" )
+		self.gui:setButtonCallback( "PrevMode", "cl_onPrevClicked" )
 
 
-	self.gui:setButtonCallback( "BackButton", "cl_onBackButtonClicked" )
+		self.gui:setButtonCallback( "BackButton", "cl_onBackButtonClicked" )
 	
-	self.gui:open()
+		self.gui:open()
+	end
 end
 
 --WASD WS AD
