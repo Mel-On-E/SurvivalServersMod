@@ -128,8 +128,23 @@
             <Index name="694200b1-0c50-4b74-bdc7-732174269420">
                 <Frame point="0 384"/>
             </Index>
-            <Index name="9f0f57e8-2c31-4d83-996c-d00a9b296c3f">
+            <Index name="111cfff0-dfc2-4da7-acdb-3c385e80b2e1">
                 <Frame point="96 384"/>
+            </Index>
+            <Index name="222cfff0-dfc2-4da7-acdb-3c385e80b2e1">
+                <Frame point="192 384"/>
+            </Index>
+            <Index name="333cfff0-dfc2-4da7-acdb-3c385e80b2e1">
+                <Frame point="288 384"/>
+            </Index>
+            <Index name="444cfff0-dfc2-4da7-acdb-3c385e80b2e1">
+                <Frame point="384 384"/>
+            </Index>
+            <Index name="555cfff0-dfc2-4da7-acdb-3c385e80b2e1">
+                <Frame point="480 384"/>
+            </Index>
+            <Index name="9f0f57e8-2c31-4d83-996c-d00a9b296c3f">
+                <Frame point="576 384"/>
             </Index>
         </Group>
     </Resource>

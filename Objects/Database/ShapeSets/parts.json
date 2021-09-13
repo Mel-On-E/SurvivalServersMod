@@ -2633,6 +2633,691 @@
         "filename": "$MOD_DATA/Scripts/MagicWheel.lua",
         "classname": "MagicWheel"
       }
+    },
+    {
+      "uuid": "111cfff0-dfc2-4da7-acdb-3c385e80b2e1",
+      "name": "obj_craftbot_mod1",
+      "renderable": {
+        "lodList": [
+          {
+            "mesh": "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftbot.dae",
+            "subMeshMap": {
+              "craftbot": {
+                "material": "SkelAnimDifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftbot_dif.tga",
+                  "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftbot_asg.tga",
+                  "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftbot_nor.tga"
+                ]
+              },
+              "connectionpoint": {
+                "material": "SkelAnimDifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/containers/obj_interactive_container_connectorpoint_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/containers/obj_interactive_container_connectorpoint_asg.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/containers/obj_interactive_container_connectorpoint_nor.tga"
+                ]
+              },
+              "screen": {
+                "material": "SkelUVAnimDifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftboticons_dif.tga",
+                  "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftboticons_asg.tga",
+                  "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftboticons_nor.tga"
+                ],
+                "custom": {
+                  "uv0": {
+                    "u": 0.25,
+                    "v": 0.25
+                  }
+                }
+              }
+            },
+            "animationList": [
+
+              {
+                "name": "unfold",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_unfold.dae"
+              },
+              {
+                "name": "idle",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_idle.dae",
+                "looping": true
+              },
+              {
+                "name": "idlespecial01",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_idlespecial01.dae",
+                "looping": true
+              },
+              {
+                "name": "idlespecial02",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_idlespecial02.dae",
+                "looping": true
+              },
+
+              {
+                "name": "craft_start",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_craft_start.dae"
+              },
+              {
+                "name": "craft_loop01",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_craft_loop01.dae",
+                "looping": true
+              },
+              {
+                "name": "craft_loop02",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_craft_loop02.dae",
+                "looping": true
+              },
+              {
+                "name": "craft_loop03",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_craft_loop03.dae",
+                "looping": true
+              },
+              {
+                "name": "craft_finish",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_craft_finish.dae"
+              },
+
+              {
+                "name": "aimbend_updown",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_bend_updown.dae"
+              },
+              {
+                "name": "aimbend_leftright",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_bend_leftright.dae"
+              }
+            ],
+            "maxViewDistance": 1000.0
+          }
+        ]
+      },
+      "color": "00ffff",
+      "hull": {
+        "x": 10,
+        "y": 8,
+        "z": 9,
+        "col": "$SURVIVAL_DATA/Objects/Collision/char_craftbot_col.obj"
+      },
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/ModCrafter.lua",
+        "classname": "Craftbot"
+      },
+      "rotationSet": "PropY",
+      "sticky": "-Z+Y-Y+X-X",
+      "physicsMaterial": "Metal",
+      "ratings": {
+        "density": 7,
+        "durability": 7,
+        "friction": 6,
+        "buoyancy": 1
+      },
+      "flammable": false,
+      "pipe": {
+        "openings": [
+          {
+            "side": "+X",
+            "x": 5.0,
+            "y": -2.5,
+            "z": 0.0
+          },
+          {
+            "side": "-X",
+            "x": -5.0,
+            "y": -2.5,
+            "z": 0.0
+          }
+        ]
+      },
+      "carryItem": true
+    },
+    {
+      "uuid": "222cfff0-dfc2-4da7-acdb-3c385e80b2e1",
+      "name": "obj_craftbot_mod2",
+      "renderable": {
+        "lodList": [
+          {
+            "mesh": "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftbot.dae",
+            "subMeshMap": {
+              "craftbot": {
+                "material": "SkelAnimDifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftbot_dif.tga",
+                  "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftbot_asg.tga",
+                  "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftbot_nor.tga"
+                ]
+              },
+              "connectionpoint": {
+                "material": "SkelAnimDifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/containers/obj_interactive_container_connectorpoint_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/containers/obj_interactive_container_connectorpoint_asg.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/containers/obj_interactive_container_connectorpoint_nor.tga"
+                ]
+              },
+              "screen": {
+                "material": "SkelUVAnimDifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftboticons_dif.tga",
+                  "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftboticons_asg.tga",
+                  "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftboticons_nor.tga"
+                ],
+                "custom": {
+                  "uv0": {
+                    "u": 0.25,
+                    "v": 0.25
+                  }
+                }
+              }
+            },
+            "animationList": [
+
+              {
+                "name": "unfold",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_unfold.dae"
+              },
+              {
+                "name": "idle",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_idle.dae",
+                "looping": true
+              },
+              {
+                "name": "idlespecial01",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_idlespecial01.dae",
+                "looping": true
+              },
+              {
+                "name": "idlespecial02",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_idlespecial02.dae",
+                "looping": true
+              },
+
+              {
+                "name": "craft_start",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_craft_start.dae"
+              },
+              {
+                "name": "craft_loop01",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_craft_loop01.dae",
+                "looping": true
+              },
+              {
+                "name": "craft_loop02",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_craft_loop02.dae",
+                "looping": true
+              },
+              {
+                "name": "craft_loop03",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_craft_loop03.dae",
+                "looping": true
+              },
+              {
+                "name": "craft_finish",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_craft_finish.dae"
+              },
+
+              {
+                "name": "aimbend_updown",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_bend_updown.dae"
+              },
+              {
+                "name": "aimbend_leftright",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_bend_leftright.dae"
+              }
+            ],
+            "maxViewDistance": 1000.0
+          }
+        ]
+      },
+      "color": "00ffff",
+      "hull": {
+        "x": 10,
+        "y": 8,
+        "z": 9,
+        "col": "$SURVIVAL_DATA/Objects/Collision/char_craftbot_col.obj"
+      },
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/ModCrafter.lua",
+        "classname": "Craftbot"
+      },
+      "rotationSet": "PropY",
+      "sticky": "-Z+Y-Y+X-X",
+      "physicsMaterial": "Metal",
+      "ratings": {
+        "density": 7,
+        "durability": 7,
+        "friction": 6,
+        "buoyancy": 1
+      },
+      "flammable": false,
+      "pipe": {
+        "openings": [
+          {
+            "side": "+X",
+            "x": 5.0,
+            "y": -2.5,
+            "z": 0.0
+          },
+          {
+            "side": "-X",
+            "x": -5.0,
+            "y": -2.5,
+            "z": 0.0
+          }
+        ]
+      },
+      "carryItem": true
+    },
+    {
+      "uuid": "333cfff0-dfc2-4da7-acdb-3c385e80b2e1",
+      "name": "obj_craftbot_mod3",
+      "renderable": {
+        "lodList": [
+          {
+            "mesh": "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftbot.dae",
+            "subMeshMap": {
+              "craftbot": {
+                "material": "SkelAnimDifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftbot_dif.tga",
+                  "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftbot_asg.tga",
+                  "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftbot_nor.tga"
+                ]
+              },
+              "connectionpoint": {
+                "material": "SkelAnimDifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/containers/obj_interactive_container_connectorpoint_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/containers/obj_interactive_container_connectorpoint_asg.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/containers/obj_interactive_container_connectorpoint_nor.tga"
+                ]
+              },
+              "screen": {
+                "material": "SkelUVAnimDifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftboticons_dif.tga",
+                  "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftboticons_asg.tga",
+                  "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftboticons_nor.tga"
+                ],
+                "custom": {
+                  "uv0": {
+                    "u": 0.25,
+                    "v": 0.25
+                  }
+                }
+              }
+            },
+            "animationList": [
+
+              {
+                "name": "unfold",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_unfold.dae"
+              },
+              {
+                "name": "idle",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_idle.dae",
+                "looping": true
+              },
+              {
+                "name": "idlespecial01",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_idlespecial01.dae",
+                "looping": true
+              },
+              {
+                "name": "idlespecial02",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_idlespecial02.dae",
+                "looping": true
+              },
+
+              {
+                "name": "craft_start",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_craft_start.dae"
+              },
+              {
+                "name": "craft_loop01",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_craft_loop01.dae",
+                "looping": true
+              },
+              {
+                "name": "craft_loop02",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_craft_loop02.dae",
+                "looping": true
+              },
+              {
+                "name": "craft_loop03",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_craft_loop03.dae",
+                "looping": true
+              },
+              {
+                "name": "craft_finish",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_craft_finish.dae"
+              },
+
+              {
+                "name": "aimbend_updown",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_bend_updown.dae"
+              },
+              {
+                "name": "aimbend_leftright",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_bend_leftright.dae"
+              }
+            ],
+            "maxViewDistance": 1000.0
+          }
+        ]
+      },
+      "color": "00ffff",
+      "hull": {
+        "x": 10,
+        "y": 8,
+        "z": 9,
+        "col": "$SURVIVAL_DATA/Objects/Collision/char_craftbot_col.obj"
+      },
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/ModCrafter.lua",
+        "classname": "Craftbot"
+      },
+      "rotationSet": "PropY",
+      "sticky": "-Z+Y-Y+X-X",
+      "physicsMaterial": "Metal",
+      "ratings": {
+        "density": 7,
+        "durability": 7,
+        "friction": 6,
+        "buoyancy": 1
+      },
+      "flammable": false,
+      "pipe": {
+        "openings": [
+          {
+            "side": "+X",
+            "x": 5.0,
+            "y": -2.5,
+            "z": 0.0
+          },
+          {
+            "side": "-X",
+            "x": -5.0,
+            "y": -2.5,
+            "z": 0.0
+          }
+        ]
+      },
+      "carryItem": true
+    },
+    {
+      "uuid": "444cfff0-dfc2-4da7-acdb-3c385e80b2e1",
+      "name": "obj_craftbot_mod4",
+      "renderable": {
+        "lodList": [
+          {
+            "mesh": "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftbot.dae",
+            "subMeshMap": {
+              "craftbot": {
+                "material": "SkelAnimDifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftbot_dif.tga",
+                  "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftbot_asg.tga",
+                  "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftbot_nor.tga"
+                ]
+              },
+              "connectionpoint": {
+                "material": "SkelAnimDifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/containers/obj_interactive_container_connectorpoint_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/containers/obj_interactive_container_connectorpoint_asg.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/containers/obj_interactive_container_connectorpoint_nor.tga"
+                ]
+              },
+              "screen": {
+                "material": "SkelUVAnimDifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftboticons_dif.tga",
+                  "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftboticons_asg.tga",
+                  "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftboticons_nor.tga"
+                ],
+                "custom": {
+                  "uv0": {
+                    "u": 0.25,
+                    "v": 0.25
+                  }
+                }
+              }
+            },
+            "animationList": [
+
+              {
+                "name": "unfold",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_unfold.dae"
+              },
+              {
+                "name": "idle",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_idle.dae",
+                "looping": true
+              },
+              {
+                "name": "idlespecial01",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_idlespecial01.dae",
+                "looping": true
+              },
+              {
+                "name": "idlespecial02",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_idlespecial02.dae",
+                "looping": true
+              },
+
+              {
+                "name": "craft_start",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_craft_start.dae"
+              },
+              {
+                "name": "craft_loop01",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_craft_loop01.dae",
+                "looping": true
+              },
+              {
+                "name": "craft_loop02",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_craft_loop02.dae",
+                "looping": true
+              },
+              {
+                "name": "craft_loop03",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_craft_loop03.dae",
+                "looping": true
+              },
+              {
+                "name": "craft_finish",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_craft_finish.dae"
+              },
+
+              {
+                "name": "aimbend_updown",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_bend_updown.dae"
+              },
+              {
+                "name": "aimbend_leftright",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_bend_leftright.dae"
+              }
+            ],
+            "maxViewDistance": 1000.0
+          }
+        ]
+      },
+      "color": "00ffff",
+      "hull": {
+        "x": 10,
+        "y": 8,
+        "z": 9,
+        "col": "$SURVIVAL_DATA/Objects/Collision/char_craftbot_col.obj"
+      },
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/ModCrafter.lua",
+        "classname": "Craftbot"
+      },
+      "rotationSet": "PropY",
+      "sticky": "-Z+Y-Y+X-X",
+      "physicsMaterial": "Metal",
+      "ratings": {
+        "density": 7,
+        "durability": 7,
+        "friction": 6,
+        "buoyancy": 1
+      },
+      "flammable": false,
+      "pipe": {
+        "openings": [
+          {
+            "side": "+X",
+            "x": 5.0,
+            "y": -2.5,
+            "z": 0.0
+          },
+          {
+            "side": "-X",
+            "x": -5.0,
+            "y": -2.5,
+            "z": 0.0
+          }
+        ]
+      },
+      "carryItem": true
+    },
+    {
+      "uuid": "555cfff0-dfc2-4da7-acdb-3c385e80b2e1",
+      "name": "obj_craftbot_mod5",
+      "renderable": {
+        "lodList": [
+          {
+            "mesh": "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftbot.dae",
+            "subMeshMap": {
+              "craftbot": {
+                "material": "SkelAnimDifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftbot_dif.tga",
+                  "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftbot_asg.tga",
+                  "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftbot_nor.tga"
+                ]
+              },
+              "connectionpoint": {
+                "material": "SkelAnimDifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/containers/obj_interactive_container_connectorpoint_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/containers/obj_interactive_container_connectorpoint_asg.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/containers/obj_interactive_container_connectorpoint_nor.tga"
+                ]
+              },
+              "screen": {
+                "material": "SkelUVAnimDifAsgNor",
+                "textureList": [
+                  "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftboticons_dif.tga",
+                  "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftboticons_asg.tga",
+                  "$SURVIVAL_DATA/Character/Char_Craftbot/char_craftboticons_nor.tga"
+                ],
+                "custom": {
+                  "uv0": {
+                    "u": 0.25,
+                    "v": 0.25
+                  }
+                }
+              }
+            },
+            "animationList": [
+
+              {
+                "name": "unfold",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_unfold.dae"
+              },
+              {
+                "name": "idle",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_idle.dae",
+                "looping": true
+              },
+              {
+                "name": "idlespecial01",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_idlespecial01.dae",
+                "looping": true
+              },
+              {
+                "name": "idlespecial02",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_idlespecial02.dae",
+                "looping": true
+              },
+
+              {
+                "name": "craft_start",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_craft_start.dae"
+              },
+              {
+                "name": "craft_loop01",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_craft_loop01.dae",
+                "looping": true
+              },
+              {
+                "name": "craft_loop02",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_craft_loop02.dae",
+                "looping": true
+              },
+              {
+                "name": "craft_loop03",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_craft_loop03.dae",
+                "looping": true
+              },
+              {
+                "name": "craft_finish",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_craft_finish.dae"
+              },
+
+              {
+                "name": "aimbend_updown",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_bend_updown.dae"
+              },
+              {
+                "name": "aimbend_leftright",
+                "file": "$SURVIVAL_DATA/Character/Char_Craftbot/Animations/ani_char_craftbot_bend_leftright.dae"
+              }
+            ],
+            "maxViewDistance": 1000.0
+          }
+        ]
+      },
+      "color": "00ffff",
+      "hull": {
+        "x": 10,
+        "y": 8,
+        "z": 9,
+        "col": "$SURVIVAL_DATA/Objects/Collision/char_craftbot_col.obj"
+      },
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/ModCrafter.lua",
+        "classname": "Craftbot"
+      },
+      "rotationSet": "PropY",
+      "sticky": "-Z+Y-Y+X-X",
+      "physicsMaterial": "Metal",
+      "ratings": {
+        "density": 7,
+        "durability": 7,
+        "friction": 6,
+        "buoyancy": 1
+      },
+      "flammable": false,
+      "pipe": {
+        "openings": [
+          {
+            "side": "+X",
+            "x": 5.0,
+            "y": -2.5,
+            "z": 0.0
+          },
+          {
+            "side": "-X",
+            "x": -5.0,
+            "y": -2.5,
+            "z": 0.0
+          }
+        ]
+      },
+      "carryItem": true
     }
   ]
 }

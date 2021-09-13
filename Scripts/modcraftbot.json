@@ -1,0 +1,29 @@
+// this file is NOT generated because we have to do all of this by hand :(
+[
+	{
+		"itemId": "1fc74a28-addb-451a-878d-c3c605d63811",
+		"quantity": 5,
+		"craftTime": 69,
+		"ingredientList": [
+			{
+				"quantity": 5,
+				"itemId": "869d4736-289a-4952-96cd-8a40117a2d28"
+			},
+			{
+				"quantity": 1,
+				"itemId": "f74c2891-79a9-45e0-982e-4896651c2e25"
+			}
+		]
+	},
+	{
+		"itemId": "056e5ff1-f030-40df-946a-b830bf494c92",
+		"quantity": 1,
+		"craftTime": 32,
+		"ingredientList": [
+			{
+				"quantity": 1,
+				"itemId": "e2a0770b-9bb9-4b3b-b9f2-994b534b79f3"
+			}
+		]
+	}
+]
