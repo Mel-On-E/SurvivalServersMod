@@ -92,35 +92,21 @@
       "renderable": {
         "lodList": [
           {
-            "minViewSize": 12,
             "subMeshList": [
               {
                 "textureList": [
-                  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_dif.tga",
-                  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_asg.tga",
-                  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_nor.tga"
+                  "$MOD_DATA/Objects/Textures/birch_catkin_dif.png",
+                  "$GAME_DATA/Textures/Default/default_asg.tga",
+                  "$MOD_DATA/Objects/Textures/birch_catkin_nor.png"
                 ],
-                "material": "DifAsgNor"
+                "material": "DifAsgNorAlphaFlip"
               }
             ],
-            "mesh": "$GAME_DATA/Objects/Mesh/decor/obj_decor_babyduck.fbx"
-          },
-          {
-            "subMeshList": [
-              {
-                "textureList": [
-                  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_dif.tga",
-                  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_asg.tga",
-                  ""
-                ],
-                "material": "DifAsg"
-              }
-            ],
-            "mesh": "$GAME_DATA/Objects/Mesh/decor/obj_decor_babyduck_lod1.fbx"
+            "mesh": "$MOD_DATA/Objects/Mesh/birch_catkin.obj"
           }
         ]
       },
-      "color": "ffffff",
+      "color": "a39d67",
       "cylinder": {
         "diameter": 1,
         "depth": 1,
@@ -129,17 +115,27 @@
       },
       "rotationSet": "PropY",
       "sticky": "-Y",
-      "physicsMaterial": "Wood",
+      "physicsMaterial": "Cardboard",
       "ratings": {
-        "density": 2,
-        "durability": 4,
+        "density": 1,
+        "durability": 1,
         "friction": 5,
-        "buoyancy": 8
+        "buoyancy": 5
       },
       "flammable": true,
       "scripted": {
         "filename": "$MOD_DATA/Scripts/Sapling.lua",
         "classname": "BirchSapling"
+      },
+      "restrictions": {
+        "destructable": true,
+        "erasable": true,
+        "buildable": true,
+        "usable": false,
+        "connectable": false,
+        "liftable": true,
+        "convertibleToDynamic": true,
+        "paintable": false
       }
     },
     {
@@ -152,7 +148,7 @@
               {
                 "textureList": [
                   "$MOD_DATA/Objects/Textures/acorn_dif.png",
-                  "$GAME_DATA/Textures/transparent.tga",
+                  "$GAME_DATA/Textures/Default/default_asg.tga",
                   "$MOD_DATA/Objects/Textures/acorn_nor.png"
                 ],
                 "material": "DifAsgNor"
@@ -162,7 +158,7 @@
           }
         ]
       },
-      "color": "00ff00",
+      "color": "57410d",
       "cylinder": {
         "diameter": 1,
         "depth": 1,
@@ -173,7 +169,7 @@
       "sticky": "-X+X-Y-Z+Z",
       "physicsMaterial": "Wood",
       "ratings": {
-        "density": 2,
+        "density": 3,
         "durability": 1,
         "friction": 5,
         "buoyancy": 5
@@ -182,6 +178,16 @@
       "scripted": {
         "filename": "$MOD_DATA/Scripts/Sapling.lua",
         "classname": "LeafySapling"
+      },
+      "restrictions": {
+        "destructable": true,
+        "erasable": true,
+        "buildable": true,
+        "usable": false,
+        "connectable": false,
+        "liftable": true,
+        "convertibleToDynamic": true,
+        "paintable": false
       }
     },
     {
@@ -194,7 +200,7 @@
               {
                 "textureList": [
                   "$MOD_DATA/Objects/Textures/spruce_cone_dif.png",
-                  "$GAME_DATA/Textures/transparent.tga",
+                  "$GAME_DATA/Textures/Default/default_asg.tga",
                   "$MOD_DATA/Objects/Textures/spruce_cone_nor.png"
                 ],
                 "material": "DifAsgNor"
@@ -204,7 +210,7 @@
           }
         ]
       },
-      "color": "654321",
+      "color": "6b5a15",
       "cylinder": {
         "diameter": 1,
         "depth": 2,
@@ -215,7 +221,7 @@
       "sticky": "-X+X-Y-Z+Z",
       "physicsMaterial": "Wood",
       "ratings": {
-        "density": 1,
+        "density": 2,
         "durability": 1,
         "friction": 5,
         "buoyancy": 5
@@ -224,6 +230,16 @@
       "scripted": {
         "filename": "$MOD_DATA/Scripts/Sapling.lua",
         "classname": "SpruceSapling"
+      },
+      "restrictions": {
+        "destructable": true,
+        "erasable": true,
+        "buildable": true,
+        "usable": false,
+        "connectable": false,
+        "liftable": true,
+        "convertibleToDynamic": true,
+        "paintable": false
       }
     },
     {
@@ -232,35 +248,21 @@
       "renderable": {
         "lodList": [
           {
-            "minViewSize": 12,
             "subMeshList": [
               {
                 "textureList": [
-                  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_dif.tga",
-                  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_asg.tga",
-                  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_nor.tga"
+                  "$MOD_DATA/Objects/Textures/pine_cone_dif.png",
+                  "$GAME_DATA/Textures/Default/default_asg.tga",
+                  "$MOD_DATA/Objects/Textures/pine_cone_nor.png"
                 ],
                 "material": "DifAsgNor"
               }
             ],
-            "mesh": "$GAME_DATA/Objects/Mesh/decor/obj_decor_babyduck.fbx"
-          },
-          {
-            "subMeshList": [
-              {
-                "textureList": [
-                  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_dif.tga",
-                  "$GAME_DATA/Objects/Textures/decor/obj_decor_babyduck_asg.tga",
-                  ""
-                ],
-                "material": "DifAsg"
-              }
-            ],
-            "mesh": "$GAME_DATA/Objects/Mesh/decor/obj_decor_babyduck_lod1.fbx"
+            "mesh": "$MOD_DATA/Objects/Mesh/pine_cone.obj"
           }
         ]
       },
-      "color": "ff0000",
+      "color": "402c0d",
       "cylinder": {
         "diameter": 1,
         "depth": 1,
@@ -272,14 +274,24 @@
       "physicsMaterial": "Wood",
       "ratings": {
         "density": 2,
-        "durability": 4,
+        "durability": 1,
         "friction": 5,
-        "buoyancy": 8
+        "buoyancy": 5
       },
       "flammable": true,
       "scripted": {
         "filename": "$MOD_DATA/Scripts/Sapling.lua",
         "classname": "PineSapling"
+      },
+      "restrictions": {
+        "destructable": true,
+        "erasable": true,
+        "buildable": true,
+        "usable": false,
+        "connectable": false,
+        "liftable": true,
+        "convertibleToDynamic": true,
+        "paintable": false
       }
     },
     {
