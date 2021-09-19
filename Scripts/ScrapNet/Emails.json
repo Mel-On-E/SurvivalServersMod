@@ -1,0 +1,54 @@
+{
+  "1": [
+    {
+      "title": "Definitely not a rick roll",
+      "date": 1531604248.0,
+      "sender": "yomama@69",
+      "message": "Hey, bro\nI just wanted to tell you to check out this new video!\nhttps://www.youtube.com/watch?v=dQw4w9WgXcQ\nC Ya"
+    },
+      {
+        "title": "You won 1 million WoCoins!",
+        "date": 1631745248.0,
+        "sender": "realmillionaire@123",
+        "message": "For real. I have 1 million to give you"
+      },
+      {
+        "title": "You don't pay, you won't live",
+        "date": 1631745248.0,
+        "sender": "vladimir@324",
+        "message": "Where is my money?"
+      },
+      {
+        "title": "Extend your best part even longer!",
+        "date": 1631745248.0,
+        "sender": "longus@412",
+        "message": "Our new level 6 piston is longer than you can imagine!"
+      },
+      {
+        "title": "Hey Sweety<3",
+        "date": 1631745248.0,
+        "sender": "girl_mechanic@62",
+        "message": "I saw you sleeping in your bed..."
+      },
+      {
+        "title": "Welcome to ScrapNet",
+        "date": 1631745248.0,
+        "sender": "noreply@0",
+        "message": "Hello world"
+      },
+      {
+        "title": "SM Newsletter July 2020",
+        "date": 1531745248.0,
+        "sender": "sm-news@234",
+        "message": "Today, axolot farted."
+      }
+    ],
+  "2": [
+      {
+        "title": "This is private",
+        "date": 1631745248.0,
+        "sender": "anonymous@131",
+        "message": "You should not be able to read this"
+      }
+    ]
+}

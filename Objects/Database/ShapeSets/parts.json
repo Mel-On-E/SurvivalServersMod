@@ -3330,6 +3330,47 @@
         ]
       },
       "carryItem": true
+    },
+    {
+      "uuid": "d1e6584c-a493-44b1-81aa-4f474fed3ed8",
+      "name": "obj_computer",
+      "renderable": {
+        "lodList": [
+          {
+            "subMeshList": [
+              {
+                "textureList": [
+                  "$SURVIVAL_DATA/Objects/Textures/spaceship/obj_spaceship_microwave_dif.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/spaceship/obj_spaceship_microwave_asg.tga",
+                  "$SURVIVAL_DATA/Objects/Textures/spaceship/obj_spaceship_microwave_nor.tga"
+                ],
+                "material": "DifAsgNor"
+              }
+            ],
+            "mesh": "$SURVIVAL_DATA/Objects/Mesh/spaceship/obj_spaceship_microwave.mesh"
+          }
+        ]
+      },
+      "color": "e9e0c8",
+      "box": {
+        "x": 2,
+        "y": 2,
+        "z": 2
+      },
+      "scripted": {
+        "filename": "$MOD_DATA/Scripts/Computer.lua",
+        "classname": "Computer"
+      },
+      "rotationSet": "PropYZ",
+      "sticky": "-Y+Y-Z-X+X",
+      "physicsMaterial": "Metal",
+      "ratings": {
+        "density": 5,
+        "durability": 3,
+        "friction": 5,
+        "buoyancy": 2
+      },
+      "flammable": true
     }
   ]
 }

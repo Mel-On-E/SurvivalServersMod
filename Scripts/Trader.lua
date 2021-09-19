@@ -238,18 +238,11 @@ function Trader.client_onUpdate( self, dt )
 	self:cl_selectAnimation()
 	self:cl_updateAnimation( dt )
 
-	if self.cl.user == sm.localPlayer.getPlayer() then
-		
-		local cameraDesiredDirection = sm.camera.getDirection()
-		local cameraDesiredPosition = sm.camera.getPosition()
-
-		if true then
-			cameraDesiredDirection = sm.quat.lookRotation( self.shape.right, -self.shape.up + self.shape.at )*sm.vec3.new( 0, 1, 0 )--self.cl.cameraNode.rotation * sm.vec3.new( 0, 1, 0 )
-			cameraDesiredPosition = self.shape.worldPosition + self.shape.at*-0.5 + self.shape.up*2 --self.cl.cameraNode.position
-		end
+	if self.cl.user == sm.localPlayer.getPlayer() then		
+		local cameraDesiredPosition = self.shape.worldPosition + self.shape.at*-0.5 + self.shape.up*2
 
 		local cameraPosition = magicPositionInterpolation( sm.camera.getPosition(), cameraDesiredPosition, dt, 1.0 / 10.0 )
-		local cameraDirection = magicDirectionInterpolation( sm.camera.getDirection(), cameraDesiredDirection, dt, 1.0 / 10.0 )
+		local cameraDirection = sm.vec3.lerp( sm.camera.getDirection(), -self.shape.up + -self.shape.right, dt*10 )
 
 		-- Finalize
 		sm.camera.setCameraState( sm.camera.state.cutsceneTP )

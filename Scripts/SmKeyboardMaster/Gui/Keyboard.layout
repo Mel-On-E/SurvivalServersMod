@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <MyGUI type="Layout" version="3.2.0">
+	<Widget type="ImageBox" skin="ImageBox" position_real="0.0 0.0 1 1" name="blur">
+		<Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/blur.png" />
+		<Property key="Visible" value="false"/>
+	</Widget>
     <Widget type="Widget" skin="BackgroundInteractableNarrow" position_real="0.286979 0.324074 0.424479 0.349074" name="KeyboardPanel">
         <Widget type="TextBox" skin="TextBox" position_real="0.0995086 0.05 0.799754 0.0984043" name="Title">
             <Property key="FontName" value="SM_HeaderLarge_Medium"/>

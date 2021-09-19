@@ -1,0 +1,485 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<MyGUI type="Layout" version="3.2.0">
+	<Widget type="ImageBox" skin="ImageBox" position_real="0.0 0.0 1 1">
+		<Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/blur.png" />
+	</Widget>
+    <Widget type="Widget" skin="PanelEmpty" name="BootScreen" position_real="0 0 1 1">
+        <Property key="Visible" value="false" />
+		<Widget type="ImageBox" skin="ImageBox" name="Background" position_real="0.2375 0.15 0.525 0.7">
+            <Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/ScrapOS Load.png" />
+				<Widget type="ImageBox" skin="ImageBox" name="LoadingBar1" position_real="0.41 0.74 0.0099 0.0176">
+                   <Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/LoadingBar.png" />
+				   <Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="ImageBox" skin="ImageBox" name="LoadingBar2" position_real="0.423 0.74 0.0099 0.0176">
+                   <Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/LoadingBar.png" />
+                   <Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="ImageBox" skin="ImageBox" name="LoadingBar3" position_real="0.436 0.74 0.0099 0.0176">
+                   <Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/LoadingBar.png" />
+                   <Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="ImageBox" skin="ImageBox" name="LoadingBar4" position_real="0.449 0.74 0.0099 0.0176">
+                   <Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/LoadingBar.png" />
+                   <Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="ImageBox" skin="ImageBox" name="LoadingBar5" position_real="0.462 0.74 0.0099 0.0176">
+                   <Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/LoadingBar.png" />
+                   <Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="ImageBox" skin="ImageBox" name="LoadingBar6" position_real="0.475 0.74 0.0099 0.0176">
+                   <Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/LoadingBar.png" />
+                   <Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="ImageBox" skin="ImageBox" name="LoadingBar7" position_real="0.488 0.74 0.0099 0.0176">
+                   <Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/LoadingBar.png" />
+                   <Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="ImageBox" skin="ImageBox" name="LoadingBar8" position_real="0.501 0.74 0.0099 0.0176">
+                   <Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/LoadingBar.png" />
+                   <Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="ImageBox" skin="ImageBox" name="LoadingBar9" position_real="0.514 0.74 0.0099 0.0176">
+                   <Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/LoadingBar.png" />
+                   <Property key="Visible" value="false" />
+			    </Widget>
+				<Widget type="ImageBox" skin="ImageBox" name="LoadingBar10" position_real="0.527 0.74 0.0099 0.0176">
+                   <Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/LoadingBar.png" />
+                   <Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="ImageBox" skin="ImageBox" name="LoadingBar11" position_real="0.54 0.74 0.0099 0.0176">
+                   <Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/LoadingBar.png" />
+                   <Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="ImageBox" skin="ImageBox" name="LoadingBar12" position_real="0.553 0.74 0.0099 0.0176">
+                   <Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/LoadingBar.png" />
+                   <Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="ImageBox" skin="ImageBox" name="LoadingBar13" position_real="0.566 0.74 0.0099 0.0176">
+                   <Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/LoadingBar.png" />
+                   <Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="ImageBox" skin="ImageBox" name="LoadingBar14" position_real="0.579 0.74 0.0099 0.0176">
+                   <Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/LoadingBar.png" />
+                   <Property key="Visible" value="false" />
+				</Widget>
+            </Widget>
+    </Widget>
+	<Widget type="Widget" skin="PanelEmpty" name="LoginScreen" position_real="0 0 1 1">
+		<Property key="Visible" value="false" />
+		<Widget type="ImageBox" skin="ImageBox" name="Background" position_real="0.2375 0.15 0.525 0.7">
+            <Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/ScrapOS Login.png" />
+        </Widget>
+		<Widget type="Button" skin="GenericButton" position_real="0.56 0.445 0.125 0.035" name="Username">
+			<Widget type="TextBox" skin="TextBox" position_real="0.05 0 1 1" align="Left Center" name="usernametext">
+				<Property key="Caption" value="User name"/>
+				<Property key="TextAlign" value="Left Center"/>
+				<Property key="FontName" value="InventoryItemDescription"/>
+				<Property key="TextShadow" value="true"/>
+				<Property key="NeedKey" value="false" />
+				<Property key="NeedMouse" value="false" />
+			</Widget>
+		</Widget>
+		<Widget type="Button" skin="GenericButton" position_real="0.5625 0.504 0.11 0.035" name="Password">
+			<Widget type="TextBox" skin="TextBox" position_real="0.05 0 1 1" align="Left Center" name="passwordtext">
+				<Property key="Caption" value="Password"/>
+				<Property key="TextAlign" value="Left Center"/>
+				<Property key="FontName" value="InventoryItemDescription"/>
+				<Property key="TextShadow" value="true"/>
+				<Property key="NeedKey" value="false" />
+				<Property key="NeedMouse" value="false" />
+			</Widget>
+		</Widget>
+		<Widget type="Button" skin="PrimaryButton" name="NewAccount" position_real="0.545 0.56 0.15 0.06">
+            <Property key="Caption" value="Create new account" />
+            <Property key="FontName" value="SM_Button" />
+            <Property key="TextAlign" value="Center" />
+			<Property key="Visible" value="true" />
+        </Widget>
+		<Widget type="Button" skin="DressbotArrowRight" position_real="0.68 0.49 0.03375 0.06" align="Right Bottom" name="Login"/>
+	</Widget>
+	<Widget type="ImageBox" skin="ImageBox" position_real="0.125 0.0 0.75 1">
+		<Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/frame.png" />
+		<Property key="NeedKey" value="false" />
+		<Property key="NeedMouse" value="false" />
+	</Widget>
+	<Widget type="Widget" skin="PanelEmpty" name="Desktop" position_real="0 0 1 1">
+		<Property key="Visible" value="false" />
+		<Widget type="ImageBox" skin="ImageBox" name="Background" position_real="0.2375 0.15 0.525 0.7">
+            <Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/Desktop.png" />
+        </Widget>
+		<Widget type="TextBox" skin="TextBox" position_real="0.72 0.828 1 1" align="Left Top" name="Time">
+			<Property key="Caption" value=""/>
+			<Property key="TextAlign" value="Left Top"/>
+			<Property key="FontName" value="InventoryItemDescription"/>
+			<Property key="TextShadow" value="true"/>
+		</Widget>
+		<Widget type="ImageBox" skin="ImageBox" position_real="0.705 0.827 0.006561 0.020088">
+			<Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/battery.png" />
+		</Widget>
+		<Widget type="TextBox" skin="TextBox" position_real="0.685 0.828 1 1" align="Left Top" name="Battery">
+			<Property key="Caption" value=""/>
+			<Property key="TextAlign" value="Left Top"/>
+			<Property key="FontName" value="InventoryItemDescription"/>
+			<Property key="TextShadow" value="true"/>
+		</Widget>
+		<Widget type="TextBox" skin="TextBox" name="ShortcutText" position_real="0.0525 0.125 1 1">
+			<Property key="Caption" value="ScrapNet\nExplorer"/>
+			<Property key="TextAlign" value="Center" />
+			<Property key="FontName" value="InventoryItemDescription"/>
+			<Property key="TextShadow" value="true"/>
+		</Widget>
+		<Widget type="Button" skin="SettingsButton" name="ScrapNetExplorer" position_real="0.525 0.5075 0.055 0.11">
+            <Property key="Caption" value="" />
+            <Property key="FontName" value="InventoryItemDescription" />
+            <Property key="TextAlign" value="Center" />
+        </Widget>
+		<Widget type="ImageBox" skin="ImageBox" name="StartMenu" position_real="0.2375 0.15 0.525 0.7">
+            <Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/StartMenu.png" />
+			<Property key="Visible" value="false" />
+			<Widget type="TextBox" skin="TextBox" position_real="0.075 0.1925 1 1" align="Left Top" name="profilename">
+				<Property key="Caption" value=""/>
+				<Property key="TextAlign" value="Left Top"/>
+				<Property key="FontName" value="MessageCaptionMedium"/>
+				<Property key="TextShadow" value="true"/>
+			</Widget>
+			<Widget type="Button" skin="SettingsButton" name="PowerOff" position_real="0.23625 0.9085 0.135 0.05">
+				<Property key="Caption" value="" />
+				<Property key="FontName" value="InventoryItemDescription" />
+				<Property key="TextAlign" value="Center" />>
+			</Widget>
+		</Widget>
+		<Widget type="Button" skin="SettingsButton" name="Start" position_real="0.235 0.821 0.055 0.0325">
+            <Property key="Caption" value="" />
+            <Property key="FontName" value="InventoryItemDescription" />
+            <Property key="TextAlign" value="Center" />
+        </Widget>
+		
+		
+		
+		
+		
+		<Widget type="Widget" skin="PanelEmpty" align="Default" name="Explorer" position_real="0.25 0.19 0.5 0.6">
+			<Property key="Visible" value="false" />
+			<Widget type="ImageBox" skin="ImageBox" position_real="0.0 0.0 1 1">
+                <Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/Window.png" />
+				<Property key="NeedKey" value="false" />
+				<Property key="NeedMouse" value="false" />
+			</Widget>
+			<Widget type="ImageBox" skin="ImageBox" position_real="0.0125 0.0125 0.0297 0.044">
+				<Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/Explorer.png" />
+				<Property key="NeedMouse" value="false" />
+				<Property key="NeedKey" value="false" />
+			</Widget>
+			<Widget type="TextBox" skin="TextBox" position_real="0.05 0.015 0.4 0.26">
+				<Property key="FontName" value="SM_ItemTitle" />
+				<Property key="Caption" value="ScrapNet Explorer" />
+				<Property key="TextAlign" value="Left Top" />
+				<Property key="NeedKey" value="false" />
+				<Property key="NeedMouse" value="false" />
+			</Widget>
+			<Widget type="Widget" skin="PanelEmpty" position_real="0 0 0.8 0.2">
+				<Widget type="Button" skin="InventoryTab" name="Home" position_real="0.04 0.6 0.16 0.3">
+					<Widget type="TextBox" skin="TextBox" name="Title" position_real="0.234043 0 0.531915 1">
+						<Property key="Caption" value="HOME" />
+						<Property key="FontName" value="SM_TabSmall" />
+						<Property key="TextAlign" value="Left VCenter" />
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="InventoryTab" name="Mail" position_real="0.195 0.6 0.16 0.3">
+					<Widget type="TextBox" skin="TextBox" name="Title" position_real="0.234043 0 0.5 1">
+						<Property key="Caption" value="MAIL" />
+						<Property key="FontName" value="SM_TabSmall" />
+						<Property key="TextAlign" value="Left VCenter" />
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="InventoryTab" name="Search" position_real="0.35 0.6 0.16 0.3">
+					<Widget type="TextBox" skin="TextBox" name="Title" position_real="0.234043 0.0666667 0.5 0.933333">
+						<Property key="Caption" value="SEARCH" />
+						<Property key="FontName" value="SM_TabSmall" />
+						<Property key="TextAlign" value="Left VCenter" />
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="InventoryTab" name="Host" position_real="0.505 0.6 0.16 0.3">
+					<Widget type="TextBox" skin="TextBox" name="Title" position_real="0.234043 0.0666667 0.5 0.933333">
+						<Property key="Caption" value="HOST" />
+						<Property key="FontName" value="SM_TabSmall" />
+						<Property key="TextAlign" value="Left VCenter" />
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+					</Widget>
+				</Widget>
+			</Widget>
+			<Widget type="Widget" skin="PanelEmpty" name="HomeText" position_real="0 0 1 1">
+				<Property key="NeedKey" value="false" />
+				<Property key="NeedMouse" value="false" />
+				<Widget type="TextBox" skin="TextBox" name="Title" position_real="0.05 0.2375 1 1">
+					<Property key="Caption" value="Welcome to ScrapNet!" />
+					<Property key="FontName" value="MessageCaptionMedium" />
+					<Property key="NeedKey" value="false" />
+					<Property key="NeedMouse" value="false" />
+					<Property key="TextAlign" value="Left Top" />
+				</Widget>
+				<Widget type="TextBox" skin="TextBox" name="Title" position_real="0.05 0.35 0.875 1">
+					<Property key="Caption" value="ScrapNet is the network that connects all the computers on the server. With ScrapNet you can access websites,\nhost websites, or send emails to other players!\n\nMAIL\nYour email address is made up of your username and your player id. You can see yours in the Mail tab.\nHere you can send emails to other players or read your own!\n\nSEARCH\nSearch websites on ScrapNet! Don&apos;t know a URL? Simply type a keyword and find related websites!\n\nHOST\nWant to have your own website? You can choose from 1 template to get your plain old text on the web today!\nMake your website discoverable through Search or keep it private to share with friends!" />
+					<Property key="FontName" value="MessageCaptionSmall" />
+					<Property key="NeedKey" value="false" />
+					<Property key="NeedMouse" value="false" />
+					<Property key="TextAlign" value="Left Top" />
+				</Widget>
+			</Widget>
+			<Widget type="Widget" skin="PanelEmpty" name="MailClient" position_real="0 0.2 1 0.8">
+				<Property key="Visible" value="false" />
+				<Widget type="TextBox" skin="TextBox" name="Title" position_real="0.05 0.0375 1 1">
+					<Property key="Caption" value="Inbox: sus@23" />
+					<Property key="FontName" value="MessageCaptionMedium" />
+					<Property key="NeedKey" value="false" />
+					<Property key="NeedMouse" value="false" />
+					<Property key="TextAlign" value="Left Top" />
+					<Property key="NeedKey" value="false" />
+					<Property key="NeedMouse" value="false" />
+				</Widget>
+				<Widget type="Widget" skin="PanelEmpty" name="EmailList" position_real="0 0 1 1">
+					<Property key="Visible" value="false"/>
+					<Widget type="Button" skin="GenericButton" position_real="0.05 0.175 0.6 0.1125" name="Email1">
+							<Property key="Caption" value=" Definitely not a rick roll"/>
+							<Property key="TextAlign" value="Left Center"/>
+							<Property key="FontName" value="MessageCaptionMedium"/>
+							<Property key="TextShadow" value="true"/>
+							<Property key="Visible" value="false"/>
+						<Widget type="TextBox" skin="TextBox" position_real="0.0 0.125 0.975 1" align="Right Top" name="Email1Date">
+							<Property key="Caption" value="3 years ago"/>
+							<Property key="TextAlign" value="Right Top"/>
+							<Property key="FontName" value="MessageCaptionSmall"/>
+							<Property key="TextShadow" value="true"/>
+							<Property key="NeedKey" value="false" />
+							<Property key="NeedMouse" value="false" />
+						</Widget>
+						<Widget type="TextBox" skin="TextBox" position_real="0.0 0.55 0.975 1" align="Right Top" name="Email1Sender">
+							<Property key="Caption" value="yo Mama@69"/>
+							<Property key="TextAlign" value="Right Top"/>
+							<Property key="FontName" value="MessageCaptionSmall"/>
+							<Property key="TextShadow" value="true"/>
+							<Property key="NeedKey" value="false" />
+							<Property key="NeedMouse" value="false" />
+						</Widget>
+					</Widget>
+					<Widget type="Button" skin="GenericButton" position_real="0.05 0.28625 0.6 0.1125" name="Email2">
+						<Property key="Caption" value=" Definitely not a rick roll"/>
+						<Property key="TextAlign" value="Left Center"/>
+						<Property key="FontName" value="MessageCaptionMedium"/>
+						<Property key="TextShadow" value="true"/>
+						<Property key="Visible" value="false"/>
+						<Widget type="TextBox" skin="TextBox" position_real="0.0 0.125 0.975 1" align="Right Top" name="Email2Date">
+							<Property key="Caption" value="3 years ago"/>
+							<Property key="TextAlign" value="Right Top"/>
+							<Property key="FontName" value="MessageCaptionSmall"/>
+							<Property key="TextShadow" value="true"/>
+							<Property key="NeedKey" value="false" />
+							<Property key="NeedMouse" value="false" />
+						</Widget>
+						<Widget type="TextBox" skin="TextBox" position_real="0.0 0.55 0.975 1" align="Right Top" name="Email2Sender">
+							<Property key="Caption" value="yo Mama@69"/>
+							<Property key="TextAlign" value="Right Top"/>
+							<Property key="FontName" value="MessageCaptionSmall"/>
+							<Property key="TextShadow" value="true"/>
+							<Property key="NeedKey" value="false" />
+							<Property key="NeedMouse" value="false" />
+						</Widget>
+					</Widget>
+					<Widget type="Button" skin="GenericButton" position_real="0.05 0.3975 0.6 0.1125" name="Email3">
+						<Property key="Caption" value=" Definitely not a rick roll"/>
+						<Property key="TextAlign" value="Left Center"/>
+						<Property key="FontName" value="MessageCaptionMedium"/>
+						<Property key="TextShadow" value="true"/>
+						<Property key="Visible" value="false"/>
+						<Widget type="TextBox" skin="TextBox" position_real="0.0 0.125 0.975 1" align="Right Top" name="Email3Date">
+							<Property key="Caption" value="3 years ago"/>
+							<Property key="TextAlign" value="Right Top"/>
+							<Property key="FontName" value="MessageCaptionSmall"/>
+							<Property key="TextShadow" value="true"/>
+							<Property key="NeedKey" value="false" />
+							<Property key="NeedMouse" value="false" />
+						</Widget>
+						<Widget type="TextBox" skin="TextBox" position_real="0.0 0.55 0.975 1" align="Right Top" name="Email3Sender">
+							<Property key="Caption" value="yo Mama@69"/>
+							<Property key="TextAlign" value="Right Top"/>
+							<Property key="FontName" value="MessageCaptionSmall"/>
+							<Property key="TextShadow" value="true"/>
+							<Property key="NeedKey" value="false" />
+							<Property key="NeedMouse" value="false" />
+						</Widget>
+					</Widget>
+					<Widget type="Button" skin="GenericButton" position_real="0.05 0.50875 0.6 0.1125" name="Email4">
+						<Property key="Caption" value=" Definitely not a rick roll"/>
+						<Property key="TextAlign" value="Left Center"/>
+						<Property key="FontName" value="MessageCaptionMedium"/>
+						<Property key="TextShadow" value="true"/>
+						<Property key="Visible" value="false"/>
+						<Widget type="TextBox" skin="TextBox" position_real="0.0 0.125 0.975 1" align="Right Top" name="Email4Date">
+							<Property key="Caption" value="3 years ago"/>
+							<Property key="TextAlign" value="Right Top"/>
+							<Property key="FontName" value="MessageCaptionSmall"/>
+							<Property key="TextShadow" value="true"/>
+							<Property key="NeedKey" value="false" />
+							<Property key="NeedMouse" value="false" />
+						</Widget>
+						<Widget type="TextBox" skin="TextBox" position_real="0.0 0.55 0.975 1" align="Right Top" name="Email4Sender">
+							<Property key="Caption" value="yo Mama@69"/>
+							<Property key="TextAlign" value="Right Top"/>
+							<Property key="FontName" value="MessageCaptionSmall"/>
+							<Property key="TextShadow" value="true"/>
+							<Property key="NeedKey" value="false" />
+							<Property key="NeedMouse" value="false" />
+						</Widget>
+					</Widget>
+					<Widget type="Button" skin="GenericButton" position_real="0.05 0.62 0.6 0.1125" name="Email5">
+						<Property key="Caption" value=" Definitely not a rick roll"/>
+						<Property key="TextAlign" value="Left Center"/>
+						<Property key="FontName" value="MessageCaptionMedium"/>
+						<Property key="TextShadow" value="true"/>
+						<Property key="Visible" value="false"/>
+						<Widget type="TextBox" skin="TextBox" position_real="0.0 0.125 0.975 1" align="Right Top" name="Email5Date">
+							<Property key="Caption" value="3 years ago"/>
+							<Property key="TextAlign" value="Right Top"/>
+							<Property key="FontName" value="MessageCaptionSmall"/>
+							<Property key="TextShadow" value="true"/>
+							<Property key="NeedKey" value="false" />
+							<Property key="NeedMouse" value="false" />
+						</Widget>
+						<Widget type="TextBox" skin="TextBox" position_real="0.0 0.55 0.975 1" align="Right Top" name="Email5Sender">
+							<Property key="Caption" value="yo Mama@69"/>
+							<Property key="TextAlign" value="Right Top"/>
+							<Property key="FontName" value="MessageCaptionSmall"/>
+							<Property key="TextShadow" value="true"/>
+							<Property key="NeedKey" value="false" />
+							<Property key="NeedMouse" value="false" />
+						</Widget>
+					</Widget>
+					<Widget type="Button" skin="GenericButton" position_real="0.05 0.73125 0.6 0.1125" name="Email6">
+						<Property key="Caption" value=" Definitely not a rick roll"/>
+						<Property key="TextAlign" value="Left Center"/>
+						<Property key="FontName" value="MessageCaptionMedium"/>
+						<Property key="TextShadow" value="true"/>
+						<Property key="Visible" value="false"/>
+						<Widget type="TextBox" skin="TextBox" position_real="0.0 0.125 0.975 1" align="Right Top" name="Email6Date">
+							<Property key="Caption" value="3 years ago"/>
+							<Property key="TextAlign" value="Right Top"/>
+							<Property key="FontName" value="MessageCaptionSmall"/>
+							<Property key="TextShadow" value="true"/>
+							<Property key="NeedKey" value="false" />
+							<Property key="NeedMouse" value="false" />
+						</Widget>
+						<Widget type="TextBox" skin="TextBox" position_real="0.0 0.55 0.975 1" align="Right Top" name="Email6Sender">
+							<Property key="Caption" value="yo Mama@69"/>
+							<Property key="TextAlign" value="Right Top"/>
+							<Property key="FontName" value="MessageCaptionSmall"/>
+							<Property key="TextShadow" value="true"/>
+							<Property key="NeedKey" value="false" />
+							<Property key="NeedMouse" value="false" />
+						</Widget>
+					</Widget>
+					<Widget type="Button" skin="PanelEmpty" position_real="0.675 0.19125 0.045 0.08" name="Trash1">
+					<Property key="Visible" value="false"/>
+						<Widget type="ImageBox" skin="ImageBox" position_real="0.0 0.0 1 1">
+							<Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/trash.png" />
+							<Property key="NeedKey" value="false" />
+							<Property key="NeedMouse" value="false" />
+						</Widget>
+					</Widget>
+					<Widget type="Button" skin="PanelEmpty" position_real="0.675 0.3025 0.045 0.08" name="Trash2">
+					<Property key="Visible" value="false"/>
+						<Widget type="ImageBox" skin="ImageBox" position_real="0.0 0.0 1 1">
+							<Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/trash.png" />
+							<Property key="NeedKey" value="false" />
+							<Property key="NeedMouse" value="false" />
+						</Widget>
+					</Widget>
+					<Widget type="Button" skin="PanelEmpty" position_real="0.675 0.41375 0.045 0.08" name="Trash3">
+					<Property key="Visible" value="false"/>
+						<Widget type="ImageBox" skin="ImageBox" position_real="0.0 0.0 1 1">
+							<Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/trash.png" />
+							<Property key="NeedKey" value="false" />
+							<Property key="NeedMouse" value="false" />
+						</Widget>
+					</Widget>
+					<Widget type="Button" skin="PanelEmpty" position_real="0.675 0.525 0.045 0.08" name="Trash4">
+					<Property key="Visible" value="false"/>
+						<Widget type="ImageBox" skin="ImageBox" position_real="0.0 0.0 1 1">
+							<Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/trash.png" />
+							<Property key="NeedKey" value="false" />
+							<Property key="NeedMouse" value="false" />
+						</Widget>
+					</Widget>
+					<Widget type="Button" skin="PanelEmpty" position_real="0.675 0.63625 0.045 0.08" name="Trash5">
+					<Property key="Visible" value="false"/>
+						<Widget type="ImageBox" skin="ImageBox" position_real="0.0 0.0 1 1">
+							<Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/trash.png" />
+							<Property key="NeedKey" value="false" />
+							<Property key="NeedMouse" value="false" />
+						</Widget>
+					</Widget>
+					<Widget type="Button" skin="PanelEmpty" position_real="0.675 0.7475 0.045 0.08" name="Trash6">
+					<Property key="Visible" value="false"/>
+						<Widget type="ImageBox" skin="ImageBox" position_real="0.0 0.0 1 1">
+							<Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/trash.png" />
+							<Property key="NeedKey" value="false" />
+							<Property key="NeedMouse" value="false" />
+						</Widget>
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="ActiveButton" name="NewEmail" position_real="0.675 0.025 0.2 0.1">
+					<Property key="Caption" value="New Email" />
+					<Property key="FontName" value="SM_Button" />
+					<Property key="TextAlign" value="Center" />
+				</Widget>
+				<Widget type="Widget" skin="PanelEmpty" name="EmailNavigation" position_real="0.75 0.2 1 1">
+						<Property key="Visible" value="false" />
+					<Widget type="Button" skin="PrimaryButton" name="MailDown" position_real="0.0125 0.1 0.1 0.1">
+						<Property key="Caption" value="^" />
+						<Property key="FontName" value="MessageCaptionLarge" />
+						<Property key="TextAlign" value="Center" />
+					</Widget>
+					<Widget type="Button" skin="PrimaryButton" name="MailUp" position_real="0.0125 0.42 0.1 0.1">
+						<Property key="Caption" value="v" />
+						<Property key="FontName" value="MessageCaptionLarge" />
+						<Property key="TextAlign" value="Center" />
+					</Widget>
+					<Widget type="TextBox" skin="TextBox" name="EmailPage" position_real="0.0125 0.26 0.1 0.1">
+						<Property key="Caption" value="1/3" />
+						<Property key="FontName" value="MessageCaptionMedium" />
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="TextAlign" value="Center" />
+						<Property key="NeedKey" value="false" />
+					</Widget>
+				</Widget>
+			</Widget>
+			<Widget type="Button" skin="SettingsButton" name="CloseExplorer" position_real="0.947 0 0.055 0.08"/>
+		</Widget>
+
+
+
+
+
+	</Widget>
+	<Widget type="Widget" skin="PanelEmpty" name="ShutDown" position_real="0 0 1 1">
+		<Property key="Visible" value="false" />
+		<Widget type="ImageBox" skin="ImageBox" name="Background" position_real="0.2375 0.15 0.525 0.7">
+            <Property key="ImageTexture" value="$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Gui/Images/PowerOff.png" />
+        </Widget>
+		<Widget type="TextBox" skin="TextBox" position_real="0.475 0.55 1 1" align="Left Top" name="PowerOffText">
+			<Property key="Caption" value=""/>
+			<Property key="TextAlign" value="Left Top"/>
+			<Property key="FontName" value="MessageCaptionMedium"/>
+			<Property key="TextShadow" value="true"/>
+		</Widget>
+	</Widget>
+	<CodeGeneratorSettings />
+</MyGUI>
