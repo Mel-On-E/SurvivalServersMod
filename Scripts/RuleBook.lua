@@ -1,12 +1,13 @@
 RuleBook = class(nil)
 
-local pages = 3
-g_rules = nil
+dofile( "./SmKeyboardMaster/Scripts/Keyboard2.lua" )
 
+pages = 3
+g_rules = nil
 
 function RuleBook.server_onCreate(self)
 	if g_rules == nil then
-		local success, data = pcall(sm.json.open, "$MOD_DATA/Scripts/RuleAccept.json")
+		local success, data = pcall(sm.json.open, "$MOD_DATA/Scripts/AcceptBot/approved.json")
 		if success and type(data) == "table" then
 			g_rules = data
 		end
@@ -14,17 +15,31 @@ function RuleBook.server_onCreate(self)
 	self.network:setClientData( { rules = g_rules } )
 end
 
-function RuleBook.sv_accept(self, params, player)
-	g_rules[#g_rules +1] = player.id
-	sm.json.save( g_rules, "$MOD_DATA/Scripts/RuleAccept.json" )
-	self.network:setClientData( { rules = g_rules } )
+function RuleBook.server_checkCode(self, code, player)
+	local success, data = pcall(sm.json.open, "$MOD_DATA/Scripts/AcceptBot/codes.json")
+	if success and type(data) == "table" then
+		if data[code] and data[code].date > os.time() then
+			oldRules = g_rules
+			g_rules[data[code].steamID] = player.id
+			print(g_rules)
+			
+			success, nothing = pcall(sm.json.save, g_rules, "$MOD_DATA/Scripts/AcceptBot/approved.json")
+			if not success then
+				g_rules = oldRules
+			else
+				self.network:sendToClient(player, "client_msg", {msg = "#00ff00Welcome", sound = "Retrowildblip", closeKeyboard = true})
+				return
+			end
+		end
+	end
+	self.network:sendToClient(player, "client_msg", {msg = "#ff0000code wrong/invalid", sound = "RaftShark"})
 end
 
 function RuleBook.client_onCreate(self)
 	--use self.g_rules?
 	if g_rules then
 		local localId = sm.localPlayer.getPlayer().id
-		for k, id in ipairs(g_rules) do
+		for SteamId, id in ipairs(g_rules) do
 			if id == localId then
 				self.accept = true
 			end
@@ -33,6 +48,16 @@ function RuleBook.client_onCreate(self)
 	if not self.accept then
 		self:client_onInteract(sm.localPlayer.getPlayer():getCharacter(),true)
 	end
+	
+	-- Create keyboard
+    self.keyboard = Keyboard2.new(self, "", 6,
+        function (bufferedText)
+			self.network:sendToServer("server_checkCode", bufferedText)
+        end,
+
+        function ()
+		end
+    )
 end
 
 function RuleBook.client_onClientDataUpdate( self, params )
@@ -42,17 +67,12 @@ end
 function RuleBook.client_onInteract(self, character, state)
 	if state then
 		self.gui = {}
-		--sm.effect.playEffect("Sensor on - Level 3", self.shape.worldPosition)
 	
 		self.gui = sm.gui.createGuiFromLayout("$MOD_DATA/Gui/Layouts/RuleBook.layout")
 
-		--self.gui:setButtonCallback("Take1", "client_GUI_changeBalance")
-		
-		--self.gui:setText("Interest", "Daily interest: " .. self.accounts[tostring(self.playerID)].interest:sub(4,4) .. "." .. self.accounts[tostring(self.playerID)].interest:sub(5) .. "%")
 		self.gui:setButtonCallback("Next", "client_Next")
 		self.gui:setButtonCallback("Prev", "client_Prev")
 		self.gui:setButtonCallback("AcceptRules", "client_Accept")
-
 
 		self.gui:setOnCloseCallback("client_onGUIDestroyCallback")
 		
@@ -111,7 +131,12 @@ function RuleBook.client_onUpdate(self)
 		self:client_guiUpdate()
 		self.guiUpdate = nil
 	end
-	sm.visualization.setBlockVisualization(self.shape.localPosition, true, self.shape)
+end
+
+function RuleBook.client_onFixedUpdate(self)
+	if self.openKeyboard and self.openKeyboard < sm.game.getCurrentTick() and not self.keyboard.gui:isActive() then
+		self.keyboard:open("", "enter steam code")
+	end
 end
 
 function RuleBook:client_Next()
@@ -127,16 +152,30 @@ function RuleBook:client_Prev()
 end
 
 function RuleBook:client_Accept()
-	self.accept = true
+	self.openKeyboard = sm.game.getCurrentTick() + 2
 	self.gui:close()
-	sm.audio.play("Retrowildblip")
-	self.network:sendToServer("sv_accept")
+	--sm.audio.play("Retrowildblip")
 end
 
 function RuleBook:client_onGUIDestroyCallback()
-	if self.accept == nil then
+	if self.openKeyboard == nil then
 		sm.audio.play("RaftShark")
 		sm.gui.displayAlertText("#ff0000Accept the rules first!")
 		self:client_onInteract(sm.localPlayer.getPlayer():getCharacter(),true)
+	end
+end
+
+function RuleBook.client_msg(self, params)
+	if params.msg then
+		sm.gui.displayAlertText(params.msg)
+	end
+	if params.effect then
+		sm.effect.playEffect(params.effect, self.shape.worldPosition)
+	end
+	if params.sound then
+		sm.audio.play(params.sound, self.shape.worldPosition)
+	end
+	if params.closeKeyboard then
+		self.openKeyboard = nil
 	end
 end

@@ -1,6 +1,11 @@
 dofile( "./SmKeyboardMaster/Scripts/Keyboard.lua" )
 
-Sign = class(nil)
+Sign = class()
+Sign.maxParentCount = 1
+Sign.maxChildCount = 0
+Sign.connectionInput = sm.interactable.connectionType.logic
+Sign.colorNormal = sm.color.new( 0x989592ff )
+Sign.colorHighlight = sm.color.new( 0xb4b1aeff )
 
 function Sign.client_onCreate(self)
 	-- Create keyboard
@@ -13,6 +18,7 @@ function Sign.client_onCreate(self)
         function ()
         end
     )
+	self.color = self.shape.color
 end
 
 function Sign.server_setText( self, text, player)
@@ -26,6 +32,24 @@ end
 function Sign.client_onFixedUpdate(self, dt)
 	if self.gui then
 		self.gui:setWorldPosition( self.shape.worldPosition + self.shape.up*0.05)
+		
+		if self.color ~= self.shape.color then
+			self.color = self.shape.color
+			local r = string.format("%x", self.shape.color.r * 255)
+			if r:len() == 1 then r = "0" .. r end
+			local g = string.format("%x", self.shape.color.g * 255)
+			if g:len() == 1 then g = "0" .. g end
+			local b = string.format("%x", self.shape.color.b * 255)
+			if b:len() == 1 then b = "0" .. b end
+			self.gui:setText( "Text", "#" .. r .. g .. b .. self.text )
+		end
+		
+		local parent = self.shape:getInteractable():getSingleParent()
+		if not parent or parent.active then
+			self.gui:open()
+		else
+			self.gui:close()
+		end
 	end
 end
 
@@ -58,9 +82,17 @@ function Sign.client_onClientDataUpdate( self, params )
 		self.gui = sm.gui.createNameTagGui()
 		self.gui:setWorldPosition( self.shape.worldPosition + sm.vec3.new( 0, 0, 0.5 ) )
 		self.gui:setRequireLineOfSight( true )
-		self.gui:open()
 		self.gui:setMaxRenderDistance( 100 )
-		self.gui:setText( "Text", self.text )
+		
+		local r = string.format("%x", self.shape.color.r * 255)
+		if r:len() == 1 then r = "0" .. r end
+		local g = string.format("%x", self.shape.color.g * 255)
+		if g:len() == 1 then g = "0" .. g end
+		local b = string.format("%x", self.shape.color.b * 255)
+		if b:len() == 1 then b = "0" .. b end
+		self.gui:setText( "Text", "#" .. r .. g .. b .. self.text )
+		
+		self.gui:open()
 	end
 end
 
