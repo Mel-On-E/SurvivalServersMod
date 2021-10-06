@@ -18,7 +18,16 @@ function Sign.client_onCreate(self)
         function ()
         end
     )
-	self.color = self.shape.color
+	self:initialize()
+end
+
+--(Re)Initializes the sign
+function Sign.initialize(self)
+	self.owner = 0
+	self.name = "Joe mama"
+	self.text = "sus"
+	self:createTextGUI()
+	self:refresh(false)
 end
 
 function Sign.server_setText( self, text, player)
@@ -29,27 +38,66 @@ function Sign.server_setText( self, text, player)
 	end
 end
 
+--Activates or deactivetes the sign.
+function Sign.toggle(self, state)
+	if self.gui and state then
+		self.gui:open()
+		self.interactable:setUvFrameIndex(1)
+	else
+		self.gui:close()
+		self.interactable:setUvFrameIndex(0)
+	end
+end
+
+--(Re)Initializes self.gui.
+function Sign.createTextGUI(self)
+	if self.gui then self.gui:close() end
+	self.gui = sm.gui.createNameTagGui()
+	self.gui:setWorldPosition( self.shape.worldPosition + sm.vec3.new( 0, 0, 0.5 ) )
+	self.gui:setRequireLineOfSight( true )
+	self.gui:setMaxRenderDistance( 100 )
+end
+
+--Updates self.color. Returns true if the color got changed.
+function Sign.updateColor(self)
+	if self.color == nil or self.color ~= self.shape.color then
+		self.color = self.shape.color
+		return true
+	end
+	return false
+end
+
+--Updates the GUI text
+function Sign.updateText(self)
+	if self.gui and self.text then 
+		if self.color then self.gui:setText("Text", colorToHashtag(self.color)..self.text)
+		else self.gui:setText("Text", self.text) end
+	end
+end
+
+--[[
+Refresh the color and the text of the sign.
+Mode:
+true — updates the text only if the color got changed (used in fixedUpdate);
+false — updates the text in any case.
+otherwise it 
+]]--
+function Sign.refresh(self, mode)
+	local colorUpdated = self:updateColor()
+	if not mode or colorUpdated then
+		self:updateText()
+	end
+end
+
 function Sign.client_onFixedUpdate(self, dt)
 	if self.gui then
 		self.gui:setWorldPosition( self.shape.worldPosition + self.shape.up*0.05)
 		
-		if self.color ~= self.shape.color then
-			self.color = self.shape.color
-			local r = string.format("%x", self.shape.color.r * 255)
-			if r:len() == 1 then r = "0" .. r end
-			local g = string.format("%x", self.shape.color.g * 255)
-			if g:len() == 1 then g = "0" .. g end
-			local b = string.format("%x", self.shape.color.b * 255)
-			if b:len() == 1 then b = "0" .. b end
-			self.gui:setText( "Text", "#" .. r .. g .. b .. self.text )
-		end
+		self:refresh(true)
 		
 		local parent = self.shape:getInteractable():getSingleParent()
-		if not parent or parent.active then
-			self.gui:open()
-		else
-			self.gui:close()
-		end
+
+		self:toggle(self.text ~= "" and (not parent or parent.active))
 	end
 end
 
@@ -64,6 +112,7 @@ function Sign.server_onCreate( self )
 	self.sv.saved = self.storage:load()
 	if self.sv.saved == nil then
 		self.sv.saved = {}
+		self.sv.saved.text = ""
 		self.sv.saved.owner = 0
 		self.sv.saved.name = "your mum"
 		self.storage:save( self.sv.saved )
@@ -75,25 +124,7 @@ function Sign.client_onClientDataUpdate( self, params )
 	self.owner = params.owner
 	self.name = params.name
 	self.text = params.text
-	
-	if self.text then
-		if self.gui then self.gui:close() end
-		
-		self.gui = sm.gui.createNameTagGui()
-		self.gui:setWorldPosition( self.shape.worldPosition + sm.vec3.new( 0, 0, 0.5 ) )
-		self.gui:setRequireLineOfSight( true )
-		self.gui:setMaxRenderDistance( 100 )
-		
-		local r = string.format("%x", self.shape.color.r * 255)
-		if r:len() == 1 then r = "0" .. r end
-		local g = string.format("%x", self.shape.color.g * 255)
-		if g:len() == 1 then g = "0" .. g end
-		local b = string.format("%x", self.shape.color.b * 255)
-		if b:len() == 1 then b = "0" .. b end
-		self.gui:setText( "Text", "#" .. r .. g .. b .. self.text )
-		
-		self.gui:open()
-	end
+	self:refresh(false)
 end
 
 function Sign.client_canInteract( self, character, state )
@@ -174,4 +205,18 @@ end
 
 function Sign.cl_onAlert( self, params )
 	sm.gui.displayAlertText(params)
+end
+
+--Logistic curve function
+function sigmoid(x, a, b)
+	return 1/(1 + math.exp(-2 * a * (x + b)))
+end
+
+--Adjusts and converts a sm.color to a hex encoded color hashtag string (e.g. paint tool white converts to "#fefefe")
+function colorToHashtag(color)
+	col = sm.color.new(
+			sigmoid(color.r, 5, -0.25),
+			sigmoid(color.g, 5, -0.25),
+			sigmoid(color.b, 5, -0.25))
+	return "#"..string.sub(tostring(col), 0, 6)
 end

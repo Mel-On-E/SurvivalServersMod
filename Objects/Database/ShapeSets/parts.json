@@ -2034,18 +2034,32 @@
             "subMeshList": [
               {
                 "textureList": [
-                  "$GAME_DATA/Objects/Textures/decor/obj_decor_sign01_dif.tga",
-                  "$GAME_DATA/Objects/Textures/decor/obj_decor_sign01_asg.tga",
-                  "$GAME_DATA/Objects/Textures/decor/obj_decor_sign01_nor.tga"
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/sign/sign_dif.png",
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/sign/sign_asg.png",
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/sign/sign_nor.png"
                 ],
                 "material": "DifAsgNor"
+              },
+			  {
+                "textureList": [
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/sign/sign_dif.png",
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/sign/sign_asg.png",
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/sign/sign_nor.png"
+                ],
+                "material": "UVAnimDifAsgNor",
+				"custom": {
+                  "uv0": {
+					"u" : 1,
+                    "v": 0.051
+                  }
+                }
               }
             ],
-            "mesh": "$GAME_DATA/Objects/Mesh/decor/obj_decor_sign02.mesh"
+            "mesh": "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Mesh/sign.obj"
           }
         ]
       },
-      "color": "000000",
+      "color": "2CE6E6",
       "hull": {
         "x": 5,
         "y": 2,
@@ -2058,7 +2072,7 @@
       },
       "rotationSet": "PropZ",
       "sticky": "-Z+Y-Y+X-X",
-      "physicsMaterial": "Metal",
+      "physicsMaterial": "Mechanical",
       "ratings": {
         "density": 2,
         "durability": 3,
