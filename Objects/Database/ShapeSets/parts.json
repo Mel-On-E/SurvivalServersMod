@@ -1987,8 +1987,7 @@
       "renderable": {
         "lodList": [
           {
-            "mesh": "$GAME_DATA/Character/Char_Tools/Char_handbook/char_handbook.dae",
-            "includes": [ "POSITION", "UV0", "NORMAL", "TANGENTS", "BLEND_INDICES", "BLEND_WEIGHTS" ],
+            "mesh": "$MOD_DATA/Objects/Mesh/rulebook.obj",
             "subMeshList": [
               {
                 "textureList": [
@@ -1996,7 +1995,6 @@
                   "$GAME_DATA/Character/Char_Tools/Char_handbook/Char_handbook_asg.tga",
                   "$GAME_DATA/Character/Char_Tools/Char_handbook/Char_handbook_nor.tga"
                 ],
-                "color": "ffffff",
                 "material": "DifAsgNor"
               }
             ],
@@ -2006,15 +2004,16 @@
       },
       "color": "00ff00",
       "box": {
-        "x": 3,
+        "x": 5,
         "y": 1,
-        "z": 1
+        "z": 2
       },
       "scripted": {
         "filename": "$MOD_DATA/Scripts/RuleBook.lua",
         "classname": "RuleBook"
       },
-      "rotationSet": "PropYZ",
+      "rotationSet": "PropY",
+	  "sticky": "-Y",
       "physicsMaterial": "Mechanical",
       "ratings": {
         "density": 2,
