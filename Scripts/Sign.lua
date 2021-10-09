@@ -21,7 +21,7 @@ function Sign.client_onCreate(self)
 	self:initialize()
 end
 
---(Re)Initializes the sign
+--(Re)Initialize the sign
 function Sign.initialize(self)
 	self.owner = 0
 	self.name = "Joe mama"
@@ -38,7 +38,7 @@ function Sign.server_setText( self, text, player)
 	end
 end
 
---Activates or deactivetes the sign.
+--Activate or deactivete the sign.
 function Sign.toggle(self, state)
 	if self.gui and state then
 		self.gui:open()
@@ -49,7 +49,7 @@ function Sign.toggle(self, state)
 	end
 end
 
---(Re)Initializes self.gui.
+--(Re)Initialize self.gui.
 function Sign.createTextGUI(self)
 	if self.gui then self.gui:close() end
 	self.gui = sm.gui.createNameTagGui()
@@ -58,7 +58,7 @@ function Sign.createTextGUI(self)
 	self.gui:setMaxRenderDistance( 100 )
 end
 
---Updates self.color. Returns true if the color got changed.
+--Update self.color. Return true if the color got changed.
 function Sign.updateColor(self)
 	if self.color == nil or self.color ~= self.shape.color then
 		self.color = self.shape.color
@@ -67,7 +67,7 @@ function Sign.updateColor(self)
 	return false
 end
 
---Updates the GUI text
+--Update the GUI text
 function Sign.updateText(self)
 	if self.gui and self.text then 
 		if self.color then self.gui:setText("Text", colorToHashtag(self.color)..self.text)
@@ -76,11 +76,10 @@ function Sign.updateText(self)
 end
 
 --[[
-Refresh the color and the text of the sign.
+Refresh the text and color of the sign.
 Mode:
 true — updates the text only if the color got changed (used in fixedUpdate);
 false — updates the text in any case.
-otherwise it 
 ]]--
 function Sign.refresh(self, mode)
 	local colorUpdated = self:updateColor()
@@ -212,7 +211,7 @@ function sigmoid(x, a, b)
 	return 1/(1 + math.exp(-2 * a * (x + b)))
 end
 
---Adjusts and converts a sm.color to a hex encoded color hashtag string (e.g. paint tool white converts to "#fefefe")
+--Adjust and convert a sm.color to a hex encoded color hashtag string (e.g. paint tool white converts to "#fefefe")
 function colorToHashtag(color)
 	col = sm.color.new(
 			sigmoid(color.r, 5, -0.25),

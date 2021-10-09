@@ -944,7 +944,7 @@
               "chest_extras": {
                 "material": "PoseAnimDifAsgNor",
                 "textureList": [
-                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_smallchest_extras_dif.tga",
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/obj_interactive_protected_smallchest_extras_dif.tga",
                   "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_smallchest_extras_asg.tga",
                   "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_smallchest_extras_nor.tga"
                 ]
@@ -952,7 +952,7 @@
               "small_chest": {
                 "material": "PoseAnimDifAsgNor",
                 "textureList": [
-                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_smallchest_dif.tga",
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/obj_interactive_protected_smallchest_dif.tga",
                   "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_smallchest_asg.tga",
                   "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_smallchest_nor.tga"
                 ]
@@ -965,7 +965,7 @@
               "chest_extras": {
                 "material": "DifAsgNor",
                 "textureList": [
-                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_smallchest_extras_dif.tga",
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/obj_interactive_protected_smallchest_extras_dif.tga",
                   "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_smallchest_extras_asg.tga",
                   "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_smallchest_extras_nor.tga"
                 ]
@@ -973,7 +973,7 @@
               "small_chest": {
                 "material": "DifAsgNor",
                 "textureList": [
-                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_smallchest_dif.tga",
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/obj_interactive_protected_smallchest_dif.tga",
                   "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_smallchest_asg.tga",
                   "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_smallchest_nor.tga"
                 ]
@@ -1018,7 +1018,7 @@
               "chest": {
                 "material": "3PoseAnimDifAsgNor",
                 "textureList": [
-                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_chest_dif.tga",
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/obj_interactive_protected_chest_dif.tga",
                   "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_chest_asg.tga",
                   "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_chest_nor.tga"
                 ]
@@ -1042,7 +1042,7 @@
               "chest": {
                 "material": "DifAsg",
                 "textureList": [
-                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_chest_dif.tga",
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/obj_interactive_protected_chest_dif.tga",
                   "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_chest_asg.tga",
                   ""
                 ]
@@ -1119,9 +1119,9 @@
               "Switch": {
                 "material": "PoseAnimDifAsgNor",
                 "textureList": [
-                  "$GAME_DATA/Objects/Textures/interactive/obj_interactive_switchbutton_dif.tga",
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/obj_interactive_protected_switchbutton_dif.tga",
                   "$GAME_DATA/Objects/Textures/interactive/obj_interactive_switchbutton_asg.tga",
-                  "$GAME_DATA/Objects/Textures/interactive/obj_interactive_switchbutton_nor.tga"
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/obj_interactive_protected_switchbutton_nor.tga"
                 ]
               }
             }
@@ -1132,7 +1132,7 @@
               "Switch": {
                 "material": "DifAsg",
                 "textureList": [
-                  "$GAME_DATA/Objects/Textures/interactive/obj_interactive_switchbutton_dif.tga",
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/obj_interactive_protected_switchbutton_dif.tga",
                   "$GAME_DATA/Objects/Textures/interactive/obj_interactive_switchbutton_asg.tga",
                   ""
                 ]
@@ -1177,9 +1177,9 @@
               "button": {
                 "material": "PoseAnimDifAsgNor",
                 "textureList": [
-                  "$GAME_DATA/Objects/Textures/interactive/obj_interactive_switchbutton_dif.tga",
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/obj_interactive_protected_switchbutton_dif.tga",
                   "$GAME_DATA/Objects/Textures/interactive/obj_interactive_switchbutton_asg.tga",
-                  "$GAME_DATA/Objects/Textures/interactive/obj_interactive_switchbutton_nor.tga"
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/obj_interactive_protected_switchbutton_nor.tga"
                 ]
               }
             }
@@ -1190,7 +1190,7 @@
               "button": {
                 "material": "DifAsg",
                 "textureList": [
-                  "$GAME_DATA/Objects/Textures/interactive/obj_interactive_switchbutton_dif.tga",
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/obj_interactive_protected_switchbutton_dif.tga",
                   "$GAME_DATA/Objects/Textures/interactive/obj_interactive_switchbutton_asg.tga",
                   ""
                 ]
@@ -1349,7 +1349,7 @@
               "submesh7": {
                 "material": "SkelAnimDifAsgNor",
                 "textureList": [
-                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_05_dif.tga",
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/obj_interactive_protected_driverseat_05_dif.tga",
                   "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_05_asg.tga",
                   "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_05_nor.tga"
                 ]
@@ -1368,7 +1368,7 @@
               "submesh7": {
                 "material": "DifAsgNor",
                 "textureList": [
-                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_05_dif.tga",
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/obj_interactive_protected_driverseat_05_dif.tga",
                   "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_05_asg.tga",
                   "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_05_nor.tga"
                 ]
@@ -1450,7 +1450,7 @@
               "submesh13": {
                 "material": "SkelAnimDifAsgNor",
                 "textureList": [
-                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driversaddle_05_dif.tga",
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/obj_interactive_protected_driversaddle_05_dif.tga",
                   "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driversaddle_05_asg.tga",
                   "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driversaddle_05_nor.tga"
                 ]
@@ -1469,7 +1469,7 @@
               "submesh13": {
                 "material": "DifAsgNor",
                 "textureList": [
-                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driversaddle_05_dif.tga",
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/obj_interactive_protected_driversaddle_05_dif.tga",
                   "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driversaddle_05_asg.tga",
                   "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driversaddle_05_nor.tga"
                 ]
@@ -1552,7 +1552,7 @@
               "submesh4": {
                 "material": "DifAsgNor",
                 "textureList": [
-                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_05_dif.tga",
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/obj_interactive_protected_driverseat_05_dif.tga",
                   "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_05_asg.tga",
                   "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_05_nor.tga"
                 ]
@@ -1565,7 +1565,7 @@
               "submesh4": {
                 "material": "DifAsgNor",
                 "textureList": [
-                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_05_dif.tga",
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/obj_interactive_protected_driverseat_05_dif.tga",
                   "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_05_asg.tga",
                   "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driverseat_05_nor.tga"
                 ]
@@ -1642,7 +1642,7 @@
               "submesh4": {
                 "material": "DifAsgNor",
                 "textureList": [
-                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driversaddle_05_dif.tga",
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/obj_interactive_protected_driversaddle_05_dif.tga",
                   "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driversaddle_05_asg.tga",
                   "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driversaddle_05_nor.tga"
                 ]
@@ -1655,7 +1655,7 @@
               "submesh4": {
                 "material": "DifAsgNor",
                 "textureList": [
-                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driversaddle_05_dif.tga",
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/obj_interactive_protected_driversaddle_05_dif.tga",
                   "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driversaddle_05_asg.tga",
                   "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_driversaddle_05_nor.tga"
                 ]
@@ -1730,7 +1730,7 @@
             "subMeshList": [
               {
                 "textureList": [
-                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_comfybed_dif.tga",
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/obj_interactive_protected_comfybed_dif.tga",
                   "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_comfybed_asg.tga",
                   "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_comfybed_nor.tga"
                 ],
@@ -1743,7 +1743,7 @@
             "subMeshList": [
               {
                 "textureList": [
-                  "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_comfybed_dif.tga",
+                  "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/obj_interactive_protected_comfybed_dif.tga",
                   "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_comfybed_asg.tga",
                   "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_comfybed_nor.tga"
                 ],
@@ -3385,6 +3385,48 @@
         "buoyancy": 2
       },
       "flammable": true
-    }
+    },
+	{
+		"uuid": "e22348df-15c1-481c-95e1-5fa338038c0d",
+		"name": "obj_loudspeaker",
+		"renderable": {
+			"lodList": [
+				{
+					"mesh": "$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Mesh/loudspeaker.obj",
+					"subMeshList": [
+						{
+							"material": "DifAsgNor",
+							"textureList": [
+								"$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/speaker/speaker_dif.png",
+								"$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/speaker/speaker_asg.png",
+								"$CONTENT_3f7f4e0f-dc99-43a9-9a15-f7ccbaf7dd65/Objects/Textures/speaker/speaker_nor.png"
+							]
+						}
+					]
+				}
+			]
+		},
+		"scripted": {
+			"filename": "$MOD_DATA/Scripts/Loudspeaker.lua",
+			"classname": "Speaker"
+		},
+		"color": "ff2222",
+		"box": {
+			"x": 1,
+			"y": 1,
+			"z": 1
+		},
+		"rotationSet": "PropY",
+		"sticky": "-Y",
+		"physicsMaterial": "Mechanical",
+		"ratings": {
+			"density": 2,
+			"durability": 2,
+			"friction": 5,
+			"buoyancy": 5
+		},
+		"flammable": true,
+		"stackSize": 10
+	}
   ]
 }
