@@ -38,6 +38,7 @@ luac.out
 *.x86_64
 *.hex
 
-# Scrap mechanic cache
+# Scrap Mechanic stuff
+/Scripts/accounts.json
 /Cache/
 
